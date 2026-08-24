@@ -91,6 +91,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rennystrips.com/green-steel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rennystrips.com/cbam</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -121,6 +126,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://rennystrips.com/catelogue-download</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rennystrips.com/blog/structural-steel-grades-explained-is-astm-en-standards-compared</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -128,13 +138,13 @@
   </url>
   <url>
     <loc>https://rennystrips.com/blog/the-complete-guide-to-structural-steel-manufacturing-in-india-process-grades-standards-2026</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rennystrips.com/blog/what-is-wire-rod-meaning-manufacturing-and-uses</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -242,7 +252,7 @@
   </url>
   <url>
     <loc>https://rennystrips.com/blog/complete-guide-to-forged-scaffolding-components-for-industrial-projects</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
