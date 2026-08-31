@@ -1,0 +1,232 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+/* @import "@fontsource/poppins/100.css";
+@import "@fontsource/poppins/200.css"; */
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";
+@import "@fontsource/poppins/900.css";
+
+@import "tailwindcss";
+
+/* jost-cyrillic-wght-normal */
+@font-face {
+  font-family: 'Jost Variable';
+  font-style: normal;
+  font-display: optional;
+  size-adjust: 102%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/jost/files/jost-cyrillic-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+
+/* jost-latin-ext-wght-normal */
+@font-face {
+  font-family: 'Jost Variable';
+  font-style: normal;
+  font-display: optional;
+  size-adjust: 102%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/jost/files/jost-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* jost-latin-wght-normal */
+@font-face {
+  font-family: 'Jost Variable';
+  font-style: normal;
+  font-display: optional;
+  size-adjust: 102%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/jost/files/jost-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@theme {
+  --color-blue: #292c44;
+  --color-blue-highlight: #05267e;
+  --color-orange: #f5aa32;
+  --color-green: #00A43D;
+  --color-gray: #6a7282;
+  --font-jost: "Jost Variable", "Jost", Arial, sans-serif;
+  --font-helvetica: Helvetica, Arial, sans-serif;
+  --font-poppins: "Poppins", Arial, sans-serif;
+  /* =========================
+     iPhones
+  ========================= */
+
+  --breakpoint-iphone-SE: 320px;
+  --breakpoint-iphone-XR: 414px;
+  --breakpoint-iphone-12pro: 390px;
+  --breakpoint-iphone-14promax: 430px;
+
+  /* =========================
+     Google Pixel
+  ========================= */
+
+  --breakpoint-pixel-7: 412px;
+
+  /* =========================
+     Samsung Devices
+  ========================= */
+
+  --breakpoint-samsungGalaxy-S8: 360px;
+  --breakpoint-samsungGalaxy-S20: 412px;
+  --breakpoint-samsungGalaxy-A51-A71: 412px;
+
+  /* =========================
+     iPads
+  ========================= */
+
+  --breakpoint-ipad-mini: 768px;
+  --breakpoint-ipad-air: 820px;
+  --breakpoint-ipad-pro: 1024px;
+
+  /* =========================
+     Microsoft Surface
+  ========================= */
+
+  --breakpoint-surface-pro-7: 912px;
+  --breakpoint-surface-duo: 540px;
+
+  /* =========================
+     Foldables
+  ========================= */
+
+  --breakpoint-galaxy-z-fold-5: 344px;
+  --breakpoint-asus-zenbook-fold: 853px;
+
+  /* =========================
+     Smart Displays
+  ========================= */
+
+  --breakpoint-nest-hub: 1024px;
+  --breakpoint-nest-hub-max: 1280px;
+}
+
+html,
+body {
+  font-family: var(--font-poppins);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: clip;
+}
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+}
+
+.dropdown-item {
+  @apply block px-4 py-2 hover:bg-blue hover:text-white text-sm text-blue;
+}
+/* Add this to your global CSS file */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safely hides scrollbar while allowing scrolling */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #292c44;
+  width: 44px;
+  height: 44px;
+}
+/* Scoped only to the investor map chart – do NOT apply globally as it hides all react-icons */
+.map-chart svg path {
+  fill: #e0e0e0;
+  transition: 0.2s ease;
+}
+
+.map-chart svg path.active {
+  fill: #6a7282;
+  cursor: pointer;
+}
+
+.map-chart svg path.active:hover {
+  fill: #05267e;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 0.8;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@keyframes softFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+.clip-path-slant {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@theme {
+  --animate-scroll: scroll 40s linear infinite;
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.animate-scroll {
+  animation: var(--animate-scroll);
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+} /* global.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
