@@ -16,6 +16,7 @@ import WhatsAppButton from './components/WhatsAppButton.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Thankyou from './pages/Thankyou.jsx';
 import GreenSteel from './pages/Sustainability/GreenSteel.jsx';
+import ScaffoldingBrochure from './pages/ScaffoldingBrochure.jsx';
 // import CBAM from "./pages/Sustainability/CBAM.jsx";
 
 /* ── Pages ── */
@@ -248,6 +249,7 @@ const App = () => {
             <Route path="/thank-you" element={<Thankyou />} />
             <Route path="/:slug/thank-you" element={<Thankyou />} />
             <Route path="/catelogue-download" element={<ComingSoon />} />
+            <Route path="/scaffolding-brochure" element={<ScaffoldingBrochure />} />
           </Routes>
           <Parallax />
           <Footer />

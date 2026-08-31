@@ -531,11 +531,17 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
             {/* Centered CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 sm:mb-10">
               <Link
+                to="/erw-pipes-and-tubes"
+                className="w-full sm:w-auto bg-blue text-white px-6 sm:px-7 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:-translate-y-1 text-center text-sm sm:text-base whitespace-nowrap"
+              >
+                Explore Our Products
+              </Link>
+              {/* <Link
                 to="/catelogue-download"
                 className="w-full sm:w-auto bg-blue text-white px-6 sm:px-7 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:-translate-y-1 text-center text-sm sm:text-base whitespace-nowrap"
               >
                 Download Brochure
-              </Link>
+              </Link> */}
 
               <Link
                 to="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/1770374581565_DRHP.pdf"
