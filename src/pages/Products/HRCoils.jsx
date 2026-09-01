@@ -425,7 +425,7 @@ const HeroBanner = React.memo(
             <video
               key={heroSrc}
               src={heroSrc}
-              poster={bannerPoster}
+              
               autoPlay
               loop
               muted

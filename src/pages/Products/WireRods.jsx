@@ -432,7 +432,7 @@ const HeroBanner = React.memo(
       >
         {loadVideo && ((heroSrc && (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4"))) || (banner_Mobile && (banner_Mobile.endsWith(".webm") || banner_Mobile.endsWith(".mp4")))) ? (
           <video
-            poster={isMobile && bannerPoster_Mobile ? bannerPoster_Mobile : bannerPoster}
+            key={heroSrc}
             autoPlay
             loop
             muted

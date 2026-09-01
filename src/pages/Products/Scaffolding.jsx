@@ -553,11 +553,7 @@ const HeroBanner = React.memo(
           <video
             key={heroSrc}
             src={heroSrc}
-            poster={
-              isMobile && bannerPoster_Mobile
-                ? bannerPoster_Mobile
-                : bannerPoster
-            }
+            
             autoPlay
             loop
             muted
