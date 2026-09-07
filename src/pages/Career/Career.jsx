@@ -35,6 +35,8 @@ const jobTypes = ["Full-time", "Part-time", "Contract", "Remote", "Trainee"];
 
 // ========== Departments ==========
 const departments = [
+  "All",
+  "Finance",
   "Engineering",
   "IT & Software",
   "Operations",
@@ -60,7 +62,7 @@ const Career = () => {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [activeDepartment, setActiveDepartment] = useState("IT & Software");
+  const [activeDepartment, setActiveDepartment] = useState("All");
 
   const [activeType, setActiveType] = useState("Full-time");
 
@@ -119,7 +121,7 @@ const Career = () => {
   // ========== Filtered Jobs ==========
   const filteredJobs = jobsData.filter((job) => {
     return (
-      job.department === activeDepartment &&
+      (activeDepartment === "All" || job.department === activeDepartment) &&
       job.jobType === activeType &&
       job.title.toLowerCase().includes(search.toLowerCase())
     );
