@@ -100,6 +100,8 @@ const scaleFade = {
 const Home = () => {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   // --- BACKEND INTEGRATION STATES ---
   const [newsData, setNewsData] = useState([]);
   const [activeNews, setActiveNews] = useState(null);
@@ -187,13 +189,22 @@ const Home = () => {
       window.addEventListener('load', onPageLoaded);
     }
 
+    // Handle window resize to detect mobile view changes
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      setVideoLoaded(false); // Reset video loaded state on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('load', onPageLoaded);
+      window.removeEventListener('resize', handleResize);
       if (popupTimeoutId) {
         clearTimeout(popupTimeoutId);
       }
     };
-  }, []);
+  }, [fetchHomeData]);
 
   const formatDate = useCallback((dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -246,15 +257,6 @@ const Home = () => {
             />
 
             {/* Popup Container */}
-            {/* Commented out old container to preserve history:
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative z-10 max-w-lg w-full flex items-center justify-center"
-            >
-            */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -263,15 +265,6 @@ const Home = () => {
               className="relative z-10 max-w-lg w-full flex items-center justify-center aspect-[3/2]"
             >
               {/* Close (X) Icon Button */}
-              {/* Commented out old close button to keep history:
-              <button
-                onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition"
-                aria-label="Close modal"
-              >
-                <MdClose className="text-2xl" />
-              </button>
-              */}
               <button
                 onClick={() => setShowPopup(false)}
                 className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition z-20"
@@ -280,56 +273,31 @@ const Home = () => {
                 <MdClose className="text-2xl" />
               </button>
 
-              {/* Popup Image Only */}
-              {/* Commented out old image to keep history:
-              <img
-                src={popup}
-                alt="Popup Announcement"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+              {/* Image Placeholder - Show until video is loaded */}
+              {!videoLoaded && (
+                <img
+                  src={isMobileView ? popup_Mobile : popup}
+                  alt="Popup Announcement"
+                  width={isMobileView ? "665" : "512"}
+                  height={isMobileView ? "443" : "314"}
+                  className="w-full h-auto object-fill rounded-2xl shadow-2xl aspect-[3/2]"
+                />
+              )}
+
+              {/* Video - Show when loaded */}
+              <video
+                src={isMobileView ? popupVideoMobile : popupVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={isMobileView ? popup_Mobile : popup}
+                onLoadedData={() => setVideoLoaded(true)}
+                onCanPlay={() => setVideoLoaded(true)}
+                className={`w-full h-auto object-fill rounded-2xl shadow-2xl aspect-[3/2] ${
+                  videoLoaded ? 'opacity-100' : 'opacity-0 absolute'
+                } transition-opacity duration-300`}
               />
-              */}
-              <picture className="w-full flex justify-center">
-                {/* Commented out old mobile source to keep history:
-                <source
-                  media="(max-width: 767px)"
-                  srcSet={popup}
-                  width="1536"
-                  height="1024"
-                  type="image/webp"
-                />
-                */}
-                <source
-                  media="(max-width: 767px)"
-                  srcSet={popupVideoMobile}
-                  width="665"
-                  height="443"
-                  type="video/webm"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcSet={popup}
-                  width="512"
-                  height="314"
-                  type="image/webp"
-                />
-                {/* <img
-                  src={popup}
-                  alt="Popup Announcement" 
-                  width="512"
-                  height="314"
-                  fetchpriority="high"
-                  className="w-full  h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl aspect-[3/2]"
-                /> */}
-                   <video
-            src={popupVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-              className="w-full h-auto  object-fill rounded-2xl shadow-2xl aspect-[3/2]"
-          />
-              </picture>
             </motion.div>
           </div>
         )}
