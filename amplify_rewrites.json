@@ -2015,6 +2015,16 @@
     "target": "/blog/index.html"
   },
   {
+    "source": "/blog/<*>",
+    "status": "200",
+    "target": "/index.html"
+  },
+  {
+    "source": "/careers/<*>",
+    "status": "200",
+    "target": "/index.html"
+  },
+  {
     "source": "/contact-us/thank-you",
     "status": "200",
     "target": "/index.html"

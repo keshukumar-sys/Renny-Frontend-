@@ -112,7 +112,7 @@ const envPath = path.join(process.cwd(), ".env");
 let viteApiUrl = "https://api.rennystrips.com";
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, "utf8");
-  const match = envContent.match(/VITE_API_URL\s*=\s*([^\s#]+)/);
+  const match = envContent.match(/^\s*VITE_API_URL\s*=\s*([^\s#]+)/m);
   if (match) {
     viteApiUrl = match[1].replace(/["']/g, "").trim();
   }
