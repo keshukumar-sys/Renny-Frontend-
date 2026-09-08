@@ -273,9 +273,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-            <Link to="/cbam" className="dropdown-item">
+              <Link to="/cbam" className="dropdown-item">
                 CBAM
-              </Link> 
+              </Link>
+            </li>
+            <li>
+              <Link to="/green-steel" className="dropdown-item">
+                Green Steel
+              </Link>
             </li>
           </ul>
         </li>
@@ -323,31 +328,29 @@ const Navbar = () => {
             Contact Us
           </Link>
         </li>
-
-   
       </ul>
       {/* Mobile Menu Toggle */}
-      <div className='flex '>
-  <button
-        aria-label="Open navigation menu"
-        aria-expanded={isMenuOpen}
-        aria-controls="main-nav"
-        className="lg:hidden text-2xl text-blue-900 focus:outline-none"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        {isMenuOpen ? <FaTimes /> : <FaBars />}
-      </button>{' '}
-      <div className="flex items-center">
-        <div className="w-16 h-auto md:w-12 lg:w-14  object-contain">
-          <img
-            src={greatPlace}
-            alt="Great Place to Work"
-            className={`w-full h-auto ${isScrolled ? 'mt-43 scale-175 ' : ''}`}
-          />
+      <div className="flex ">
+        <button
+          aria-label="Open navigation menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="main-nav"
+          className="lg:hidden text-2xl text-blue-900 focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>{' '}
+        <div className="flex items-center">
+          <div className="w-16 h-auto md:w-12 lg:w-14  object-contain">
+            <img
+              src={greatPlace}
+              alt="Great Place to Work"
+              className={`w-full h-auto ${isScrolled ? 'mt-43 scale-175 ' : ''}`}
+            />
+          </div>
         </div>
       </div>
-      </div>
-    
+
       {/* Mobile Navigation Drawer */}
       <div
         id="main-nav"
