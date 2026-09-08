@@ -35,6 +35,8 @@ const jobTypes = ["Full-time", "Part-time", "Contract", "Remote", "Trainee"];
 
 // ========== Departments ==========
 const departments = [
+  "All",
+  "Finance",
   "Engineering",
   "IT & Software",
   "Operations",
@@ -48,6 +50,9 @@ const badgeImages = [
   { src: wereCertified, alt: "We're Certified" },
 ];
 
+const isPrerender =
+  typeof navigator !== "undefined" && navigator.userAgent === "ReactSnap";
+
 const Career = () => {
   // ========== Hero Content ==========
   const { heroSrc, heroHeading } = usePageHero("careers", "Careers", banner);
@@ -57,13 +62,13 @@ const Career = () => {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const [activeDepartment, setActiveDepartment] = useState("IT & Software");
+  const [activeDepartment, setActiveDepartment] = useState("All");
 
   const [activeType, setActiveType] = useState("Full-time");
 
   const [search, setSearch] = useState("");
-  // Popup state (true so it appears automatically when user visits the page)
-    const [showPopup, setShowPopup] = useState(true);
+  // Popup state (true so it appears automatically when user visits the page, false during prerendering)
+  const [showPopup, setShowPopup] = useState(!isPrerender);
   
   // Carousel Active Index State (Fixed Reference) 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -116,7 +121,7 @@ const Career = () => {
   // ========== Filtered Jobs ==========
   const filteredJobs = jobsData.filter((job) => {
     return (
-      job.department === activeDepartment &&
+      (activeDepartment === "All" || job.department === activeDepartment) &&
       job.jobType === activeType &&
       job.title.toLowerCase().includes(search.toLowerCase())
     );

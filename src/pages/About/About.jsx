@@ -493,7 +493,7 @@ const About = () => {
 
               <img
                 src={displayTimelineData[activeIndex]?.image}
-                alt=""
+                alt="About Img"
                 className="h-[300px] md:h-[420px] w-full object-cover bg-blue rounded-xl"
               />
             </motion.div>

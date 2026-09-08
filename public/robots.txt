@@ -1,30 +1,82 @@
-# BEGIN Cloudflare Managed Content
+# robots.txt — rennystrips.com
+# Renny Strips — AI/GEO and Search Crawler Access
 
+# ------------------------------------------------------------
+# Default — allow search engines and reputable crawlers
+# ------------------------------------------------------------
 User-agent: *
 Allow: /
 
-User-agent: Amazonbot
-Disallow: /
+# ------------------------------------------------------------
+# AI / Answer Engine Crawlers
+# Keep public website content accessible for AI discovery,
+# retrieval and citation.
+# ------------------------------------------------------------
 
-User-agent: Applebot-Extended
-Disallow: /
+User-agent: OAI-SearchBot
+Allow: /
 
-User-agent: Bytespider
-Disallow: /
+User-agent: ChatGPT-User
+Allow: /
 
 User-agent: GPTBot
-Disallow: /
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# ------------------------------------------------------------
+# SEO Crawlers
+# ------------------------------------------------------------
 
 User-agent: SemrushBot
 Allow: /
 
 User-agent: SemrushBot-SA
 Allow: /
+
+# ------------------------------------------------------------
+# Blocked / Unwanted Scrapers
+# ------------------------------------------------------------
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# ------------------------------------------------------------
+# Sitemap
+# ------------------------------------------------------------
 
 Sitemap: https://rennystrips.com/sitemap.xml

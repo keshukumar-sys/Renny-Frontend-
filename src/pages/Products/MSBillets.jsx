@@ -406,6 +406,14 @@ const HeroBanner = React.memo(
     setIsModalOpen,
   }) => {
     const [loadVideo, setLoadVideo] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
       const handleLoad = () => {
@@ -437,7 +445,7 @@ const HeroBanner = React.memo(
           <video
             key={heroSrc}
             src={heroSrc}
-            poster={bannerPoster}
+            
             autoPlay
             loop
             muted
@@ -459,12 +467,11 @@ const HeroBanner = React.memo(
             />
             {/* Mobile Poster */}
             <img
-              key={heroSrc || "fallback"}
               src={heroSrc && !(heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? heroSrc : bannerPoster_Mobile}
               alt="Hero Banner Poster"
               width="900"
               height="506"
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               loading="eager"
               className="absolute inset-0 w-full h-full object-cover"
@@ -550,68 +557,67 @@ const IntroSection = React.memo(
     containerVariants,
     itemVariants,
   }) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 768);
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
     return (
-      <section className="bg-white">
-        {/* ================= WHITE INTRO SECTION ================= */}
-        <div className="bg-white text-black py-10 md:py-16">
-          <div className="px-6 md:px-20 max-w-7xl mx-auto">
-            <motion.h2
-              className="text-[28px] sm:text-[36px] md:text-[48px] text-blue font-bold w-full text-center leading-tight"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5 }}
-            >
-              {pageTitle}
-              <div className="w-20 md:w-40 h-1 bg-blue mx-auto rounded-full mt-4 mb-8 md:mb-10" />
-            </motion.h2>
+      <>
+        <style dangerouslySetInnerHTML={{ __html: `
+          .msbillets-highlights-bg {
+            background-image: url('${msBilletsSection2_Mobile || displayHighlightsImg}');
+          }
+          @media (min-width: 768px) {
+            .msbillets-highlights-bg {
+              background-image: url('${displayHighlightsImg}');
+            }
+          }
+        `}} />
+        <section className="bg-white">
+          {/* ================= WHITE INTRO SECTION ================= */}
+          <div className="bg-white text-black py-10 md:py-16">
+            <div className="px-6 md:px-20 max-w-7xl mx-auto">
+              <motion.h2
+                className="text-[28px] sm:text-[36px] md:text-[48px] text-blue font-bold w-full text-center leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5 }}
+              >
+                {pageTitle}
+                <div className="w-20 md:w-40 h-1 bg-blue mx-auto rounded-full mt-4 mb-8 md:mb-10" />
+              </motion.h2>
 
-            <motion.div
-              className="text-center md:text-left space-y-4"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="font-bold text-lg md:text-xl text-gray-900">
-                <p>{displayCapacity}</p>
-              </div>
+              <motion.div
+                className="text-center md:text-left space-y-4"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="font-bold text-lg md:text-xl text-gray-900">
+                  <p>{displayCapacity}</p>
+                </div>
 
-              <div className="space-y-4">
-                {displayDescription.map((desc, idx) => (
-                  <p
-                    key={idx}
-                    className="text-gray-600 text-sm md:text-base lg:text-lg font-normal "
-                  >
-                    {desc}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
+                <div className="space-y-4">
+                  {displayDescription.map((desc, idx) => (
+                    <p
+                      key={idx}
+                      className="text-gray-600 text-sm md:text-base lg:text-lg font-normal "
+                    >
+                      {desc}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
 
-        {/* ================= WINDOW (IMAGE SECTION) ================= */}
-        <section className="px-4 md:px-10 lg:px-20 pb-10">
-          <motion.div
-            className="relative w-full min-h-[50vh] flex items-center min-[879px]:items-end justify-center py-10 md:py-0 bg-cover bg-center bg-scroll md:bg-fixed rounded-[30px] md:rounded-[60px] overflow-hidden"
-            style={{
-              backgroundImage: `url('${isMobile && msBilletsSection2_Mobile ? msBilletsSection2_Mobile : displayHighlightsImg}')`
-            }}
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-          >
+          {/* ================= WINDOW (IMAGE SECTION) ================= */}
+          <section className="px-4 md:px-10 lg:px-20 pb-10">
+            <motion.div
+              className="relative w-full min-h-[50vh] flex items-center min-[879px]:items-end justify-center py-10 md:py-0 msbillets-highlights-bg bg-cover bg-center bg-scroll md:bg-fixed rounded-[30px] md:rounded-[60px] overflow-hidden"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+            >
             {/* Overlay: Semi-transparent for mobile readability */}
             <div className="absolute inset-0 bg-black/40 min-[879px]:bg-transparent min-[879px]:bg-gradient-to-t min-[879px]:from-black/70 min-[879px]:to-transparent" />
 
@@ -635,8 +641,9 @@ const IntroSection = React.memo(
               ))}
             </div>
           </motion.div>
+          </section>
         </section>
-      </section>
+      </>
     );
   },
 );
@@ -664,7 +671,7 @@ const ApplicationsTab = React.memo(
                     <div className="w-16 h-16 md:w-20 md:h-20 mb-3">
                       <img
                         src={item.img}
-                        alt={item.label}
+                        alt="Application Img"
                         width="80"
                         height="80"
                         loading="lazy"
@@ -762,7 +769,8 @@ const ApplicationsTab = React.memo(
                     >
                       <img
                         src={card.img || cards[i % cards.length]?.img}
-                        alt=""
+                     alt="Core Strength Image"
+
                         width="64"
                         height="64"
                         loading="lazy"

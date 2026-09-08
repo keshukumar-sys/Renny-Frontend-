@@ -315,7 +315,7 @@ const BlogDetail = () => {
                       <figure className="my-8">
                         <img
                           src={section.url || section.image}
-                          alt={section.caption || section.content || ''}
+                          alt={section.caption || section.content || 'Blog Image'}
                           className="w-full object-cover rounded-lg shadow-sm"
                         />
                         {(section.caption || section.content) && (
@@ -507,7 +507,7 @@ const BlogDetail = () => {
                         <Link to={`/blog/${rel.slug}`} className="group block">
                           <img
                             src={rel.mainImage}
-                            alt=""
+                            alt="Blog Img"
                             className="w-full h-32 object-cover rounded-md mb-2 shadow-sm group-hover:opacity-90 transition-opacity"
                           />
                           <p className="text-xs font-bold text-blue group-hover:underline">

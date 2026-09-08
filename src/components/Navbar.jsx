@@ -267,11 +267,6 @@ const Navbar = () => {
             Sustainability
           </span>
           <ul className="absolute hidden group-hover:block bg-white shadow-lg mt-2 w-64 z-50">
-              <li>
-              <Link to="/green-steel" className="dropdown-item">
-                Green Steel
-              </Link>
-            </li>
             <li>
               <Link to="/sustainability" className="dropdown-item">
                 ESG
@@ -280,6 +275,11 @@ const Navbar = () => {
             <li>
               <Link to="/cbam" className="dropdown-item">
                 CBAM
+              </Link>
+            </li>
+            <li>
+              <Link to="/green-steel" className="dropdown-item">
+                Green Steel
               </Link>
             </li>
           </ul>
@@ -345,7 +345,7 @@ const Navbar = () => {
             <img
               src={greatPlace}
               alt="Great Place to Work"
-              className="w-full h-auto"
+              className={`w-full h-auto ${isScrolled ? 'mt-43 scale-175 ' : ''}`}
             />
           </div>
         </div>

@@ -26,8 +26,10 @@ import Scaffolding from '../assets/product-2.webp';
 import ERW from '../assets/product-3.webp';
 import Coil from '../assets/hr-coil.webp';
 import rods from '../assets/product-5.webp';
-import popup from '../assets/careerPopup2.webp';
-import popup_Mobile from '../assets/careerPopup2-Mobile.webp';
+import popup from '../assets/baumaimg2.webp';
+import popup_Mobile from '../assets/baumaimg2_mobile.webp';
+import popupVideo from  "../assets/Bauma Desktop video.webm"
+import popupVideoMobile from  "../assets/bauman mobile.webm"
 import sustainability2 from '../assets/CBAM.webm';
 
 import CountUp from 'react-countup';
@@ -98,6 +100,8 @@ const scaleFade = {
 const Home = () => {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   // --- BACKEND INTEGRATION STATES ---
   const [newsData, setNewsData] = useState([]);
   const [activeNews, setActiveNews] = useState(null);
@@ -165,9 +169,12 @@ const Home = () => {
       }
 
       // Trigger automatic popup after a predictable delay (800ms) to allow initial paint (LCP) to finish
-      popupTimeoutId = setTimeout(() => {
-        setShowPopup(true);
-      }, 800);
+      const isPrerender = typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
+      if (!isPrerender) {
+        popupTimeoutId = setTimeout(() => {
+          setShowPopup(true);
+        }, 800);
+      }
     };
     // const onPageLoaded = ()=>{
     //   setShowVideo(true);
@@ -182,13 +189,22 @@ const Home = () => {
       window.addEventListener('load', onPageLoaded);
     }
 
+    // Handle window resize to detect mobile view changes
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+      setVideoLoaded(false); // Reset video loaded state on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('load', onPageLoaded);
+      window.removeEventListener('resize', handleResize);
       if (popupTimeoutId) {
         clearTimeout(popupTimeoutId);
       }
     };
-  }, []);
+  }, [fetchHomeData]);
 
   const formatDate = useCallback((dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -241,15 +257,6 @@ const Home = () => {
             />
 
             {/* Popup Container */}
-            {/* Commented out old container to preserve history:
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="relative z-10 max-w-lg w-full flex items-center justify-center"
-            >
-            */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -258,15 +265,6 @@ const Home = () => {
               className="relative z-10 max-w-lg w-full flex items-center justify-center aspect-[3/2]"
             >
               {/* Close (X) Icon Button */}
-              {/* Commented out old close button to keep history:
-              <button
-                onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition"
-                aria-label="Close modal"
-              >
-                <MdClose className="text-2xl" />
-              </button>
-              */}
               <button
                 onClick={() => setShowPopup(false)}
                 className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition z-20"
@@ -275,51 +273,37 @@ const Home = () => {
                 <MdClose className="text-2xl" />
               </button>
 
-              {/* Popup Image Only */}
-              {/* Commented out old image to keep history:
-              <img
-                src={popup}
-                alt="Popup Announcement"
-                className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
-              />
-              */}
-              <picture className="w-full flex justify-center">
-                {/* Commented out old mobile source to keep history:
-                <source
-                  media="(max-width: 767px)"
-                  srcSet={popup}
-                  width="1536"
-                  height="1024"
-                  type="image/webp"
-                />
-                */}
-                <source
-                  media="(max-width: 767px)"
-                  srcSet={popup_Mobile}
-                  width="665"
-                  height="443"
-                  type="image/webp"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcSet={popup}
-                  width="512"
-                  height="314"
-                  type="image/webp"
-                />
+              {/* Image Placeholder - Show until video is loaded */}
+              {!videoLoaded && (
                 <img
-                  src={popup}
-                  alt="Popup Announcement" 
-                  width="512"
-                  height="314"
-                  fetchPriority="high"
-                  className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl aspect-[3/2]"
+                  src={isMobileView ? popup_Mobile : popup}
+                  alt="Popup Announcement"
+                  width={isMobileView ? "665" : "512"}
+                  height={isMobileView ? "443" : "314"}
+                  className="w-full h-auto object-fill rounded-2xl shadow-2xl aspect-[3/2]"
                 />
-              </picture>
+              )}
+
+              {/* Video - Show when loaded */}
+              <video
+                src={isMobileView ? popupVideoMobile : popupVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={isMobileView ? popup_Mobile : popup}
+                onLoadedData={() => setVideoLoaded(true)}
+                onCanPlay={() => setVideoLoaded(true)}
+                className={`w-full h-auto object-fill rounded-2xl shadow-2xl aspect-[3/2] ${
+                  videoLoaded ? 'opacity-100' : 'opacity-0 absolute'
+                } transition-opacity duration-300`}
+              />
             </motion.div>
           </div>
         )}
       </AnimatePresence>
+
+
       <div className="relative flex flex-col font-helvetica ">
         {/* 1. Banner Section */}
         <HeroSection HomepageBanner={HomepageBanner} HeroPoster={HeroPoster} />
@@ -370,6 +354,10 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
   const videoRef = React.useRef(null);
 
   useEffect(() => {
+    const isPrerender =
+      typeof navigator !== "undefined" && navigator.userAgent === "ReactSnap";
+    if (isPrerender) return;
+
     const handleLoad = () => {
       if ("requestIdleCallback" in window) {
         requestIdleCallback(() => setLoadVideo(true));
@@ -485,7 +473,7 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
                 alt="Homepage Banner Poster"
                 width="500"
                 height="300"
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
                 loading="eager"
                 style={{
@@ -517,7 +505,7 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
               Renny Strips Limited is a vertically integrated structural steel
               company and certified green steel manufacturer delivering ERW
               Pipes & Tubes, Scaffolding & Formwork Systems, Narrow-Width HR
-              Coils, Wire Rods, MS Billets across India. Proudly awarded the
+              Coils, Wire Rods across the globe. Proudly awarded the 
               5-Star Green Steel Manufacturing Rating.
             </p>
 
@@ -529,6 +517,12 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
               >
                 Explore Our Products
               </Link>
+              {/* <Link
+                to="/catelogue-download"
+                className="w-full sm:w-auto bg-blue text-white px-6 sm:px-7 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:-translate-y-1 text-center text-sm sm:text-base whitespace-nowrap"
+              >
+                Download Brochure
+              </Link> */}
 
               <Link
                 to="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/1770374581565_DRHP.pdf"

@@ -32,6 +32,32 @@ const itemVariants = {
   },
 };
 
+const COMMITTEE_ORDER = [
+  "audit committee",
+  "nomination and remuneration committee",
+  "nomination & remuneration committee",
+  "stakeholder relationship committee",
+  "stakeholders relationship committee",
+  "corporate social responsibility",
+  "corporate social responsibility committee",
+  "risk management committee",
+  "ipo committee",
+];
+
+const normalizeCommitteeTitle = (title = "") =>
+  title
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const getCommitteeOrder = (title = "") => {
+  const normalized = normalizeCommitteeTitle(title);
+  const index = COMMITTEE_ORDER.indexOf(normalized);
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
+};
+
 import { API_BASE_URL } from "../../lib/api";
 
 const Governance = () => {
@@ -144,6 +170,10 @@ const Governance = () => {
       return acc;
     }, {});
 
+    const orderedTitles = Object.keys(grouped).sort(
+      (a, b) => getCommitteeOrder(a) - getCommitteeOrder(b),
+    );
+
     return (
       <>
         <SEO
@@ -159,46 +189,59 @@ const Governance = () => {
           animate="show"
           className="grid grid-cols-1 gap-8"
         >
-          {Object.keys(grouped).map((title, i) => (
-            <motion.div
-              key={i}
-              variants={{
-                hidden: { opacity: 0, x: -20 },
-                show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-              }}
-              className="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
-            >
-              <h3 className="text-[16px] font-bold mb-6 text-[#292C44] border-b border-gray-200 pb-3 tracking-wide uppercase">
-                {title}
-              </h3>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[14px]">
-                  <thead>
-                    <tr className="text-gray-400 font-medium">
-                      <th className="pb-4 pr-4">Name of Director</th>
-                      <th className="pb-4 pr-4">Position</th>
-                      <th className="pb-4">Designation</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-gray-700">
-                    {grouped[title].map((m) => (
-                      <tr key={m._id} className="border-t border-gray-200/60">
-                        <td className="py-4 pr-4 font-semibold">{m.name}</td>
-                        <td
-                          className={`py-4 pr-4 font-medium ${m.position === "Chairman" ? "text-blue-600" : ""}`}
-                        >
-                          {m.position}
-                        </td>
-                        <td className="py-4 italic text-gray-500">
-                          {m.designation}
-                        </td>
+          {orderedTitles.map((title, i) => {
+            const sortedMembers = [...grouped[title]].sort((a, b) => {
+              const aIsChairman = a.position?.trim().toLowerCase() === "chairman";
+              const bIsChairman = b.position?.trim().toLowerCase() === "chairman";
+
+              if (aIsChairman !== bIsChairman) {
+                return aIsChairman ? -1 : 1;
+              }
+
+              return (a.name || "").localeCompare(b.name || "");
+            });
+
+            return (
+              <motion.div
+                key={`${title}-${i}`}
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+                }}
+                className="p-8 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+              >
+                <h3 className="text-[16px] font-bold mb-6 text-[#292C44] border-b border-gray-200 pb-3 tracking-wide uppercase">
+                  {title}
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-[14px]">
+                    <thead>
+                      <tr className="text-gray-400 font-medium">
+                        <th className="pb-4 pr-4">Name of Director</th>
+                        <th className="pb-4 pr-4">Position</th>
+                        <th className="pb-4">Designation</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </motion.div>
-          ))}
+                    </thead>
+                    <tbody className="text-gray-700">
+                      {sortedMembers.map((m) => (
+                        <tr key={m._id} className="border-t border-gray-200/60">
+                          <td className="py-4 pr-4 font-semibold">{m.name}</td>
+                          <td
+                            className={`py-4 pr-4 font-medium ${m.position?.trim().toLowerCase() === "chairman" ? "text-blue-600" : ""}`}
+                          >
+                            {m.position}
+                          </td>
+                          <td className="py-4 italic text-gray-500">
+                            {m.designation}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </>
     );

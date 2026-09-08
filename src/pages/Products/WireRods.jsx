@@ -396,7 +396,14 @@ const HeroBanner = React.memo(
     ProductEnquiryModal,
   }) => {
     const [loadVideo, setLoadVideo] = useState(false);
-    const [currentVideoSrc, setCurrentVideoSrc] = useState(heroSrc);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
       const handleLoad = () => {
@@ -415,21 +422,6 @@ const HeroBanner = React.memo(
       }
     }, []);
 
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth < 768 && banner_Mobile) {
-          setCurrentVideoSrc(banner_Mobile);
-        } else {
-          setCurrentVideoSrc(heroSrc);
-        }
-      };
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, [heroSrc, banner_Mobile]);
-
-
-
     return (
       <motion.section
         initial="hidden"
@@ -438,12 +430,9 @@ const HeroBanner = React.memo(
         variants={imageZoom}
         className="relative h-[100vh] w-full overflow-hidden mb-10"
       >
-        {loadVideo && currentVideoSrc &&
-        (currentVideoSrc.endsWith(".webm") || currentVideoSrc.endsWith(".mp4")) ? (
+        {loadVideo && ((heroSrc && (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4"))) || (banner_Mobile && (banner_Mobile.endsWith(".webm") || banner_Mobile.endsWith(".mp4")))) ? (
           <video
-            key={currentVideoSrc}
-            src={currentVideoSrc}
-            poster={bannerPoster}
+            key={heroSrc}
             autoPlay
             loop
             muted
@@ -452,7 +441,10 @@ const HeroBanner = React.memo(
             width="1440"
             height="800"
             className="absolute inset-0 w-full h-full object-cover"
-          />
+          >
+            {banner_Mobile && <source src={banner_Mobile} media="(max-width: 767px)" type="video/webm" />}
+            <source src={heroSrc} type="video/webm" />
+          </video>
         ) : (
           <picture className="absolute inset-0 w-full h-full block">
             {/* Desktop Poster */}
@@ -465,12 +457,11 @@ const HeroBanner = React.memo(
             />
             {/* Mobile Poster */}
             <img
-              key={heroSrc || "fallback"}
               src={heroSrc && !(heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? heroSrc : bannerPoster_Mobile}
               alt="Hero Banner Poster"
               width="900"
               height="500"
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               loading="eager"
               className="absolute inset-0 w-full h-full object-cover"
@@ -554,15 +545,6 @@ const ProductIntro = React.memo(
     containerVariants,
     itemVariants,
   }) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 768);
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
     return (
       <section className="bg-white">
         {/* ================= WHITE INTRO SECTION ================= */}
@@ -731,7 +713,8 @@ const CoreStrength = React.memo(
               >
                 <img
                   src={card.img || cards[i % cards.length]?.img}
-                  alt=""
+                             alt="Core Strength Image"
+
                   width="64"
                   height="64"
                   loading="lazy"

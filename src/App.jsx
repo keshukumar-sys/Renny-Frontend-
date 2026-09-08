@@ -16,6 +16,7 @@ import WhatsAppButton from './components/WhatsAppButton.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Thankyou from './pages/Thankyou.jsx';
 import GreenSteel from './pages/Sustainability/GreenSteel.jsx';
+import ScaffoldingBrochure from './pages/ScaffoldingBrochure.jsx';
 // import CBAM from "./pages/Sustainability/CBAM.jsx";
 
 /* ── Pages ── */
@@ -72,6 +73,7 @@ const ComingSoon = lazy(() => import('./pages/ComingSoon.jsx'));
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showGlobalPreloader, setShowGlobalPreloader] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -83,12 +85,22 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const isPrerender =
+      typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
+    if (isPrerender) {
+      setShowGlobalPreloader(true);
+      return;
+    }
+    setShowGlobalPreloader(false);
+  }, []);
+
+  useEffect(() => {
     // Trailing slash redirection
     if (location.pathname !== '/' && location.pathname.endsWith('/')) {
       const newPath = location.pathname.slice(0, -1);
       navigate(newPath + location.search, { replace: true });
       return;
-    }
+    } 
 
     // Query string SEO redirect
     if (location.pathname === '/' && location.search.includes('p=')) {
@@ -96,17 +108,18 @@ const App = () => {
       return;
     }
 
-    setIsLoading(true);
-    // Show spinner for a short duration while page content gets rendered
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 200);
+    // setIsLoading(true);
+    // // Show spinner for a short duration while page content gets rendered
+    // const timer = setTimeout(() => {
+    //   setIsLoading(false);
+    // }, 200);
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
     <div className="App relative min-h-screen overflow-x-hidden font-helvetica clip scroll-smooth no-scrollbar">
+      {showGlobalPreloader && <PageSpinner />}
       <ScrollToTop />
       <Navbar />
       <main id="main-content" className="flex-grow">
@@ -236,6 +249,7 @@ const App = () => {
             <Route path="/thank-you" element={<Thankyou />} />
             <Route path="/:slug/thank-you" element={<Thankyou />} />
             <Route path="/catelogue-download" element={<ComingSoon />} />
+            <Route path="/scaffolding-brochure" element={<ScaffoldingBrochure />} />
           </Routes>
           <Parallax />
           <Footer />

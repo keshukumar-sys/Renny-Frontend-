@@ -1074,11 +1074,7 @@
     "status": "301",
     "target": "/ms-billets"
   },
-  {
-    "source": "/share-holding-pattern",
-    "status": "301",
-    "target": "/share-holding-pattern"
-  },
+
   {
     "source": "/timeline",
     "status": "301",

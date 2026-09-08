@@ -53,7 +53,7 @@ const WhyChooseBillets = () => {
                 {/* ICON */}
                 <img
                   src={gold}
-                  alt=""
+                  alt="Why Choose Img"
                   className="w-12 h-12 shrink-0 opacity-90"
                 />
 

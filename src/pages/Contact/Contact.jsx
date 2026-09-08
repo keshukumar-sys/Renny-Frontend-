@@ -696,7 +696,7 @@ const Contact = () => {
                       className="space-y-6 p-6 border-l-4 border-[#292c44]"
                     >
                       <div className="flex  items-center gap-3">
-                        <img src={banner} className="hidden" alt="" />
+                        <img src={banner} className="hidden" alt="Contact Img" />
                         <MdLocationOn size={30} className="text-[#292c44]" />
                         <h3 className="text-2xl md:text-3xl font-semibold text-[#292c44]">
                           {plant.title}

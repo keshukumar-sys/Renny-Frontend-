@@ -404,6 +404,14 @@ const HeroBanner = React.memo(
     ProductEnquiryModal,
   }) => {
     const [loadVideo, setLoadVideo] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useEffect(() => {
       const handleLoad = () => {
@@ -435,7 +443,7 @@ const HeroBanner = React.memo(
             <video
               key={heroSrc}
               src={heroSrc}
-              poster={bannerPoster}
+              
               autoPlay
               loop
               muted
@@ -457,12 +465,11 @@ const HeroBanner = React.memo(
               />
               {/* Mobile Poster */}
               <img
-                key={heroSrc || "fallback"}
                 src={heroSrc && !(heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? heroSrc : bannerPoster_Mobile}
                 alt="Hero Banner Poster"
                 width="900"
                 height="500"
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
                 loading="eager"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -686,7 +693,7 @@ const ManufacturingProcess = React.memo(
             >
               <img
                 src={card.img || cards[i % cards.length]?.img}
-                alt=""
+                alt="Core Strength Image"
                 loading="lazy"
               decoding="async"
                 className="w-16 h-16 mb-4 transition duration-300 group-hover:brightness-0 group-hover:invert"

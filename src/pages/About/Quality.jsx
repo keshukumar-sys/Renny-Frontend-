@@ -367,7 +367,7 @@ const Quality = () => {
                   transition={{ duration: 0.6 }}
                   className="flex gap-6"
                 >
-                  <img src={icon1} alt="" className="w-14 h-14" />
+                  <img src={icon1} alt="Quality Certifications img" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Global Quality Certifications
@@ -391,7 +391,7 @@ const Quality = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="flex gap-6"
                 >
-                  <img src={icon3} alt="" className="w-14 h-14" />
+                  <img src={icon3} alt="Icon Img" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Three-Stage Inspection Protocol
@@ -430,7 +430,7 @@ const Quality = () => {
                 >
                   <img
                     src={icon4}
-                    alt=""
+                    alt="Icon Img"
                     className="w-14 h-14 mt-10 md:mt-26"
                   />
                   <div>
@@ -458,7 +458,7 @@ const Quality = () => {
                   transition={{ duration: 0.6 }}
                   className="flex gap-7"
                 >
-                  <img src={icon2} alt="" className="w-14 h-14" />
+                  <img src={icon2} alt="Icon Img" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Quality Management System (QMS)
@@ -481,7 +481,7 @@ const Quality = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="flex gap-7"
                 >
-                  <img src={icon5} alt="" className="w-14 h-14" />
+                  <img src={icon5} alt="Icon Img" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Skilled Technical Team

@@ -425,7 +425,7 @@ const HeroBanner = React.memo(
             <video
               key={heroSrc}
               src={heroSrc}
-              poster={bannerPoster}
+              
               autoPlay
               loop
               muted
@@ -437,12 +437,11 @@ const HeroBanner = React.memo(
             />
           ) : (
             <img
-              key={heroSrc || "fallback"}
               src={heroSrc && !(heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? heroSrc : bannerPoster}
               alt="Hero Banner"
               width="1440"
               height="800"
-              fetchPriority="high"
+              fetchpriority="high"
               decoding="async"
               loading="eager"
               sizes="(max-width: 768px) 100vw, 90vw"
@@ -528,17 +527,18 @@ const ProductIntro = React.memo(
     containerVariants,
     itemVariants,
   }) => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 768);
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
     return (
       <>
+        <style dangerouslySetInnerHTML={{ __html: `
+          .hr-coils-highlights-bg {
+            background-image: url('${img3_Mobile || displayHighlightsImg}');
+          }
+          @media (min-width: 768px) {
+            .hr-coils-highlights-bg {
+              background-image: url('${displayHighlightsImg}');
+            }
+          }
+        `}} />
         <section className="bg-white">
           {/* ================= INTRO SECTION ================= */}
           <section className="bg-white">
@@ -585,10 +585,7 @@ const ProductIntro = React.memo(
             {/* ================= WINDOW (IMAGE SECTION) ================= */}
             <section className="px-4 md:px-10 lg:px-20 pb-10">
               <motion.div
-                className="relative w-full min-h-[50vh] flex items-center min-[879px]:items-end justify-center py-10 md:py-0 bg-cover bg-center bg-scroll md:bg-fixed rounded-[30px] md:rounded-[60px] overflow-hidden"
-                style={{
-                  backgroundImage: `url('${isMobile && img3_Mobile ? img3_Mobile : displayHighlightsImg}')`
-                }}
+                className="relative w-full min-h-[50vh] flex items-center min-[879px]:items-end justify-center py-10 md:py-0 hr-coils-highlights-bg bg-cover bg-center bg-scroll md:bg-fixed rounded-[30px] md:rounded-[60px] overflow-hidden"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -690,7 +687,8 @@ const CoreStrengthTab = React.memo(
             >
               <img
                 src={card.img || cards[i % cards.length]?.img}
-                alt=""
+                             alt="Core Strength Image"
+
                 width="64"
                 height="64"
                 className="w-16 h-16 mb-4 transition duration-300 group-hover:brightness-0 group-hover:invert"

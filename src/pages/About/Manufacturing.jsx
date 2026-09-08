@@ -265,7 +265,7 @@ const Manufacturing = () => {
             variants={imageZoom}
             className="w-full h-[300px] md:h-[550px] rounded-4xl overflow-hidden mb-10"
           >
-            <img src={image} alt="" className="w-full h-full object-cover" />
+            <img src={image} alt="Manufacturing Img" className="w-full h-full object-cover" />
           </motion.div>
 
           <motion.div
@@ -428,7 +428,7 @@ const Manufacturing = () => {
           >
             <video
               src={rawimg}
-              alt=""
+              alt="Ms Billet Img"
               autoPlay
               loop
               muted
