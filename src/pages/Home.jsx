@@ -152,7 +152,6 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    let popupTimeoutId;
     setIsMobileView(window.innerWidth < 768);
 
 
@@ -173,12 +172,10 @@ const Home = () => {
         }, 1000);
       }
 
-      // Trigger automatic popup after a predictable delay (800ms) to allow initial paint (LCP) to finish
+      // Open the popup as soon as the page loader has completed.
       const isPrerender = typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
       if (!isPrerender) {
-        popupTimeoutId = setTimeout(() => {
-          setShowPopup(true);
-        }, 800);
+        setShowPopup(true);
       }
     };
     // const onPageLoaded = ()=>{
@@ -205,9 +202,6 @@ const Home = () => {
     return () => {
       window.removeEventListener('load', onPageLoaded);
       window.removeEventListener('resize', handleResize);
-      if (popupTimeoutId) {
-        clearTimeout(popupTimeoutId);
-      }
     };
   }, [fetchHomeData]);
 
@@ -277,11 +271,6 @@ const Home = () => {
               >
                 <MdClose className="text-2xl" />
               </button>
-
-              {/* Image Placeholder - Show until video is loaded */}
-             
-
-              {/* Video - Show when loaded */}
               
               <video
                 src={popupVideo}
