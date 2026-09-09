@@ -100,7 +100,7 @@ const scaleFade = {
 const Home = () => {
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [isMobileView, setIsMobileView] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   // --- BACKEND INTEGRATION STATES ---
   const [newsData, setNewsData] = useState([]);
@@ -153,6 +153,11 @@ const Home = () => {
 
   useEffect(() => {
     let popupTimeoutId;
+    setIsMobileView(window.innerWidth < 768);
+
+
+    // console.log(isMobileView);
+
     const onPageLoaded = () => {
       // Show Hero Video
 
@@ -249,7 +254,7 @@ const Home = () => {
       {/* ========== AUTOMATIC POPUP MODAL ========== */}
       <AnimatePresence>
         {showPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
             {/* Click backdrop to close */}
             <div
               className="absolute inset-0"
@@ -285,8 +290,9 @@ const Home = () => {
               )}
 
               {/* Video - Show when loaded */}
+              
               <video
-                src={isMobileView ? popupVideoMobile : popupVideo}
+                src={popupVideo}
                 autoPlay
                 muted
                 loop
