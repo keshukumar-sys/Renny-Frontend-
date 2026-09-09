@@ -279,15 +279,7 @@ const Home = () => {
               </button>
 
               {/* Image Placeholder - Show until video is loaded */}
-              {!videoLoaded && (
-                <img
-                  src={isMobileView ? popup_Mobile : popup}
-                  alt="Popup Announcement"
-                  width={isMobileView ? "665" : "512"}
-                  height={isMobileView ? "443" : "314"}
-                  className="w-full h-auto object-fill rounded-2xl shadow-2xl aspect-[3/2]"
-                />
-              )}
+             
 
               {/* Video - Show when loaded */}
               
