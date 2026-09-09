@@ -264,13 +264,15 @@ const Home = () => {
               className="relative z-10 max-w-lg w-full flex items-center justify-center aspect-[3/2]"
             >
               {/* Close (X) Icon Button */}
-              <button
-                onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition z-20"
-                aria-label="Close modal"
-              >
-                <MdClose className="text-2xl" />
-              </button>
+              {videoLoaded && (
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition z-20"
+                  aria-label="Close modal"
+                >
+                  <MdClose className="text-2xl" />
+                </button>
+              )}
               
               <video
                 src={popupVideo}
