@@ -1,28 +1,28 @@
-import BlogCard from "../../components/BlogCard.jsx";
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import SEO from "../../components/SEO";
-import { RiArrowDownSLine } from "react-icons/ri";
+import BlogCard from '../../components/BlogCard.jsx';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import SEO from '../../components/SEO';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 // Assets
-import blogsbanner from "../../assets/blogsbanner.webp";
-import MobileMediaVideo from "../../assets/MobileMediaVideo.webm";
-import newsvideo from "../../assets/newsvideo.webm";
-import usePageHero from "../../hooks/usePageHero";
-import PageSpinner from "../../components/PageSpinner.jsx";
+import blogsbanner from '../../assets/blogsbanner.webp';
+import MobileMediaVideo from '../../assets/MobileMediaVideo.webm';
+import newsvideo from '../../assets/newsvideo.webm';
+import usePageHero from '../../hooks/usePageHero';
+import PageSpinner from '../../components/PageSpinner.jsx';
 
-import { API_BASE_URL } from "../../lib/api";
+import { API_BASE_URL } from '../../lib/api';
 
 const Blogs = () => {
-  const { heroSrc, heroHeading } = usePageHero("blog", "Blogs");
+  const { heroSrc, heroHeading } = usePageHero('blog', 'Blogs');
   const [blogsData, setBlogsData] = useState([]);
   const [activeBlog, setActiveBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [sortType, setSortType] = useState("All");
-  const [dateSortOrder, setDateSortOrder] = useState("newest");
+  const [sortType, setSortType] = useState('All');
+  const [dateSortOrder, setDateSortOrder] = useState('newest');
   const [open, setOpen] = useState(false);
 
   const leftRefs = useRef([]);
@@ -32,8 +32,8 @@ const Blogs = () => {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Blogs = () => {
           setActiveBlog(fetchedBlogs[0]);
         }
       } catch (err) {
-        console.error("Error fetching blogs:", err);
+        console.error('Error fetching blogs:', err);
       } finally {
         setLoading(false);
       }
@@ -59,7 +59,10 @@ const Blogs = () => {
   const handleBlogClick = (blog) => {
     setActiveBlog(blog);
     if (isMobile && rightPanelRef.current) {
-      rightPanelRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      rightPanelRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     }
   };
 
@@ -73,20 +76,20 @@ const Blogs = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   const filteredBlogs = blogsData
     .filter((blog) => {
       const blogDate = blog.date || blog.publishedAt || blog.createdAt;
-      if (sortType === "All") return true;
+      if (sortType === 'All') return true;
       return new Date(blogDate).getFullYear().toString() === sortType;
     })
     .sort((a, b) => {
       const dateA = new Date(a.date || a.publishedAt || a.createdAt);
       const dateB = new Date(b.date || b.publishedAt || b.createdAt);
-      return dateSortOrder === "newest" ? dateB - dateA : dateA - dateB;
+      return dateSortOrder === 'newest' ? dateB - dateA : dateA - dateB;
     });
 
   const [inViewIndexes, setInViewIndexes] = useState([]);
@@ -100,7 +103,7 @@ const Blogs = () => {
             setInViewIndexes((prev) => [...new Set([...prev, index])]);
           }
         },
-        { threshold: 0.2 },
+        { threshold: 0.2 }
       );
       observer.observe(ref);
       return observer;
@@ -112,12 +115,20 @@ const Blogs = () => {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 80 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: 'easeOut' },
+    },
   };
 
   const imageZoom = {
     hidden: { opacity: 0, scale: 1.1 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, ease: 'easeOut' },
+    },
   };
 
   return (
@@ -139,7 +150,7 @@ const Blogs = () => {
           className="relative h-[100vh] w-full overflow-hidden mb-10"
         >
           {heroSrc &&
-          (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? (
+          (heroSrc.endsWith('.webm') || heroSrc.endsWith('.mp4')) ? (
             <video
               key={heroSrc}
               src={heroSrc}
@@ -151,8 +162,8 @@ const Blogs = () => {
             />
           ) : (
             <img
-              key={heroSrc || "fallback"}
-              src={heroSrc || ""}
+              key={heroSrc || 'fallback'}
+              src={heroSrc || ''}
               alt="Hero Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -170,7 +181,7 @@ const Blogs = () => {
         <section className="flex items-center justify-center px-[15px] md:px-6">
           <div className="relative h-[500px] md:h-[550px] w-full max-w-6xl mt-12 md:mt-20 rounded-4xl overflow-hidden">
             <video
-              key={isMobile ? "mobile" : "desktop"}
+              key={isMobile ? 'mobile' : 'desktop'}
               src={isMobile ? MobileMediaVideo : newsvideo}
               autoPlay
               loop
@@ -189,7 +200,8 @@ const Blogs = () => {
                 className="flex flex-col items-center space-y-4"
               >
                 <h2 className="text-2xl md:text-5xl font-bold text-white leading-tight">
-                  Insights & Stories <br className="md:hidden" /> From Our Journey
+                  Insights & Stories <br className="md:hidden" /> From Our
+                  Journey
                 </h2>
 
                 <h3 className="text-lg md:text-2xl font-medium text-white/90">
@@ -197,7 +209,10 @@ const Blogs = () => {
                 </h3>
 
                 <p className="text-white/80 text-sm md:text-lg leading-relaxed max-w-[280px] md:max-w-2xl">
-                  Discover expert insights, company updates, and industry knowledge through our latest blogs. From steel innovations to business growth, every article reflects the expertise and vision behind Renny Strips.
+                  Discover expert insights, company updates, and industry
+                  knowledge through our latest blogs. From steel innovations to
+                  business growth, every article reflects the expertise and
+                  vision behind Renny Strips.
                 </p>
               </motion.div>
             </div>
@@ -208,15 +223,15 @@ const Blogs = () => {
           className="flex flex-col lg:flex-row mb-20 mt-12 md:mt-20 gap-8 px-6"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
+          transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
         >
           {/* Left Panel */}
           <div className="lg:w-1/3 space-y-4">
             <div className="bg-white rounded-2xl shadow p-4 mb-4 flex gap-2 flex-wrap">
-              {["All", "2026", "2025", "2024"].map((year) => (
+              {['All', '2026', '2025', '2024'].map((year) => (
                 <button
                   key={year}
-                  className={`px-4 py-2 rounded-2xl font-medium transition ${sortType === year ? "bg-blue text-white" : "bg-gray-100"}`}
+                  className={`px-4 py-2 rounded-2xl font-medium transition ${sortType === year ? 'bg-blue text-white' : 'bg-gray-100'}`}
                   onClick={() => setSortType(year)}
                 >
                   {year}
@@ -228,7 +243,7 @@ const Blogs = () => {
                   onClick={() => setOpen(!open)}
                   className="px-4 py-2 pr-10 rounded-2xl bg-gray-100 font-medium text-sm flex items-center justify-between gap-2 w-[180px]"
                 >
-                  {dateSortOrder === "newest" ? "Newest First" : "Oldest First"}
+                  {dateSortOrder === 'newest' ? 'Newest First' : 'Oldest First'}
                   <span className="text-xl flex items-center">
                     <RiArrowDownSLine />
                   </span>
@@ -237,8 +252,8 @@ const Blogs = () => {
                 {open && (
                   <div className="absolute mt-2 w-full bg-white rounded-2xl shadow-lg z-50">
                     {[
-                      { label: "Newest First", value: "newest" },
-                      { label: "Oldest First", value: "oldest" },
+                      { label: 'Newest First', value: 'newest' },
+                      { label: 'Oldest First', value: 'oldest' },
                     ].map((option) => (
                       <button
                         key={option.value}
@@ -246,7 +261,7 @@ const Blogs = () => {
                           setDateSortOrder(option.value);
                           setOpen(false);
                         }}
-                        className={`w-full text-left px-4 py-2 font-medium transition ${dateSortOrder === option.value ? "bg-blue text-white" : "bg-gray-100"}`}
+                        className={`w-full text-left px-4 py-2 font-medium transition ${dateSortOrder === option.value ? 'bg-blue text-white' : 'bg-gray-100'}`}
                       >
                         {option.label}
                       </button>
@@ -266,7 +281,9 @@ const Blogs = () => {
                   <motion.div
                     key={blog._id}
                     ref={(el) => (leftRefs.current[index] = el)}
-                    className={`relative flex items-center gap-4 w-full p-3 rounded-2xl text-left ${isActive ? "bg-gray-100" : "bg-transparent"} cursor-pointer group`}
+                    className={`relative w-full rounded-2xl ${
+                      isActive ? 'bg-gray-100' : 'bg-transparent'
+                    } group`}
                     initial={{ opacity: 0, x: -50 }}
                     animate={
                       inViewIndexes.includes(index) ? { opacity: 1, x: 0 } : {}
@@ -274,29 +291,35 @@ const Blogs = () => {
                     transition={{
                       duration: 0.6,
                       delay: index * 0.1,
-                      ease: "easeOut",
+                      ease: 'easeOut',
                     }}
                   >
                     <Link
                       to={`/blog/${blog.slug}`}
-                      className="absolute inset-0 z-10"
                       onClick={(e) => {
                         e.preventDefault();
                         handleBlogClick(blog);
                       }}
                       aria-label={`Read more about ${blog.title}`}
-                    ></Link>
-                    {isActive && (
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 h-20 w-1 bg-blue rounded-full" />
-                    )}
-                    <img
-                      src={blog.mainImage}
-                      alt={blog.title}
-                      className="w-36 h-20 object-fill rounded-2xl relative z-0"
-                    />
-                    <p className="text-sm font-medium line-clamp-2 relative z-0">
-                      {blog.title}
-                    </p>
+                      className="flex items-center gap-4 w-full p-3 rounded-2xl text-left"
+                    >
+                      {isActive && (
+                        <span
+                          className="absolute left-0 top-1/2 -translate-y-1/2 h-20 w-1 bg-blue rounded-full"
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      <img
+                        src={blog.mainImage}
+                        alt={blog.title}
+                        className="w-36 h-20 object-fill rounded-2xl"
+                      />
+
+                      <span className="text-sm font-medium line-clamp-2">
+                        {blog.title}
+                      </span>
+                    </Link>
                   </motion.div>
                 );
               })}
@@ -304,7 +327,10 @@ const Blogs = () => {
           </div>
 
           {/* Right Panel */}
-          <div ref={rightPanelRef} className="lg:w-2/3 bg-white rounded-2xl shadow p-6">
+          <div
+            ref={rightPanelRef}
+            className="lg:w-2/3 bg-white rounded-2xl shadow p-6"
+          >
             <AnimatePresence mode="wait">
               {activeBlog && (
                 <motion.div
@@ -327,11 +353,11 @@ const Blogs = () => {
                     {new Date(
                       activeBlog.date ||
                         activeBlog.publishedAt ||
-                        activeBlog.createdAt,
-                    ).toLocaleDateString("en-US", {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric",
+                        activeBlog.createdAt
+                    ).toLocaleDateString('en-US', {
+                      month: 'long',
+                      day: 'numeric',
+                      year: 'numeric',
                     })}
                   </p>
                   <p className="text-gray-700 mb-6 leading-relaxed text-center max-w-3xl">
