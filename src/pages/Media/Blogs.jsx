@@ -26,6 +26,9 @@ const Blogs = () => {
   const [open, setOpen] = useState(false);
 
   const leftRefs = useRef([]);
+  // Ref attached to the right panel/dialog container for scrolling on mobile
+  const rightPanelRef = useRef(null);
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -36,12 +39,9 @@ const Blogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get(
-          `${API_BASE_URL}/api/blogs`,
-        );
+        const res = await axios.get(`${API_BASE_URL}/api/blogs`);
         const fetchedBlogs = res.data.data || [];
         setBlogsData(fetchedBlogs);
-        console.log(fetchedBlogs);
 
         if (fetchedBlogs.length > 0) {
           setActiveBlog(fetchedBlogs[0]);
@@ -54,6 +54,15 @@ const Blogs = () => {
     };
     fetchBlogs();
   }, []);
+
+  // Helper function to handle blog clicks and smooth scroll on mobile
+  const handleBlogClick = (blog) => {
+    setActiveBlog(blog);
+    if (isMobile && rightPanelRef.current) {
+      rightPanelRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const containerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
@@ -70,7 +79,6 @@ const Blogs = () => {
 
   const filteredBlogs = blogsData
     .filter((blog) => {
-      // Prioritize display date field
       const blogDate = blog.date || blog.publishedAt || blog.createdAt;
       if (sortType === "All") return true;
       return new Date(blogDate).getFullYear().toString() === sortType;
@@ -101,29 +109,17 @@ const Blogs = () => {
   }, [filteredBlogs]);
 
   if (loading) return <PageSpinner />;
+
   const fadeUp = {
-    hidden: {
-      opacity: 0,
-      y: 80,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    },
+    hidden: { opacity: 0, y: 80 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
   const imageZoom = {
     hidden: { opacity: 0, scale: 1.1 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1, ease: "easeOut" },
-    },
+    visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } },
   };
+
   return (
     <>
       <SEO
@@ -133,9 +129,8 @@ const Blogs = () => {
         url="https://rennystrips.com/blog"
         image={heroSrc}
       />
-      <div className="font-helvetica  min-h-screen">
+      <div className="font-helvetica min-h-screen">
         {/* Banner */}
-
         <motion.section
           initial="hidden"
           whileInView="visible"
@@ -145,7 +140,7 @@ const Blogs = () => {
         >
           {heroSrc &&
           (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? (
-            <video 
+            <video
               key={heroSrc}
               src={heroSrc}
               autoPlay
@@ -165,18 +160,15 @@ const Blogs = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="relative z-10 text-white text-4xl md:text-7xl font-bold
-                   flex items-end justify-start h-full py-10 px-6 md:px-10"
+            className="relative z-10 text-white text-4xl md:text-7xl font-bold flex items-end justify-start h-full py-10 px-6 md:px-10"
           >
             {heroHeading}
           </motion.h1>
         </motion.section>
 
-        {/* =============SPOTLIGHT=============== */}
-
+        {/* SPOTLIGHT */}
         <section className="flex items-center justify-center px-[15px] md:px-6">
           <div className="relative h-[500px] md:h-[550px] w-full max-w-6xl mt-12 md:mt-20 rounded-4xl overflow-hidden">
-            {/* Background Video - Optimized for Mobile */}
             <video
               key={isMobile ? "mobile" : "desktop"}
               src={isMobile ? MobileMediaVideo : newsvideo}
@@ -184,14 +176,11 @@ const Blogs = () => {
               loop
               muted
               playsInline
-              /* 🔹 CRITICAL: object-cover makes the video fill the entire div without stretching */
               className="absolute inset-0 w-full h-full object-fill z-0"
             />
 
-            {/* Overlay */}
             <div className="absolute inset-0 bg-black/50 z-10" />
 
-            {/* Content Container */}
             <div className="relative z-20 flex flex-col items-center justify-center h-full px-18 text-center ">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -200,8 +189,7 @@ const Blogs = () => {
                 className="flex flex-col items-center space-y-4"
               >
                 <h2 className="text-2xl md:text-5xl font-bold text-white leading-tight">
-                  Insights & Stories <br className="md:hidden" /> From Our
-                  Journey
+                  Insights & Stories <br className="md:hidden" /> From Our Journey
                 </h2>
 
                 <h3 className="text-lg md:text-2xl font-medium text-white/90">
@@ -209,15 +197,13 @@ const Blogs = () => {
                 </h3>
 
                 <p className="text-white/80 text-sm md:text-lg leading-relaxed max-w-[280px] md:max-w-2xl">
-                  Discover expert insights, company updates, and industry
-                  knowledge through our latest blogs. From steel innovations to
-                  business growth, every article reflects the expertise and
-                  vision behind Renny Strips.
+                  Discover expert insights, company updates, and industry knowledge through our latest blogs. From steel innovations to business growth, every article reflects the expertise and vision behind Renny Strips.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
+
         <motion.div
           className="flex flex-col lg:flex-row mb-20 mt-12 md:mt-20 gap-8 px-6"
           initial={{ opacity: 0, y: 40 }}
@@ -249,7 +235,7 @@ const Blogs = () => {
                 </button>
 
                 {open && (
-                  <div className="absolute mt-2 w-full bg-white rounded-2xl shadow-lg z-50 ">
+                  <div className="absolute mt-2 w-full bg-white rounded-2xl shadow-lg z-50">
                     {[
                       { label: "Newest First", value: "newest" },
                       { label: "Oldest First", value: "oldest" },
@@ -291,10 +277,13 @@ const Blogs = () => {
                       ease: "easeOut",
                     }}
                   >
-                    <Link 
-                      to={`/blog/${blog.slug}`} 
-                      className="absolute inset-0 z-10" 
-                      onClick={(e) => { e.preventDefault(); setActiveBlog(blog); }}
+                    <Link
+                      to={`/blog/${blog.slug}`}
+                      className="absolute inset-0 z-10"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleBlogClick(blog);
+                      }}
                       aria-label={`Read more about ${blog.title}`}
                     ></Link>
                     {isActive && (
@@ -315,7 +304,7 @@ const Blogs = () => {
           </div>
 
           {/* Right Panel */}
-          <div className="lg:w-2/3 bg-white rounded-2xl shadow p-6">
+          <div ref={rightPanelRef} className="lg:w-2/3 bg-white rounded-2xl shadow p-6">
             <AnimatePresence mode="wait">
               {activeBlog && (
                 <motion.div
