@@ -69,11 +69,6 @@
     "status": "301",
     "target": "/"
   },
-    {
-      "source": "/cdn-cgi/l/email-protection",
-      "status": "301",
-      "target": "/"
-    },
   {
     "source": "/2026/01/06/",
     "status": "301",
