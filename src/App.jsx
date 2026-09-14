@@ -107,6 +107,11 @@ const App = () => {
       navigate('/', { replace: true });
       return;
     }
+    // Query string SEO redirect
+  if (location.pathname === '/cdn-cgi/l/email-protection') {
+  navigate('/', { replace: true });
+  return;
+}
 
     // setIsLoading(true);
     // // Show spinner for a short duration while page content gets rendered
