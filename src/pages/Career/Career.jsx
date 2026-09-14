@@ -1,76 +1,76 @@
 // ========== Imports ==========
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   MdSearch,
   MdOutlineBusinessCenter,
   MdFilterList,
   MdLocationOn,
   MdClose,
-} from "react-icons/md";
-import SEO from "../../components/SEO";
+} from 'react-icons/md';
+import SEO from '../../components/SEO';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // ========== Hooks ==========
-import usePageHero from "../../hooks/usePageHero";
+import usePageHero from '../../hooks/usePageHero';
 
 // ========== Components ==========
-import CareerCarousel from "../../components/CareerCarousel";
+import CareerCarousel from '../../components/CareerCarousel';
 
 // ========== Utilities ==========
-import { buildApiUrl } from "../../lib/api";
+import { buildApiUrl } from '../../lib/api';
 
 // ========== Assets ==========
-import banner from "../../assets/careerBanner.webp";
-import popup from "../../assets/careerPopup2.webp"
+import banner from '../../assets/careerBanner.webp';
+import popup from '../../assets/careerPopup2.webp';
 // import popup from "../../assets/careerPopup.webp"
-import makeUsGreat from "../../assets/Our_People_make_us_Great._IN.webp";
-import amazingCulture from "../../assets/Amazing_Culture!_IN.webp";
+import makeUsGreat from '../../assets/Our_People_make_us_Great._IN.webp';
+import amazingCulture from '../../assets/Amazing_Culture!_IN.webp';
 import wereCertified from "../../assets/We're_Certified!_IN.webp";
 
 // ========== Job Types ==========
-const jobTypes = ["Full-time", "Part-time", "Contract", "Remote", "Trainee"];
+const jobTypes = ['Full-time', 'Part-time', 'Contract', 'Remote', 'Trainee'];
 
 // ========== Departments ==========
 const departments = [
-  "All",
-  "Finance",
-  "Engineering",
-  "IT & Software",
-  "Operations",
-  "Sales & Marketing",
-  "Quality Control",
+  'All',
+  'Finance',
+  'Engineering',
+  'IT & Software',
+  'Operations',
+  'Sales & Marketing',
+  'Quality Control',
 ];
 
 const badgeImages = [
-  { src: makeUsGreat, alt: "Our People make us Great" },
-  { src: amazingCulture, alt: "Amazing Culture" },
+  { src: makeUsGreat, alt: 'Our People make us Great' },
+  { src: amazingCulture, alt: 'Amazing Culture' },
   { src: wereCertified, alt: "We're Certified" },
 ];
 
 const isPrerender =
-  typeof navigator !== "undefined" && navigator.userAgent === "ReactSnap";
+  typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
 
 const Career = () => {
   // ========== Hero Content ==========
-  const { heroSrc, heroHeading } = usePageHero("careers", "Careers", banner);
+  const { heroSrc, heroHeading } = usePageHero('careers', 'Careers', banner);
 
   // ========== State ==========
   const [jobsData, setJobsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const [activeDepartment, setActiveDepartment] = useState("All");
+  const [activeDepartment, setActiveDepartment] = useState('All');
 
-  const [activeType, setActiveType] = useState("Full-time");
+  const [activeType, setActiveType] = useState('Full-time');
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   // Popup state (true so it appears automatically when user visits the page, false during prerendering)
   const [showPopup, setShowPopup] = useState(!isPrerender);
-  
-  // Carousel Active Index State (Fixed Reference) 
+
+  // Carousel Active Index State (Fixed Reference)
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // ========== Navigation ==========
@@ -89,13 +89,13 @@ const Career = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get(buildApiUrl("/api/career/jobs"));
+        const res = await axios.get(buildApiUrl('/api/career/jobs'));
 
         if (res.data.success) {
           setJobsData(res.data.data);
         }
       } catch {
-        setErrorMessage("We could not load current openings right now.");
+        setErrorMessage('We could not load current openings right now.');
       } finally {
         setLoading(false);
       }
@@ -103,7 +103,7 @@ const Career = () => {
 
     fetchJobs();
   }, []);
-   const fadeUp = {
+  const fadeUp = {
     hidden: {
       opacity: 0,
       y: 80,
@@ -113,7 +113,7 @@ const Career = () => {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -121,7 +121,7 @@ const Career = () => {
   // ========== Filtered Jobs ==========
   const filteredJobs = jobsData.filter((job) => {
     return (
-      (activeDepartment === "All" || job.department === activeDepartment) &&
+      (activeDepartment === 'All' || job.department === activeDepartment) &&
       job.jobType === activeType &&
       job.title.toLowerCase().includes(search.toLowerCase())
     );
@@ -136,49 +136,48 @@ const Career = () => {
       />
 
       {/* ========== AUTOMATIC POPUP MODAL ========== */}
-            <AnimatePresence>
-              {showPopup && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-                  {/* Click backdrop to close */}
-                  <div
-                    className="absolute inset-0"
-                    onClick={() => setShowPopup(false)}
-                  />
-      
-                  {/* Popup Container */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="relative z-10 max-w-lg w-full flex items-center justify-center"
-                  >
-                    {/* Close (X) Icon Button */}
-                    <button
-                      onClick={() => setShowPopup(false)}
-                      className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition"
-                      aria-label="Close modal"
-                    >
-                      <MdClose className="text-2xl" />
-                    </button>
-      
-                    {/* Popup Image Only */}
-                    <img
-                      src={popup}
-                      alt="Popup Announcement"
-                      className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
-                    />
-                  </motion.div>
-                </div>
-              )}
-            </AnimatePresence>
-      
+      <AnimatePresence>
+        {showPopup && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
+            {/* Click backdrop to close */}
+            <div
+              className="absolute inset-0"
+              onClick={() => setShowPopup(false)}
+            />
+
+            {/* Popup Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative z-10 max-w-lg w-full flex items-center justify-center"
+            >
+              {/* Close (X) Icon Button */}
+              <button
+                onClick={() => setShowPopup(false)}
+                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-[#292c44] hover:bg-gray-100 rounded-full transition"
+                aria-label="Close modal"
+              >
+                <MdClose className="text-2xl" />
+              </button>
+
+              {/* Popup Image Only */}
+              <img
+                src={popup}
+                alt="Popup Announcement"
+                className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+              />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       <section className="w-full font-helvetica bg-[#f8f9fa] font-helvetica">
         {/* HERO */}
         <section className="relative h-[100vh] md:h-[100vh] overflow-hidden">
           {heroSrc &&
-          (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? (
+          (heroSrc.endsWith('.webm') || heroSrc.endsWith('.mp4')) ? (
             <video
               key={heroSrc}
               src={heroSrc}
@@ -190,7 +189,7 @@ const Career = () => {
             />
           ) : (
             <img
-              key={heroSrc || "fallback"}
+              key={heroSrc || 'fallback'}
               src={heroSrc || banner}
               alt="Career Banner"
               className="absolute inset-0 w-full h-full object-cover"
@@ -206,13 +205,13 @@ const Career = () => {
         </section>
 
         {/* ========== WHERE TALENT MEETS OPPORTUNITY SECTION ========== */}
-          <section className="bg-white py-16 md:py-24 border-b border-gray-100">
+        <section className="bg-white py-16 md:py-24 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-6">
             {/* Centered Heading */}
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: '-100px' }}
               variants={fadeUp}
               className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
             >
@@ -232,60 +231,71 @@ const Career = () => {
                 className="space-y-5 text-gray-600 text-base md:text-lg leading-relaxed text-left"
               >
                 <p>
-                  At Renny, our people first culture is the foundation of everything we do. We work like a family built on trust, respect, collaboration, and the belief that every voice deserves to be heard.
+                  At Renny, our people first culture is the foundation of
+                  everything we do. We work like a family built on trust,
+                  respect, collaboration, and the belief that every voice
+                  deserves to be heard.
                 </p>
                 <p>
-                  As a Great Place To Work® Certified organization with 93% employee participation, our workplace reflects the confidence and commitment of our people.
+                  As a Great Place To Work® Certified organization with 93%
+                  employee participation, our workplace reflects the confidence
+                  and commitment of our people.
                 </p>
+                <p>According to LinkedIn’s Cities on the Rise 2026 report, Ludhiana ranks #2 among India’s cities on the rise, reflecting its growing opportunities, dynamic economy, and strong career potential.
+Proudly rooted in Ludhiana, Renny Strips Ltd. is growing alongside the city.
+Here, growth is more than a business goal,it’s an opportunity for our people to grow with us.
+Ludhiana is rising. 
+Renny Strips Ltd. is growing. Your career can rise with us.</p>
                 <p>
-                  Here, you're empowered to learn, grow, lead, and make a meaningful impact.
+                  Here, you're empowered to learn, grow, lead, and make a
+                  meaningful impact.
                 </p>
                 <p className="font-bold text-[#292c44] text-lg pt-2">
-                  Join Renny, where people come first, careers flourish, and the future is built together.
+                  Join Renny, where people come first, careers flourish, and the
+                  future is built together.
                 </p>
               </motion.div>
 
               {/* Right Side: Image Auto Scroller with 3 Dots */}
-              {/* Right Side: Image Auto Scroller with 3 Dots */}
-<motion.div
-  initial={{ opacity: 0, x: 30 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="flex flex-col items-center justify-center w-full"
->
-  {/* Full Coverage Image Slide Container */}
-  <div className="relative w-full max-w-lg aspect-[16/10] bg-gray-50 rounded-3xl border border-gray-100 shadow-md overflow-hidden p-0">
-    <AnimatePresence mode="wait">
-      <motion.img
-        key={currentSlide}
-        src={badgeImages[currentSlide].src}
-        alt={badgeImages[currentSlide].alt}
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 1.02 }}
-        transition={{ duration: 0.4 }}
-        className="w-full h-full object-cover block"
-      />
-    </AnimatePresence>
-  </div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex flex-col items-center justify-center w-full"
+              >
+                {/* Full Coverage Image Slide Container */}
+                <div className="relative w-full max-w-lg aspect-[16/10] bg-gray-50 rounded-3xl border border-gray-100 shadow-md overflow-hidden p-0">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentSlide}
+                      src={badgeImages[currentSlide].src}
+                      alt={badgeImages[currentSlide].alt}
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.02 }}
+                      transition={{ duration: 0.4 }}
+                      className="w-full h-full object-cover block"
+                    />
+                  </AnimatePresence>
+                </div>
 
-  {/* Interactive 3 Dots Navigation */}
-  <div className="flex items-center gap-3 mt-6">
-    {badgeImages.map((_, index) => (
-      <button
-        key={index}
-        onClick={() => setCurrentSlide(index)}
-        className={`h-3 rounded-full transition-all duration-300 ${
-          currentSlide === index
-            ? "w-8 bg-[#292c44]"
-            : "w-3 bg-gray-300 hover:bg-gray-400"
-        }`}
-        aria-label={`Go to slide ${index + 1}`}
-      />
-    ))}
-  </div>
-</motion.div>
+                {/* Interactive 3 Dots Navigation */}
+                <div className="flex items-center gap-3 mt-6">
+                  {badgeImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`h-3 rounded-full transition-all duration-300 ${
+                        currentSlide === index
+                          ? 'w-8 bg-[#292c44]'
+                          : 'w-3 bg-gray-300 hover:bg-gray-400'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -322,8 +332,8 @@ const Career = () => {
                     onClick={() => setActiveDepartment(dept)}
                     className={`text-left px-4 py-2 rounded-lg font-bold text-sm transition ${
                       activeDepartment === dept
-                        ? "bg-[#292c44] text-white"
-                        : "text-gray-500 hover:bg-gray-100"
+                        ? 'bg-[#292c44] text-white'
+                        : 'text-gray-500 hover:bg-gray-100'
                     }`}
                   >
                     {dept}
@@ -343,8 +353,8 @@ const Career = () => {
                     onClick={() => setActiveType(type)}
                     className={`px-4 py-2 rounded-lg text-[11px] font-black uppercase transition ${
                       activeType === type
-                        ? "bg-[#292c44] text-white"
-                        : "text-gray-500 hover:bg-gray-100"
+                        ? 'bg-[#292c44] text-white'
+                        : 'text-gray-500 hover:bg-gray-100'
                     }`}
                   >
                     {type}

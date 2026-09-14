@@ -69,6 +69,11 @@
     "status": "301",
     "target": "/"
   },
+    {
+      "source": "/cdn-cgi/l/email-protection",
+      "status": "301",
+      "target": "/"
+    },
   {
     "source": "/2026/01/06/",
     "status": "301",
@@ -107,7 +112,7 @@
   {
     "source": "/tag/forged-scaffolding-components/",
     "status": "301",
-    "target": "/blog/complete-guide-to-forged-scaffolding-components-for-industrial-projects"
+    "target": "/blog/complete-guide-to-forged-scaffolding-components-for-industrial-projts"
   },
   {
     "source": "/renny-strips-leading-the-future-of-steel-fabrication-forging-2/",
@@ -195,6 +200,36 @@
     "target": "/contact-us"
   },
   {
+    "source": "/wp-content/uploads/2025/09/RENNY-EC-1-MERGER-APPROVAL.pdf",
+    "status": "301",
+    "target": "/RENNY-EC-1-MERGER-APPROVAL.pdf"
+  },
+  {
+    "source": "/terms",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
+    "source": "/cookies",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/privacy-policy",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/wp-content/uploads/2025/09/RENNY-EC-1-MERGER-APPROVAL.pdf",
+    "status": "301",
+    "target": "/RENNY-EC-1-MERGER-APPROVAL.pdf"
+  },
+  {
     "source": "/power-of-renny/",
     "status": "301",
     "target": "/blog"
@@ -255,11 +290,6 @@
     "target": "/"
   },
   {
-    "source": "/shareholders-information/",
-    "status": "301",
-    "target": "/share-holding-pattern"
-  },
-  {
     "source": "/company-overview/",
     "status": "301",
     "target": "/company-overview"
@@ -273,6 +303,91 @@
     "source": "/our-policies/",
     "status": "301",
     "target": "/our-policies"
+  },
+  {
+    "source": "/top-hot-rolled-steel-coil-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/Share-holding-pattern",
+    "status": "301",
+    "target": "/share-holding-pattern"
+  },
+  {
+    "source": "/blog/renny-formwork-accessories-precision-quality-reliability/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/tag/steel-wire-rod-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/tag/hot-rolled-steel-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/category/blog/feed/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/tag/ms-black-round-pipe-manufacturers-company-in-india/",
+    "status": "301",
+    "target": "/blog/top-ms-black-round-pipe-manufacturers-company-in-india-for-reliable-and-durable-steel-solutions"
+  },
+  {
+    "source": "/events/",
+    "status": "301",
+    "target": "/events"
+  },
+  {
+    "source": "/tag/erw-pipe-manufacturer-in-india/",
+    "status": "301",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider"
+  },
+  {
+    "source": "/how-to-choose-the-right-erw-pipe-manufacturer-in-india/",
+    "status": "301",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider"
+  },
+  {
+    "source": "/tag/hot-rolled-steel-coil-production-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/renny-strips-ltd-design-centre-one-of-indias-key-hubs-for-customized-green-steel-solutions/",
+    "status": "301",
+    "target": "/blog/renny-strips-ltd-design-centre-one-of-india-s-key-hubs-for-customized-green-steel-solutions"
+  },
+  {
+    "source": "/tag/hot-rolled-steel-manufacturers-in-india/feed/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/tag/ringlock-scaffolding-manufacturer-in-india/feed/",
+    "status": "301",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india"
+  },
+  {
+    "source": "/tag/trusted-scaffolding-and-formwork-company-in-india/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
+    "source": "/financilas-reports/",
+    "status": "301",
+    "target": "/financials"
+  },
+  {
+    "source": "/tag/hot-rolled-steel-coil-manufacturers-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
   },
   {
     "source": "/kwikstage-scaffolding/",
@@ -420,14 +535,9 @@
     "target": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries"
   },
   {
-    "source": "/Share-holding-pattern/",
-    "status": "301",
-    "target": "/share-holding-pattern"
-  },
-  {
     "source": "/tag/ms-billets/",
     "status": "301",
-    "target": "/tag/ms-billets"
+    "target": "/ms-billets"
   },
   {
     "source": "/tag/narrow-width-hr-coil/",
@@ -530,6 +640,61 @@
     "target": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries"
   },
   {
+    "source": "/tag/renny/",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/tag/scaffolding-formwork-company-in-india/feed/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
+    "source": "/tag/scaffolding-formwork-company-in-india/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
+    "source": "/tag/scaffolding-steel-props-jacks/",
+    "status": "301",
+    "target": "/blog/ultimate-guide-to-scaffolding-steel-props-and-jacks-for-strength-and-safety-in-construction"
+  },
+  {
+    "source": "/tag/green-steel-solutions/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/tag/kwikstage-scaffolding/",
+    "status": "301",
+    "target": "/blog/kwikstage-scaffolding-expert-insights-for-better-construction-performance"
+  },
+  {
+    "source": "/tag/hot-rolled-steel-coil-production-in-india/feed/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/tag/renny-ring-lock/",
+    "status": "301",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india"
+  },
+  {
+    "source": "/tag/gi-rectangular-hollow-section-pipe-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries"
+  },
+  {
+    "source": "/tag/stainless-steel-billets-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/top-steel-billets-manufacturers-in-india-for-quality-supply"
+  },
+  {
+    "source": "/tag/best-scaffolding-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
     "source": "/renny-revolutionizing-the-construction-industry/",
     "status": "301",
     "target": "/blog"
@@ -613,6 +778,156 @@
     "source": "/renny-wire-rods-precision-performance-trust-engineered-for-the-future-of-industry/",
     "status": "301",
     "target": "/blog"
+  },
+  {
+    "source": "/index.php",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/tag/hr-coil-manufacturer-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/renny-formwork-accessories-precision-quality-reliability-2/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/renny-couplers-and-fittings-paving-the-way-for-stronger-safer-sustainable/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/tag/renny-ring-lock-system/",
+    "status": "301",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india"
+  },
+  {
+    "source": "/author/nidhi/",
+    "status": "301",
+    "target": "/blog"
+  },
+  {
+    "source": "/tag/hot-rolled-coil-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength"
+  },
+  {
+    "source": "/tag/manufacturers-of-forging-billets-in-india/",
+    "status": "301",
+    "target": "/blog/renny-forging-billets-precision-engineered-for-performances"
+  },
+  {
+    "source": "/tag/erw-steel-pipe-manufacturers-in-india/",
+    "status": "301",
+    "target": "/blog/erw-steel-pipes-and-tubes-manufacturing-process-standards-raw-materials-finishes-and-application-guide"
+  },
+  {
+    "source": "/tag/ms-wire-rod-manufacturers-in-india/",
+    "status": "301",
+    "target": "/wire-rods"
+  },
+  {
+    "source": "/tag/ringlock-manufacturer-in-india/",
+    "status": "301",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india"
+  },
+  {
+    "source": "/tag/forging-billets-manufacturers/",
+    "status": "301",
+    "target": "/blog/renny-forging-billets-precision-engineered-for-performances"
+  },
+  {
+    "source": "/tag/scaffolding-components/",
+    "status": "301",
+    "target": "/blog/critical-scaffolding-formwork-components-every-construction-project-requires"
+  },
+  {
+    "source": "/tag/wire-rod-manufacturers/",
+    "status": "301",
+    "target": "/wire-rods"
+  },
+  {
+    "source": "/tag/erw-pipe-manufacturer/",
+    "status": "301",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider"
+  },
+  {
+    "source": "/tag/design-centre/",
+    "status": "301",
+    "target": "/design-centre"
+  },
+  {
+    "source": "/tag/formworks/",
+    "status": "301",
+    "target": "/scaffolding-formwork"
+  },
+  {
+    "source": "/building-the-giants-of-the-sea-why-scaffolding-formwork-are-critical-to-modern-shipbuilding/feed/",
+    "status": "301",
+    "target": "/blog/building-the-giants-of-the-sea-why-scaffolding-formwork-are-critical-to-modern-shipbuilding"
+  },
+  {
+    "source": "/choosing-the-right-erw-pipes-is-a-challenging-task-but-renny-offers-an-unparalleled-solution/",
+    "status": "301",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider"
+  },
+  {
+    "source": "/trusted-scaffolding-and-formwork-company-in-india-delivering-safety-and-strength/",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
+  },
+  {
+    "source": "/renny-scaffolding-pipes",
+    "status": "301",
+    "target": "/scaffolding-formwork"
+  },
+  {
+    "source": "/scaffolding-and-",
+    "status": "301",
+    "target": "/scaffolding-formwork"
+  },
+  {
+    "source": "/ms-billets-for-construction-engineering-and-heavy-industrial-use-renny-strips/",
+    "status": "301",
+    "target": "/blog/ms-billets-for-construction-engineering-and-heavy-industrial-use-renny-strips"
+  },
+  {
+    "source": "/feed/",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/cbam/",
+    "status": "301",
+    "target": "/cbam"
+  },
+  {
+    "source": "/cbam",
+    "status": "200",
+    "target": "/cbam/index.html"
+  },
+  {
+    "source": "/wp-content/uploads/2025/06/CBAM-TUV-Rheinland.pdf",
+    "status": "301",
+    "target": "/cbam"
+  },
+  {
+    "source": "/tag/gi-square-hollow-section-pipe-manufacturers/",
+    "status": "301",
+    "target": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries"
+  },
+  {
+    "source": "/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india/",
+    "status": "301",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india"
+  },
+  {
+    "source": "/tag/renny-strips-design-centre/",
+    "status": "301",
+    "target": "/design-centre"
   },
   {
     "source": "/tag/best-scaffolding-company-in-india/",
@@ -765,11 +1080,6 @@
     "target": "/"
   },
   {
-    "source": "/shareholders-information/",
-    "status": "301",
-    "target": "/share-holding-pattern"
-  },
-  {
     "source": "/blog/renny-indias-leading-erw-pipe-manufacturer/",
     "status": "301",
     "target": "/blog"
@@ -813,11 +1123,6 @@
     "source": "/tag/scaffolding/",
     "status": "301",
     "target": "/scaffolding-formwork"
-  },
-  {
-    "source": "/share-holding-pattern/",
-    "status": "301",
-    "target": "/share-holding-pattern"
   },
   {
     "source": "/MS-billets/",
@@ -1012,7 +1317,7 @@
   {
     "source": "/tag/scaffolding-formwork-company-in-india/",
     "status": "301",
-    "target": "/blog/trusted-scaffolding-and-formwork-company-in-india-delivering-safety-and-strength"
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
   },
   {
     "source": "/the-surging-demand-for-sustainable-steel-scaffolding-and-formwork-within-the-construction-and-infrastructure-industry/",
@@ -1089,7 +1394,6 @@
     "status": "301",
     "target": "/ms-billets"
   },
-
   {
     "source": "/timeline",
     "status": "301",
@@ -1134,6 +1438,21 @@
     "source": "/renny-strips-ltd-design-",
     "status": "301",
     "target": "/blog/renny-strips-ltd-design-centre-one-of-india-s-key-hubs-for-customized-green-steel-solutions"
+  },
+  {
+    "source": "/blog/renny-gi-pipes-tubes-engineered-for-india-s-rising-infrastructure-demands",
+    "status": "301",
+    "target": "/blog/what-is-a-gi-pipe-types-uses-and-benefits-explained"
+  },
+  {
+    "source": "/blog/how-to-choose-the-right-erw-pipe-manufacturer-in-india",
+    "status": "301",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider"
+  },
+  {
+    "source": "/blog/trusted-scaffolding-and-formwork-company-in-india-delivering-safety-and-strength",
+    "status": "301",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
   },
   {
     "source": "/india-rising-rennys-role-in-building-a-strong-sustainable-future",
@@ -1706,11 +2025,6 @@
     "target": "/corporate-governance"
   },
   {
-    "source": "/shareholders-information",
-    "status": "301",
-    "target": "/share-holding-pattern"
-  },
-  {
     "source": "/regulation-of-46-of-sebi-lodr",
     "status": "301",
     "target": "/our-policies"
@@ -1848,7 +2162,7 @@
   {
     "source": "/tag/scaffolding-formwork-company-in-india/feed/",
     "status": "301",
-    "target": "/blog/trusted-scaffolding-and-formwork-company-in-india-delivering-safety-and-strength"
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions"
   },
   {
     "source": "/global-trends-in-erw-ms-black-pipes-renny-strips-indias-leading-manufacturer-powering-progress-redefining-structural-excellence",
@@ -1979,6 +2293,31 @@
     "source": "/ipo-audio-visual",
     "status": "200",
     "target": "/ipo-audio-visual/index.html"
+  },
+  {
+    "source": "/shareholders-information/",
+    "status": "301",
+    "target": "/share-holding-pattern"
+  },
+  {
+    "source": "/Share-holding-pattern/",
+    "status": "301",
+    "target": "/share-holding-pattern"
+  },
+  {
+    "source": "/Share-holding-pattern",
+    "status": "301",
+    "target": "/share-holding-pattern"
+  },
+  {
+    "source": "/share-holding-pattern/",
+    "status": "301",
+    "target": "/share-holding-pattern"
+  },
+  {
+    "source": "/shareholders-information",
+    "status": "301",
+    "target": "/share-holding-pattern"
   },
   {
     "source": "/share-holding-pattern",
