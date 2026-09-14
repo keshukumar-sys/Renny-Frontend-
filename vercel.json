@@ -33,6 +33,11 @@
   ],
   "redirects": [
     {
+      "source": "/cdn-cgi/l/email-protection(.*)",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/wire-rods-2",
       "destination": "/wire-rods",
       "statusCode": 301

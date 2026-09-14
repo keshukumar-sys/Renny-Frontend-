@@ -10,6 +10,21 @@
     "target": "/index.html"
   },
   {
+    "source": "/cdn-cgi/l/email-protection",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/cdn-cgi/l/email-protection/",
+    "status": "301",
+    "target": "/"
+  },
+  {
+    "source": "/cdn-cgi/l/email-protection/<*>",
+    "status": "301",
+    "target": "/"
+  },
+  {
     "source": "/wire-rods-2",
     "status": "301",
     "target": "/wire-rods"

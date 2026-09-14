@@ -77,6 +77,10 @@ const App = () => {
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
+    if (window.location.pathname.startsWith('/cdn-cgi/l/email-protection')) {
+      window.location.replace('/');
+      return;
+    }
     const params = new URLSearchParams(window.location.search);
 
     if (params.get('page_id') === '2404') {
@@ -129,6 +133,14 @@ const App = () => {
 
             {/* SEO Redirects */}
             {[
+              {
+                path: '/cdn-cgi/l/email-protection',
+                to: '/',
+              },
+              {
+                path: '/cdn-cgi/l/email-protection/*',
+                to: '/',
+              },
               {
                 path: '/tag/scaffolding-formwork-company-in-india/feed',
                 to: '/blog/trusted-scaffolding-and-formwork-company-in-india-delivering-safety-and-strength',
