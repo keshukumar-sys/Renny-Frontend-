@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Newsletter from '../../components/Newsletter';
@@ -72,15 +72,29 @@ const BlogDetail = () => {
     fetchBlogData();
   }, [slug]);
 
-  if (loading) return (
-    <>
-      <SEO 
-        title="Loading Blog | Renny Strips"
-        url={`https://rennystrips.com/blog/${slug}`} 
-      />
-      <PageSpinner />
-    </>
-  );
+  if (loading) {
+    return (
+      <>
+        <SEO
+          title={blog?.seoTitle || blog?.title || 'Blog | Renny Strips'}
+          description={
+            blog?.seoDescription ||
+            blog?.metaDescription ||
+            blog?.excerpt ||
+            'Explore steel industry insights, manufacturing trends, engineering expertise, and industrial updates from Renny Strips.'
+          }
+          keywords={
+            blog?.seoKeywords ||
+            'Renny Strips blog, steel industry insights, manufacturing trends, industrial articles, engineering blogs'
+          }
+          image={blog?.mainImage}
+          url={`https://rennystrips.com/blog/${slug}`}
+        />
+
+        <PageSpinner />
+      </>
+    );
+  }
   if (!blog)
     return (
       <div className="h-screen flex items-center justify-center font-helvetica">
@@ -315,7 +329,9 @@ const BlogDetail = () => {
                       <figure className="my-8">
                         <img
                           src={section.url || section.image}
-                          alt={section.caption || section.content || 'Blog Image'}
+                          alt={
+                            section.caption || section.content || 'Blog Image'
+                          }
                           className="w-full object-cover rounded-lg shadow-sm"
                         />
                         {(section.caption || section.content) && (
