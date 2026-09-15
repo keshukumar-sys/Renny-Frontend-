@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run sitemap && vite build",
+    "build": "npm run sitemap && npm run rewrites && vite build",
     "postbuild": "react-snap",
     "sitemap": "node scripts/generate-sitemap.mjs",
+    "rewrites": "node scripts/generate-rewrites.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

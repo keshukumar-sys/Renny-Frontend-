@@ -2360,14 +2360,169 @@
     "target": "/blog/index.html"
   },
   {
-    "source": "/blog/<*>",
+    "source": "/blog/green-steel-in-india-complete-guide-to-types-standards-certification-and-benefits",
     "status": "200",
-    "target": "/index.html"
+    "target": "/blog/green-steel-in-india-complete-guide-to-types-standards-certification-and-benefits/index.html"
   },
   {
-    "source": "/careers/<*>",
+    "source": "/blog/structural-steel-testing-methods-every-buyer-should-know",
     "status": "200",
-    "target": "/index.html"
+    "target": "/blog/structural-steel-testing-methods-every-buyer-should-know/index.html"
+  },
+  {
+    "source": "/blog/structural-steel-grades-explained-is-astm-en-standards-compared",
+    "status": "200",
+    "target": "/blog/structural-steel-grades-explained-is-astm-en-standards-compared/index.html"
+  },
+  {
+    "source": "/blog/the-complete-guide-to-structural-steel-manufacturing-in-india-process-grades-standards-2026",
+    "status": "200",
+    "target": "/blog/the-complete-guide-to-structural-steel-manufacturing-in-india-process-grades-standards-2026/index.html"
+  },
+  {
+    "source": "/blog/what-is-wire-rod-meaning-manufacturing-and-uses",
+    "status": "200",
+    "target": "/blog/what-is-wire-rod-meaning-manufacturing-and-uses/index.html"
+  },
+  {
+    "source": "/blog/critical-scaffolding-formwork-components-every-construction-project-requires",
+    "status": "200",
+    "target": "/blog/critical-scaffolding-formwork-components-every-construction-project-requires/index.html"
+  },
+  {
+    "source": "/blog/why-global-buyers-are-looking-for-low-carbon-steel-suppliers",
+    "status": "200",
+    "target": "/blog/why-global-buyers-are-looking-for-low-carbon-steel-suppliers/index.html"
+  },
+  {
+    "source": "/blog/what-is-a-gi-pipe-types-uses-and-benefits-explained",
+    "status": "200",
+    "target": "/blog/what-is-a-gi-pipe-types-uses-and-benefits-explained/index.html"
+  },
+  {
+    "source": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider",
+    "status": "200",
+    "target": "/blog/searching-for-the-best-erw-pipes-manufacturer-in-india-key-factors-to-consider/index.html"
+  },
+  {
+    "source": "/blog/the-growing-demand-for-structural-steel-solutions-in-india-s-infrastructure-boom",
+    "status": "200",
+    "target": "/blog/the-growing-demand-for-structural-steel-solutions-in-india-s-infrastructure-boom/index.html"
+  },
+  {
+    "source": "/blog/ms-black-erw-pipes-applications-benefits-and-key-industries-that-use-them",
+    "status": "200",
+    "target": "/blog/ms-black-erw-pipes-applications-benefits-and-key-industries-that-use-them/index.html"
+  },
+  {
+    "source": "/blog/what-is-cbam-how-the-carbon-border-adjustment-mechanism-will-impact-the-steel-industry",
+    "status": "200",
+    "target": "/blog/what-is-cbam-how-the-carbon-border-adjustment-mechanism-will-impact-the-steel-industry/index.html"
+  },
+  {
+    "source": "/blog/erw-steel-pipes-and-tubes-manufacturing-process-standards-raw-materials-finishes-and-application-guide",
+    "status": "200",
+    "target": "/blog/erw-steel-pipes-and-tubes-manufacturing-process-standards-raw-materials-finishes-and-application-guide/index.html"
+  },
+  {
+    "source": "/blog/the-complete-guide-to-scaffolding-and-formwork-systems-applications-safety-and-buying-tips",
+    "status": "200",
+    "target": "/blog/the-complete-guide-to-scaffolding-and-formwork-systems-applications-safety-and-buying-tips/index.html"
+  },
+  {
+    "source": "/blog/top-steel-pipe-manufacturing-company-in-india-for-high-quality-and-reliable-industrial-solutions",
+    "status": "200",
+    "target": "/blog/top-steel-pipe-manufacturing-company-in-india-for-high-quality-and-reliable-industrial-solutions/index.html"
+  },
+  {
+    "source": "/blog/top-ms-black-round-pipe-manufacturers-company-in-india-for-reliable-and-durable-steel-solutions",
+    "status": "200",
+    "target": "/blog/top-ms-black-round-pipe-manufacturers-company-in-india-for-reliable-and-durable-steel-solutions/index.html"
+  },
+  {
+    "source": "/blog/top-steel-billets-manufacturers-in-india-for-quality-supply",
+    "status": "200",
+    "target": "/blog/top-steel-billets-manufacturers-in-india-for-quality-supply/index.html"
+  },
+  {
+    "source": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength",
+    "status": "200",
+    "target": "/blog/top-hot-rolled-coil-manufacturers-in-india-for-consistent-quality-and-industrial-strength/index.html"
+  },
+  {
+    "source": "/blog/ms-billets-for-construction-engineering-and-heavy-industrial-use-renny-strips",
+    "status": "200",
+    "target": "/blog/ms-billets-for-construction-engineering-and-heavy-industrial-use-renny-strips/index.html"
+  },
+  {
+    "source": "/blog/renny-combi-plates-for-heavy-duty-formwork-performance",
+    "status": "200",
+    "target": "/blog/renny-combi-plates-for-heavy-duty-formwork-performance/index.html"
+  },
+  {
+    "source": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions",
+    "status": "200",
+    "target": "/blog/best-scaffolding-manufacturers-in-india-for-safe-and-high-performance-construction-solutions/index.html"
+  },
+  {
+    "source": "/blog/building-the-giants-of-the-sea-why-scaffolding-formwork-are-critical-to-modern-shipbuilding",
+    "status": "200",
+    "target": "/blog/building-the-giants-of-the-sea-why-scaffolding-formwork-are-critical-to-modern-shipbuilding/index.html"
+  },
+  {
+    "source": "/blog/complete-guide-to-forged-scaffolding-components-for-industrial-projects",
+    "status": "200",
+    "target": "/blog/complete-guide-to-forged-scaffolding-components-for-industrial-projects/index.html"
+  },
+  {
+    "source": "/blog/narrow-width-hr-coil-uses-benefits-applications-across-industries",
+    "status": "200",
+    "target": "/blog/narrow-width-hr-coil-uses-benefits-applications-across-industries/index.html"
+  },
+  {
+    "source": "/blog/india-rising-renny-s-role-in-building-a-strong-sustainable-future",
+    "status": "200",
+    "target": "/blog/india-rising-renny-s-role-in-building-a-strong-sustainable-future/index.html"
+  },
+  {
+    "source": "/blog/renny-strips-ltd-design-centre-one-of-india-s-key-hubs-for-customized-green-steel-solutions",
+    "status": "200",
+    "target": "/blog/renny-strips-ltd-design-centre-one-of-india-s-key-hubs-for-customized-green-steel-solutions/index.html"
+  },
+  {
+    "source": "/blog/renny-forging-billets-precision-engineered-for-performances",
+    "status": "200",
+    "target": "/blog/renny-forging-billets-precision-engineered-for-performances/index.html"
+  },
+  {
+    "source": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries",
+    "status": "200",
+    "target": "/blog/gi-square-hollow-pipe-manufacturers-in-india-providing-durable-solutions-for-industries/index.html"
+  },
+  {
+    "source": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india",
+    "status": "200",
+    "target": "/blog/top-qualities-to-look-for-in-a-reliable-ringlock-scaffolding-manufacturer-in-india/index.html"
+  },
+  {
+    "source": "/blog/explore-the-leading-wire-rod-manufacturers-in-india-for-superior-industrial-applications",
+    "status": "200",
+    "target": "/blog/explore-the-leading-wire-rod-manufacturers-in-india-for-superior-industrial-applications/index.html"
+  },
+  {
+    "source": "/blog/ultimate-guide-to-scaffolding-steel-props-and-jacks-for-strength-and-safety-in-construction",
+    "status": "200",
+    "target": "/blog/ultimate-guide-to-scaffolding-steel-props-and-jacks-for-strength-and-safety-in-construction/index.html"
+  },
+  {
+    "source": "/blog/scaffolding-and-formworks-frames-innovations-driving-faster-and-safer-building",
+    "status": "200",
+    "target": "/blog/scaffolding-and-formworks-frames-innovations-driving-faster-and-safer-building/index.html"
+  },
+  {
+    "source": "/blog/kwikstage-scaffolding-expert-insights-for-better-construction-performance",
+    "status": "200",
+    "target": "/blog/kwikstage-scaffolding-expert-insights-for-better-construction-performance/index.html"
   },
   {
     "source": "/contact-us/thank-you",
