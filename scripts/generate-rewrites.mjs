@@ -15,7 +15,7 @@ if (!fs.existsSync(rewritesPath)) {
 }
 
 const envPath = path.join(process.cwd(), ".env");
-let viteApiUrl = "https://api.rennystrips.com";
+let viteApiUrl = process.env.VITE_API_URL || "https://renny-backend.onrender.com";
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, "utf8");
   const match = envContent.match(/^\s*VITE_API_URL\s*=\s*([^\s#]+)/m);

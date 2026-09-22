@@ -4,7 +4,7 @@ const getApiUrl = () => {
     return envUrl.replace(/\/$/, "");
   }
   // Fallback to production API if env var is missing or 'undefined' string
-  return "https://api.rennystrips.com";
+  return "https://renny-backend.onrender.com";
 };
 
 export const API_BASE_URL = getApiUrl();
