@@ -17,6 +17,7 @@ import NotFound from './pages/NotFound.jsx';
 import Thankyou from './pages/Thankyou.jsx';
 import GreenSteel from './pages/Sustainability/GreenSteel.jsx';
 import ScaffoldingBrochure from './pages/ScaffoldingBrochure.jsx';
+import CatelogDownload from './components/CatelogDownload.jsx';
 // import CBAM from "./pages/Sustainability/CBAM.jsx";
 
 /* ── Pages ── */
@@ -264,7 +265,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
             <Route path="/thank-you" element={<Thankyou />} />
             <Route path="/:slug/thank-you" element={<Thankyou />} />
-            <Route path="/catelogue-download" element={<ComingSoon />} />
+            <Route path="/catelog-download" element={<CatelogDownload/> } />
             <Route path="/scaffolding-brochure" element={<ScaffoldingBrochure />} />
           </Routes>
           <Parallax />
