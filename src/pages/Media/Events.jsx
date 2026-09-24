@@ -56,6 +56,26 @@ const Events = () => {
   const { heroSrc, heroHeading } = usePageHero("events", "Events", banner);
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedYear, setSelectedYear] = useState("all");
+
+  const getEventDate = (event) => {
+    const dateValue = String(event.date || "");
+    const timestamp = new Date(dateValue).getTime();
+    if (!Number.isNaN(timestamp)) return timestamp;
+
+    const dayMonthYear = dateValue.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$/);
+    if (!dayMonthYear) return 0;
+
+    const [, day, month, year] = dayMonthYear;
+    return Date.UTC(Number(year), Number(month) - 1, Number(day));
+  };
+
+  const getEventYear = (event) => {
+    const timestamp = getEventDate(event);
+    if (timestamp) return new Date(timestamp).getUTCFullYear();
+
+    return String(event.date || "").match(/\b(\d{4})\b/)?.[1] || null;
+  };
 
   // Banner parallax
   const { scrollYProgress } = useScroll();
@@ -89,6 +109,18 @@ const Events = () => {
 
     fetchEvents();
   }, []);
+
+  const years = [...new Set(eventsData.map(getEventYear).filter(Boolean))].sort(
+    (firstYear, secondYear) => Number(secondYear) - Number(firstYear),
+  );
+  const visibleEvents = eventsData
+    .filter(
+      (event) =>
+        selectedYear === "all" || String(getEventYear(event)) === selectedYear,
+    )
+    .sort((firstEvent, secondEvent) =>
+      getEventDate(secondEvent) - getEventDate(firstEvent),
+    );
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -207,8 +239,26 @@ const Events = () => {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto px-6 py-24"
         >
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-10">
+            <h2 className="text-2xl font-bold">Events</h2>
+            <label className="flex items-center gap-3 text-sm font-medium text-gray-700">
+              <span>Filter by year</span>
+              <select
+                value={selectedYear}
+                onChange={(event) => setSelectedYear(event.target.value)}
+                className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-gray-900 focus:outline-none"
+              >
+                <option value="all">All years</option>
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {eventsData.map((event) => (
+            {visibleEvents.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
