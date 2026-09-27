@@ -13,7 +13,7 @@ const staticRoutes = [];
 
 if (fs.existsSync(appFile)) {
   const content = fs.readFileSync(appFile, "utf8");
-  const routeRegex = /<Route\s+path="([^"]+)"/g;
+const routeRegex = /<Route[\s\S]*?path="([^"]+)"/g;
   let match;
 
   while ((match = routeRegex.exec(content))) {

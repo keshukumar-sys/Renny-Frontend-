@@ -3,8 +3,8 @@ import { buildApiUrl } from '../lib/api';
 import SEO from '../components/SEO';
 
 const CatelogDownload = () => {
-  const pdfUrl =
-    'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/Product+Brochur-01+-+Final-flap+page.pdf';
+const pdfUrl =
+  "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/Product+Brochur-01+-+Final-flap+page.pdf";
 
   // Form input state
   const [formData, setFormData] = useState({

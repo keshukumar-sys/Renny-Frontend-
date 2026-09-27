@@ -53,6 +53,10 @@
     "source": "dist",
     "inlineCss": false,
     "waitFor": 5000,
+    "include": [
+      "/catelog-download",
+      "/scaffolding-brochure"
+    ],
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox",
