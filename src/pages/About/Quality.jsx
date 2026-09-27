@@ -5,67 +5,155 @@ import React, {
   useRef,
   useCallback,
   useMemo,
-} from "react";
-import SEO from "../../components/SEO";
-import { motion, AnimatePresence } from "framer-motion";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import axios from "axios";
+} from 'react';
+import SEO from '../../components/SEO';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import axios from 'axios';
 
 // ========== Hooks ==========
-import usePageHero from "../../hooks/usePageHero";
+import usePageHero from '../../hooks/usePageHero';
 
 // ========== Components ==========
-import CertificateCard from "../../components/CertificateCard";
+import CertificateCard from '../../components/CertificateCard';
 
 // ========== Utilities ==========
-import { buildApiUrl } from "../../lib/api";
+import { buildApiUrl } from '../../lib/api';
 
 // ========== Assets ==========
-import qualityBanner from "../../assets/quality.webp";
-import qualityImage from "../../assets/Quality-Section-1.webp";
-import bgImage from "../../assets/Quality-Background.webp";
+import qualityBanner from '../../assets/quality.webp';
+import qualityImage from '../../assets/Quality-Section-1.webp';
+import bgImage from '../../assets/Quality-Background.webp';
 
-import img1 from "../../assets/Quality-Section-1.webp";
-import img2 from "../../assets/Quality-Section-1.webp";
-import img3 from "../../assets/Quality-Section-1.webp";
+import img1 from '../../assets/Quality-Section-1.webp';
+import img2 from '../../assets/Quality-Section-1.webp';
+import img3 from '../../assets/Quality-Section-1.webp';
+import cert1 from '../../assets/Certificate - Conformity of the Factory Production Control – EN 1090 22018.webp';
+import cert2 from '../../assets/Certificate - Welding Certificate –  EN 1090 22018.webp';
+import cert3 from '../../assets/Certificate - BIS Certification – IS 11612014.webp';
+import cert4 from '../../assets/Certificate -  BIS Certification –  IS 11612014(2).webp';
+import cert5 from '../../assets/Certificate - BIS Certification – IS 36012006.webp';
+import cert6 from '../../assets/Certificate - BIS Certification – IS 49232017.webp';
+import cert7 from '../../assets/Certificate - BIS Certification – IS 185732024.webp';
+import cert8 from '../../assets/Certificate - BIS Certification – IS 1239Part 12004.webp';
+import cert9 from '../../assets/Certificate - BIS Certification – IS 2011.webp';
+import cert10 from '../../assets/Certificate - BIS Certification – IS 78871992.webp';
+import cert11 from '../../assets/Certificate - BIS Certification – IS 107482004.webp';
+import cert12 from '../../assets/Certificate - BIS Certification – IS 28302012.webp';
+import cert13 from '../../assets/Certificate - Certificate of Inspection of Welding Process.webp';
+import cert14 from '../../assets/Certificate - ISO 90012015.webp';
+import iconMiddle from '../../assets/Icon-Middle.webp';
 
-import iconMiddle from "../../assets/Icon-Middle.webp";
+import icon1 from '../../assets/Icon-1.webp';
+import icon2 from '../../assets/Icon-2.webp';
+import icon3 from '../../assets/Icon-3.webp';
+import icon4 from '../../assets/Icon-4.webp';
+import icon5 from '../../assets/Icon-5.webp';
 
-import icon1 from "../../assets/Icon-1.webp";
-import icon2 from "../../assets/Icon-2.webp";
-import icon3 from "../../assets/Icon-3.webp";
-import icon4 from "../../assets/Icon-4.webp";
-import icon5 from "../../assets/Icon-5.webp";
+// ========== Hardcoded Certificates Data (replaces backend fetch) ==========
+const hardcodedCertificates = [
+  {
+    _id: 'cert-1',
+    title: 'Conformity of the Factory Production Control – EN 1090-2:2018',
+    img: cert1,
+  },
+  {
+    _id: 'cert-2',
+    title: 'Welding Certificate – EN 1090-2:2018',
+    img: cert2,
+  },
+  {
+    _id: 'cert-3',
+    title: 'BIS Certification – IS 1161:2014',
+    img: cert3,
+  },
+  {
+    _id: 'cert-4',
+    title: 'BIS Certification – IS 1161:2014',
+    img: cert4,
+  },
+  {
+    _id: 'cert-5',
+    title: 'BIS Certification – IS 3601:2006',
+    img: cert5,
+  },
+  {
+    _id: 'cert-6',
+    title: 'BIS Certification – IS 4923:2017',
+    img: cert6,
+  },
+  {
+    _id: 'cert-7',
+    title: 'BIS Certification – IS 18573:2024',
+    img: cert7,
+  },
+  {
+    _id: 'cert-8',
+    title: 'BIS Certification – IS 1239: Part 1:2004',
+    img: cert8,
+  },
+  {
+    _id: 'cert-9',
+    title: 'BIS Certification – IS 2011',
+    img: cert9,
+  },
+  {
+    _id: 'cert-10',
+    title: 'BIS Certification – IS 7887:1992',
+    img: cert10,
+  },
+  {
+    _id: 'cert-11',
+    title: 'BIS Certification – IS 10748:2004',
+    img: cert11,
+  },
+  {
+    _id: 'cert-12',
+    title: 'BIS Certification – IS 2830:2012',
+    img: cert12,
+  },
+  {
+    _id: 'cert-13',
+    title: 'Certificate of Inspection of Welding Process',
+    img: cert13,
+  },
+  {
+    _id: 'cert-14',
+    title: 'ISO 9001:2015',
+    img: cert14,
+  },
+];
 
 const Quality = () => {
   // ========== Hero Content ==========
   const { heroSrc, heroHeading } = usePageHero(
-    "quality-standard",
-    "Quality",
-    qualityBanner,
+    'quality-standard',
+    'Quality',
+    qualityBanner
   );
 
   // ========== Backend State ==========
-  const [certificates, setCertificates] = useState([]);
+  // const [certificates, setCertificates] = useState([]);
+  const [certificates] = useState(hardcodedCertificates); // hardcoded, backend fetch disabled
   const [serverSpecifications, setServerSpecifications] = useState([]);
 
   // ========== API Configuration ==========
-  const CMS_API = useMemo(() => buildApiUrl("/api/certificates"), []);
+  // const CMS_API = useMemo(() => buildApiUrl("/api/certificates"), []);
 
-  const SPEC_API = useMemo(() => buildApiUrl("/api/specifications"), []);
+  const SPEC_API = useMemo(() => buildApiUrl('/api/specifications'), []);
 
-  // ========== Fetch Certificates ==========
-  const fetchCertificates = useCallback(async () => {
-    try {
-      const res = await axios.get(CMS_API);
-
-      if (res.data.success) {
-        setCertificates(res.data.data);
-      }
-    } catch (err) {
-      console.error("Error fetching certificates:", err);
-    }
-  }, [CMS_API]);
+  // ========== Fetch Certificates (disabled — using hardcoded data) ==========
+  // const fetchCertificates = useCallback(async () => {
+  //   try {
+  //     const res = await axios.get(CMS_API);
+  //
+  //     if (res.data.success) {
+  //       setCertificates(res.data.data);
+  //     }
+  //   } catch (err) {
+  //     console.error("Error fetching certificates:", err);
+  //   }
+  // }, [CMS_API]);
 
   // ========== Fetch Specifications ==========
   const fetchSpecifications = useCallback(async () => {
@@ -80,7 +168,7 @@ const Quality = () => {
         }
       }
     } catch (err) {
-      console.error("Error fetching specifications:", err.message);
+      console.error('Error fetching specifications:', err.message);
     }
   }, [SPEC_API]);
 
@@ -94,7 +182,7 @@ const Quality = () => {
 
       transition: {
         duration: 1,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     },
   };
@@ -114,54 +202,54 @@ const Quality = () => {
 
   // ========== Initial Data Load ==========
   useEffect(() => {
-    fetchCertificates();
+    // fetchCertificates(); // disabled — using hardcoded data
     fetchSpecifications();
-  }, [fetchCertificates, fetchSpecifications]);
+  }, [fetchSpecifications]);
 
   // ========== Specifications Data ==========
   const specificationsData = [
     {
       image: img1,
 
-      title: "Specifications",
+      title: 'Specifications',
 
-      subtitle: "Advanced Testing Infrastructure",
+      subtitle: 'Advanced Testing Infrastructure',
 
       points: [
-        "Spectrometers for chemical composition analysis",
-        "Universal Testing Machines (UTM) for tensile, yield & elongation tests",
-        "Brinell & Rockwell hardness testers for hardness evaluation",
-        "Coating thickness meters for surface coating uniformity",
+        'Spectrometers for chemical composition analysis',
+        'Universal Testing Machines (UTM) for tensile, yield & elongation tests',
+        'Brinell & Rockwell hardness testers for hardness evaluation',
+        'Coating thickness meters for surface coating uniformity',
       ],
     },
 
     {
       image: img2,
 
-      title: "Specifications",
+      title: 'Specifications',
 
-      subtitle: "Precision Dimensional Testing",
+      subtitle: 'Precision Dimensional Testing',
 
       points: [
-        "Micrometers, verniers & height gauges for dimensional accuracy",
-        "Hydrostatic pressure testing machines for tube integrity validation",
-        "GO/NO-GO gauges for scaffolding & formwork threads",
-        "Eliminates on-site mismatch issues with precise tolerance control",
+        'Micrometers, verniers & height gauges for dimensional accuracy',
+        'Hydrostatic pressure testing machines for tube integrity validation',
+        'GO/NO-GO gauges for scaffolding & formwork threads',
+        'Eliminates on-site mismatch issues with precise tolerance control',
       ],
     },
 
     {
       image: img3,
 
-      title: "Specifications",
+      title: 'Specifications',
 
-      subtitle: "Weld Quality Assurance",
+      subtitle: 'Weld Quality Assurance',
 
       points: [
-        "Dye penetrant testing for surface defect detection",
-        "Ultrasonic testing for internal & sub-surface flaw identification",
-        "Certified welding procedures ensure structural reliability",
-        "Meets international performance standards under dynamic load",
+        'Dye penetrant testing for surface defect detection',
+        'Ultrasonic testing for internal & sub-surface flaw identification',
+        'Certified welding procedures ensure structural reliability',
+        'Meets international performance standards under dynamic load',
       ],
     },
   ];
@@ -171,7 +259,7 @@ const Quality = () => {
     ...serverSpecifications,
 
     ...specificationsData.filter(
-      (h) => !serverSpecifications.some((s) => s.subtitle === h.subtitle),
+      (h) => !serverSpecifications.some((s) => s.subtitle === h.subtitle)
     ),
   ].sort((a, b) => (a.order || 0) - (b.order || 0));
 
@@ -207,9 +295,9 @@ const Quality = () => {
     const scrollAmount = sliderRef.current.offsetWidth * 0.8;
 
     sliderRef.current.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
 
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
   return (
@@ -230,7 +318,7 @@ const Quality = () => {
           className="relative h-[100vh] w-full overflow-hidden mb-10"
         >
           {heroSrc &&
-          (heroSrc.endsWith(".webm") || heroSrc.endsWith(".mp4")) ? (
+          (heroSrc.endsWith('.webm') || heroSrc.endsWith('.mp4')) ? (
             <video
               key={heroSrc}
               src={heroSrc}
@@ -242,8 +330,8 @@ const Quality = () => {
             />
           ) : (
             <img
-              key={heroSrc || "fallback"}
-              src={heroSrc || ""}
+              key={heroSrc || 'fallback'}
+              src={heroSrc || ''}
               alt="Hero Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -297,7 +385,7 @@ const Quality = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
               className="my-10"
             >
               <img
@@ -367,7 +455,11 @@ const Quality = () => {
                   transition={{ duration: 0.6 }}
                   className="flex gap-6"
                 >
-                  <img src={icon1} alt="Quality Certifications img" className="w-14 h-14" />
+                  <img
+                    src={icon1}
+                    alt="Quality Certifications img"
+                    className="w-14 h-14"
+                  />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Global Quality Certifications
@@ -416,7 +508,7 @@ const Quality = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  transition={{ duration: 0.7, ease: 'easeOut' }}
                   className="flex gap-6"
                 />
 
@@ -534,7 +626,7 @@ const Quality = () => {
                         key={i}
                         onClick={() => setActiveIndex(i)}
                         className={`w-3 h-3 rounded-full ${
-                          activeIndex === i ? "bg-white" : "bg-gray-400/60"
+                          activeIndex === i ? 'bg-white' : 'bg-gray-400/60'
                         }`}
                       />
                     ))}
@@ -550,7 +642,7 @@ const Quality = () => {
                   initial={{ opacity: 0, x: 60 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -60 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
                   {/* Heading */}
                   <motion.h2
@@ -595,11 +687,11 @@ const Quality = () => {
                             hidden: { opacity: 0, x: 30 },
                             visible: { opacity: 1, x: 0 },
                           }}
-                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          transition={{ duration: 0.4, ease: 'easeOut' }}
                         >
                           • {item}
                         </motion.li>
-                      ),
+                      )
                     )}
                   </motion.ul>
                 </motion.div>
@@ -625,7 +717,7 @@ const Quality = () => {
             <div className="relative pt-2">
               {/* Left Arrow */}
               <button
-                onClick={() => scroll("left")}
+                onClick={() => scroll('left')}
                 className="absolute -left-4 top-1/2 -translate-y-1/2 z-10
                        bg-white shadow-md rounded-full p-2
                        hover:bg-gray-100 transition"
@@ -636,7 +728,7 @@ const Quality = () => {
 
               {/* Right Arrow */}
               <button
-                onClick={() => scroll("right")}
+                onClick={() => scroll('right')}
                 className="absolute -right-4 top-1/2 -translate-y-1/2 z-10
                        bg-white shadow-md rounded-full p-2
                        hover:bg-gray-100 transition"

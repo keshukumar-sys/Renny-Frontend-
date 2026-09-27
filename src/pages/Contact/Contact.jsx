@@ -82,17 +82,17 @@ const Contact = () => {
   };
 
   // ========== Fetch Plants ==========
-  const fetchPlants = async () => {
-    try {
-      const res = await axios.get(buildApiUrl("/api/plants"));
-      const data = res.data?.data || res.data;
-      if (Array.isArray(data)) {
-        setServerPlants(data);
-      }
-    } catch {
-      setPageError("Some location details are temporarily unavailable.");
-    }
-  };
+  // const fetchPlants = async () => {
+  //   try {
+  //     const res = await axios.get(buildApiUrl("/api/plants"));
+  //     const data = res.data?.data || res.data;
+  //     if (Array.isArray(data)) {
+  //       setServerPlants(data);
+  //     }
+  //   } catch {
+  //     setPageError("Some location details are temporarily unavailable.");
+  //   }
+  // };
 
   // ========== Fetch Contact Info ==========
   const fetchContactInfo = async () => {
@@ -108,7 +108,7 @@ const Contact = () => {
 
   // ========== Initial Data Load ==========
   useEffect(() => {
-    fetchPlants();
+    // fetchPlants();
     fetchContactInfo();
   }, []);
 
