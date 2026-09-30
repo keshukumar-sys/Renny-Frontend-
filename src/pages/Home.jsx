@@ -52,7 +52,7 @@ import { MdClose } from 'react-icons/md';
 // import MockData
 import latestNews from '../data/latestNews.json';
 import latestBlogs from '../data/latestBlogs.json';
-
+import NewSections from "../components/NewSections"
 // import SustainabilitySlider from '../components/SustainabilitySlider';
 // import MapPage from './MapPage';
 import { buildApiUrl } from '../lib/api';
@@ -332,6 +332,7 @@ const Home = () => {
 
         {/* 3. Our Products Section */}
         <ProductsSection />
+        <NewSections/>
         {/* 4. Our Network Section */}
         <NetworkSection
           // inView={inView}
