@@ -1,5 +1,13 @@
+# customHttp.yml (Amplify custom headers)
+# Amplify applies EVERY matching rule and merges the headers, so the security
+# headers only need to live in one '**' block. The old '/' and '/index.html'
+# blocks duplicated it and had drifted out of sync.
 customHeaders:
-  - pattern: '/assets/*'
+
+  # ---------------------------------------------------------------------------
+  # Caching: fingerprinted (hashed) build assets can be cached "forever"
+  # ---------------------------------------------------------------------------
+  - pattern: '/assets/**'   # '**' also covers nested folders under /assets
     headers:
       - key: 'Cache-Control'
         value: 'public, max-age=31536000, immutable'
@@ -19,48 +27,21 @@ customHeaders:
       - key: 'Cache-Control'
         value: 'public, max-age=31536000, immutable'
 
-  - pattern: '**'
-    headers:
-      - key: 'X-Frame-Options'
-        value: 'SAMEORIGIN'
-
-      - key: 'Referrer-Policy'
-        value: 'strict-origin-when-cross-origin'
-
-      - key: 'X-Content-Type-Options'
-        value: 'nosniff'
-
-      - key: 'Cross-Origin-Opener-Policy'
-        value: 'same-origin-allow-popups'
-
-      - key: 'Cross-Origin-Resource-Policy'
-        value: 'cross-origin'
-
-      - key: 'Content-Security-Policy'
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://www.google.com https://www.gstatic.com https://scripts.clarity.ms https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://https://renny-backend.onrender.comhttps://renny-backend.onrender.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://tagassistant.google.com wss://*.googletagmanager.com https://*.clarity.ms; frame-src 'self' https://www.googletagmanager.com https://www.google.com https://tagassistant.google.com; media-src 'self' https://renny-assets-storage.s3.ap-south-1.amazonaws.com; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
-
-  - pattern: '/'
-    headers:
-      - key: 'X-Frame-Options'
-        value: 'SAMEORIGIN'
-
-      - key: 'Referrer-Policy'
-        value: 'strict-origin-when-cross-origin'
-
-      - key: 'X-Content-Type-Options'
-        value: 'nosniff'
-
-      - key: 'Cross-Origin-Opener-Policy'
-        value: 'same-origin-allow-popups'
-
-      - key: 'Cross-Origin-Resource-Policy'
-        value: 'cross-origin'
-
-      - key: 'Content-Security-Policy'
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://www.google.com https://www.gstatic.com https://scripts.clarity.ms https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://https://renny-backend.onrender.comhttps://renny-backend.onrender.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://tagassistant.google.com wss://*.googletagmanager.com https://*.clarity.ms; frame-src 'self' https://www.googletagmanager.com https://www.google.com https://tagassistant.google.com; media-src 'self' https://renny-assets-storage.s3.ap-south-1.amazonaws.com; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
-
+  # index.html must always revalidate, otherwise users keep an old shell that
+  # points at deleted hashed bundles after a deploy (blank page / chunk errors).
   - pattern: '/index.html'
     headers:
+      - key: 'Cache-Control'
+        value: 'public, max-age=0, must-revalidate'
+
+  # ---------------------------------------------------------------------------
+  # Security headers (single source of truth for every path)
+  # ---------------------------------------------------------------------------
+  - pattern: '**'
+    headers:
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=31536000; includeSubDomains'
+
       - key: 'X-Frame-Options'
         value: 'SAMEORIGIN'
 
@@ -77,4 +58,4 @@ customHeaders:
         value: 'cross-origin'
 
       - key: 'Content-Security-Policy'
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://www.google.com https://www.gstatic.com https://scripts.clarity.ms https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://https://renny-backend.onrender.comhttps://renny-backend.onrender.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://tagassistant.google.com wss://*.googletagmanager.com https://*.clarity.ms; frame-src 'self' https://www.googletagmanager.com https://www.google.com https://tagassistant.google.com; media-src 'self' https://renny-assets-storage.s3.ap-south-1.amazonaws.com; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://www.google.com https://www.gstatic.com https://scripts.clarity.ms https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self' https://api.rennystrips.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://www.googletagmanager.com https://*.googletagmanager.com https://tagassistant.google.com wss://*.googletagmanager.com https://*.clarity.ms https://cloudflareinsights.com https://www.google.com; frame-src 'self' https://www.googletagmanager.com https://www.google.com https://tagassistant.google.com; media-src 'self' https://renny-assets-storage.s3.ap-south-1.amazonaws.com; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
