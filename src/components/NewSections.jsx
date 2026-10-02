@@ -461,7 +461,7 @@ const NewSections = () => {
         <div className="absolute inset-0">
           <img
             src={BGimg}
-            alt=""
+            alt="Why Choose Renny Strips Limited"
             aria-hidden="true"
             className="w-full h-full object-cover"
           />
