@@ -502,7 +502,7 @@ const NewSections = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            Why India's Global Companies Choose
+            Why Global Companies Choose
             <br className="hidden sm:block" />
             <span className="text-[#6a7282]"> Renny Strips Limited</span>
             <div className="w-36 mt-4 sm:w-48 md:w-100 h-0.5 bg-blue mx-auto rounded-full" />
