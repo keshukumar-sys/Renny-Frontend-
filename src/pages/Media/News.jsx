@@ -291,13 +291,13 @@ const News = () => {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center  text-center"
               >
                 <motion.img
                   variants={scaleFade}
                   src={activeNews.img}
                   alt={activeNews.title}
-                  className="w-72 h-72 object-cover rounded-2xl mb-6"
+                  className="w-72 h-72 object-contain rounded-2xl mb-6"
                 />
 
                 <motion.h2

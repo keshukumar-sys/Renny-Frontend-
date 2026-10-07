@@ -1028,7 +1028,7 @@ const NewsSection = React.memo(
                       width={256}
                       height={256}
                       className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-contain rounded-2xl mb-4 sm:mb-6 shadow-sm"
-                    />
+                    /> 
 
                     <motion.h2
                       variants={fadeUp}
