@@ -220,7 +220,7 @@ const BlogDetail = () => {
           </aside>
 
           {/* MIDDLE: Main Content */}
-          <main className="w-full lg:w-3/5">
+          <article className="w-full lg:w-3/5">
             {blog.excerpt && (
               <p className="mb-8 leading-relaxed text-lg md:text-xl text-gray-800 italic border-l-4 border-blue-900 pl-4">
                 {blog.excerpt}
@@ -519,7 +519,7 @@ const BlogDetail = () => {
                 </div>
               </div>
             </div>
-          </main>
+          </article>
 
           {/* RIGHT SIDE */}
           <aside className="w-full lg:w-1/4 xl:w-1/5 static lg:sticky top-24 self-start">

@@ -59,7 +59,7 @@ const CBAM = lazy(() => import('./pages/Sustainability/CBAM.jsx'));
 /* Media */
 const News = lazy(() => import('./pages/Media/News'));
 const Blogs = lazy(() => import('./pages/Media/Blogs'));
-const BlogDetail = lazy(() => import('./pages/Media/BlogDetail'));
+import BlogDetail from './pages/Media/BlogDetail';
 const Events = lazy(() => import('./pages/Media/Events'));
 
 /* Career */
