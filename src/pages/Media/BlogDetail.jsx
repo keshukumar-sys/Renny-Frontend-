@@ -32,14 +32,48 @@ const validateSchema = (schema) => {
   }
 };
 
+const getInitialBlog = (slug) => {
+  if (typeof window !== 'undefined') {
+    const el = document.getElementById('__BLOG_INITIAL_DATA__');
+    if (el && el.textContent) {
+      try {
+        const data = JSON.parse(el.textContent);
+        if (data && data.slug === slug) {
+          return data;
+        }
+      } catch (e) {
+        console.error('Failed to parse __BLOG_INITIAL_DATA__', e);
+      }
+    }
+  }
+  return null;
+};
+
 const BlogDetail = () => {
   const { slug } = useParams();
-  const [blog, setBlog] = useState(null);
+  const initialBlog = getInitialBlog(slug);
+  const [blog, setBlog] = useState(initialBlog);
   const [relatedBlogs, setRelatedBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => !initialBlog);
   const [openRelatedIndex, setOpenRelatedIndex] = useState(null);
 
   useEffect(() => {
+    // If the blog in state already matches current slug (e.g. from prerendered initial data)
+    if (blog && blog.slug === slug) {
+      if (relatedBlogs.length === 0) {
+        axios
+          .get(`${API_BASE_URL}/api/blogs`)
+          .then((listRes) => {
+            const others = (listRes.data?.data || [])
+              .filter((b) => b.slug !== slug)
+              .slice(0, 5);
+            setRelatedBlogs(others);
+          })
+          .catch((err) => console.error('Error fetching related blogs:', err));
+      }
+      return;
+    }
+
     const fetchBlogData = async () => {
       window.scrollTo(0, 0);
       setLoading(true);
@@ -59,7 +93,7 @@ const BlogDetail = () => {
         setBlog(res.data.data);
 
         const listRes = await axios.get(`${API_BASE_URL}/api/blogs`);
-        const others = listRes.data.data
+        const others = (listRes.data?.data || [])
           .filter((b) => b.slug !== slug)
           .slice(0, 5);
         setRelatedBlogs(others);
@@ -75,22 +109,7 @@ const BlogDetail = () => {
   if (loading) {
     return (
       <>
-        <SEO
-          title={blog?.seoTitle || blog?.title || 'Blog | Renny Strips'}
-          description={
-            blog?.seoDescription ||
-            blog?.metaDescription ||
-            blog?.excerpt ||
-            'Explore steel industry insights, manufacturing trends, engineering expertise, and industrial updates from Renny Strips.'
-          }
-          keywords={
-            blog?.seoKeywords ||
-            'Renny Strips blog, steel industry insights, manufacturing trends, industrial articles, engineering blogs'
-          }
-          image={blog?.mainImage}
-          url={`https://rennystrips.com/blog/${slug}`}
-        />
-
+        {/* DO NOT override document title and meta tags with generic fallback while loading! */}
         <PageSpinner />
       </>
     );
@@ -116,17 +135,28 @@ const BlogDetail = () => {
 
   return (
     <>
+      {/* Embed blog data for seamless client-side hydration */}
+      <script
+        id="__BLOG_INITIAL_DATA__"
+        type="application/json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blog).replace(/</g, '\\u003c'),
+        }}
+      />
       <SchemaMarkup schema={blog.structuredData} />
       <SEO
-        title={blog.seoTitle || `Blog | Renny Strips`}
+        title={blog.seoTitle || blog.title || `Blog | Renny Strips`}
         description={
           blog.seoDescription ||
+          blog.metaDescription ||
+          blog.excerpt ||
           'Explore steel industry insights, manufacturing trends, engineering expertise, and industrial updates from Renny Strips.'
         }
         keywords={
           blog.seoKeywords ||
           'Renny Strips blog, steel industry insights, manufacturing trends, industrial articles, engineering blogs'
         }
+        image={blog.mainImage}
         url={`https://rennystrips.com/blog/${slug}`}
       />
       <div className="font-helvetica bg-white">
@@ -190,7 +220,7 @@ const BlogDetail = () => {
           </aside>
 
           {/* MIDDLE: Main Content */}
-          <main className="w-full lg:w-3/5">
+          <article className="w-full lg:w-3/5">
             {blog.excerpt && (
               <p className="mb-8 leading-relaxed text-lg md:text-xl text-gray-800 italic border-l-4 border-blue-900 pl-4">
                 {blog.excerpt}
@@ -489,7 +519,7 @@ const BlogDetail = () => {
                 </div>
               </div>
             </div>
-          </main>
+          </article>
 
           {/* RIGHT SIDE */}
           <aside className="w-full lg:w-1/4 xl:w-1/5 static lg:sticky top-24 self-start">

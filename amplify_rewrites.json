@@ -2360,6 +2360,11 @@
     "target": "/blog/index.html"
   },
   {
+    "source": "/blog/scaffold-towers-explained-types-uses-and-safety-tips",
+    "status": "200",
+    "target": "/blog/scaffold-towers-explained-types-uses-and-safety-tips/index.html"
+  },
+  {
     "source": "/blog/scaffolding-formwork-materials-compared-steel-aluminium-and-timber",
     "status": "200",
     "target": "/blog/scaffolding-formwork-materials-compared-steel-aluminium-and-timber/index.html"

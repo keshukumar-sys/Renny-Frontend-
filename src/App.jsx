@@ -59,7 +59,7 @@ const CBAM = lazy(() => import('./pages/Sustainability/CBAM.jsx'));
 /* Media */
 const News = lazy(() => import('./pages/Media/News'));
 const Blogs = lazy(() => import('./pages/Media/Blogs'));
-const BlogDetail = lazy(() => import('./pages/Media/BlogDetail'));
+import BlogDetail from './pages/Media/BlogDetail';
 const Events = lazy(() => import('./pages/Media/Events'));
 
 /* Career */
@@ -74,7 +74,6 @@ const ComingSoon = lazy(() => import('./pages/ComingSoon.jsx'));
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [showGlobalPreloader, setShowGlobalPreloader] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -87,16 +86,6 @@ const App = () => {
     if (params.get('page_id') === '2404') {
       window.location.replace('/');
     }
-  }, []);
-
-  useEffect(() => {
-    const isPrerender =
-      typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
-    if (isPrerender) {
-      setShowGlobalPreloader(true);
-      return;
-    }
-    setShowGlobalPreloader(false);
   }, []);
 
   useEffect(() => {
@@ -128,7 +117,6 @@ const App = () => {
 
   return (
     <div className="App relative min-h-screen overflow-x-hidden font-helvetica clip scroll-smooth no-scrollbar">
-      {showGlobalPreloader && <PageSpinner />}
       <ScrollToTop />
       <Navbar />
       <main id="main-content" className="flex-grow">
