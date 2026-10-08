@@ -222,7 +222,7 @@ const Footer = () => {
             className="space-y-1 text-sm text-gray-600"
           >
             <p className="font-semibold text-gray-800">Contact us</p>
-            <p>+91-82880-01300</p>
+            <p>+91-8288001300</p>
             <p>+91-9688001300</p>
             <p>info@rennystrips.com</p>
           </motion.div>

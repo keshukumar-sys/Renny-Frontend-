@@ -193,6 +193,25 @@ const Contact = () => {
     }
   };
 
+  const offices = contactInfo?.offices?.length
+    ? contactInfo.offices
+    : [
+        {
+          type: "Registered and Corporate Office",
+          addressLine1: "Khasra No 34/6/2 (0-8)-7 (8-0)-9,",
+          addressLine2: "Khata No. 121/127, Lakhowal Road, Kohara,",
+          cityStateZip: "Ludhiana, Punjab - 141112, India",
+        },
+      ];
+  const displayOffices = offices.slice(0, 1).map((office) => ({
+    ...office,
+    type: "Registered and Corporate Office",
+    title: "",
+    addressLine1: "Khasra No 34/6/2 (0-8)-7 (8-0)-9,",
+    addressLine2: "Khata No. 121/127, Lakhowal Road, Kohara,",
+    cityStateZip: "Ludhiana, Punjab - 141112, India",
+  }));
+
   const imageZoom = {
     hidden: { opacity: 0, scale: 1.1 },
     visible: {
@@ -542,7 +561,7 @@ const Contact = () => {
           </div>
         )}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8 max-w-5xl mx-auto justify-items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -561,7 +580,7 @@ const Contact = () => {
             }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             whileHover={{ y: -6 }}
-            className="bg-gray-200 hover:bg-white rounded-2xl p-8 space-y-4  shadow-sm hover:shadow-xl  transition-all duration-300"
+            className="bg-gray-200 hover:bg-white rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300 w-full"
           >
             <h2 className="text-2xl md:text-2xl font-semibold text-[#292c44]">
               Get in Touch
@@ -581,33 +600,17 @@ const Contact = () => {
             {/* Phones – CMS or fallback */}
             {(contactInfo?.phones?.length
               ? contactInfo.phones
-              : ["+91-82880-01300", "+91-9688001300"]
+              : ["+91-8288001300", "+91-9688001300"]
             ).map((phone, i) => (
               <div key={i} className="flex items-center gap-3">
                 <MdPhone size={22} />
-                <span>{phone}</span>
+                <span>{phone.replace("82880-01300", "8288001300")}</span>
               </div>
             ))}
           </motion.div>
 
           {/* Office Boxes – CMS or fallback */}
-          {(contactInfo?.offices?.length
-            ? contactInfo.offices
-            : [
-                {
-                  type: "Registered Office",
-                  title: "Lakhowal Road, Opposite PSPCL",
-                  addressLine1: "House- Kohara, Ludhiana,",
-                  cityStateZip: "Punjab-141112, India",
-                },
-                {
-                  type: "Site Office",
-                  title: "Near Dholewal Chowk",
-                  addressLine1: "Industrial Area-B,",
-                  cityStateZip: "Ludhiana, Punjab 141003",
-                },
-              ]
-          ).map((office, idx) => (
+          {displayOffices.map((office, idx) => (
             <motion.div
               key={idx}
               variants={{
@@ -616,11 +619,11 @@ const Contact = () => {
               }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               whileHover={{ y: -6 }}
-              className="bg-gray-200 hover:bg-white rounded-2xl p-8 space-y-4  shadow-sm hover:shadow-xl transition-all duration-300"
+              className="bg-gray-200 hover:bg-white rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-xl transition-all duration-300 w-full"
             >
               <div className="flex items-start justify-start gap-3">
-                <MdLocationOn size={28} className="text-[#292c44]" />
-                <h2 className="text-2xl font-semibold text-[#292c44]">
+                <MdLocationOn size={28} className="text-[#292c44] shrink-0" />
+                <h2 className="text-2xl md:text-2xl font-semibold text-[#292c44]">
                   {office.type}
                 </h2>
               </div>
@@ -629,7 +632,7 @@ const Contact = () => {
                   {office.title}
                 </h2>
               )}
-              <p className="text-sm leading-relaxed text-gray-600">
+              <p className="text-base font-normal leading-relaxed text-black">
                 {office.addressLine1}
                 {office.addressLine2 && (
                   <>
