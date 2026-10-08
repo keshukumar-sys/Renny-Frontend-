@@ -198,7 +198,7 @@ const Contact = () => {
     : [
         {
           type: "Registered and Corporate Office",
-          addressLine1: "Khasra No 34/6/2 (0-8)-7 (8-0)-9,",
+          addressLine1: "Khasra No 34//6/2  ( 0-8)-7  ( 8-0)-9,",
           addressLine2: "Khata No. 121/127, Lakhowal Road, Kohara,",
           cityStateZip: "Ludhiana, Punjab - 141112, India",
         },
