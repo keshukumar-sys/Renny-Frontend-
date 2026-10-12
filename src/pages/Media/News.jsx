@@ -6,7 +6,6 @@ import PageSpinner from "../../components/PageSpinner.jsx";
 import mobileNewsVideo from "../../assets/MobileMediaVideo.webm";
 import SEO from "../../components/SEO";
 
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -315,14 +314,14 @@ const News = () => {
                 </motion.p>
 
                 <motion.div variants={fadeUp}>
-                  <Link
-                    to={activeNews.link}
+                  <a
+                    href={activeNews.link?.trim()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-3 bg-black text-white rounded-xl hover:bg-gray-800 transition"
                   >
                     Read Full Article →
-                  </Link>
+                  </a>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
