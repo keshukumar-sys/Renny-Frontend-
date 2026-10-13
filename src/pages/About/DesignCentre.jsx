@@ -70,7 +70,7 @@ const DesignCentre = () => {
         ? cmsData.stats
         : [
             { title: "Total Number of Engineers", desc: "Lorem" },
-            { title: "Total number of Products", desc: "100+ SKUs" },
+            { title: "Total number of Products", desc: "1000+ SKUs" },
           ],
 
       innovationHeading:

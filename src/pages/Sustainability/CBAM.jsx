@@ -212,7 +212,7 @@ const credentials = [
     icon: FiCheckCircle,
     text: (
       <>
-        Nearly <span className="font-semibold text-green">40%</span> lower
+        <span className="font-semibold text-green">40%</span> lower
         emissions than conventional industry benchmarks.
       </>
     ),

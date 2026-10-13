@@ -625,8 +625,7 @@ const AboutSection = React.memo(() => {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 Founded in 1996 by Mr. Dev Gupta and headquartered in
-                Ludhiana, Punjab, Renny Strips Limited is one of India's leading
-                integrated structural steel companies. With three induction
+                Ludhiana, Punjab, Mr. Binny Gupta joined the business in the early 2000s. As Chairman and Managing Director, his entrepreneurial vision has driven Renny Strips Ltd.’s growth into India’s leading integrated structural steel companies With three induction
                 furnaces and a melting capacity of{' '}
                 <span className="font-bold">199,200 TPA</span>, we leverage
                 advanced technologies such as CNC machining and robotic welding

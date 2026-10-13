@@ -164,7 +164,7 @@ const SustainabilityContent = () => {
           >
             Renny Strips Limited is committed to sustainable manufacturing
             through energy-efficient operations and cleaner technologies,
-            achieving carbon emissions up to 40% lower than the industry
+            achieving carbon emissions 40% lower than the industry
             average. The Company’s sustainability practices are aligned with
             global standards, including the Carbon Border Adjustment Mechanism.
             Beyond environmental performance, Renny Strips Limited supports
