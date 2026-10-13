@@ -133,7 +133,11 @@ const Home = () => {
         blogsRes.data.data || blogsRes.data.blogs || blogsRes.data;
 
       if (Array.isArray(blogArray) && blogArray.length > 0) {
-        const latestBlogs = blogArray.slice(0, 5);
+        // API order isn't guaranteed to be newest-first, so sort by date
+        // (same as the Blogs page) before taking the top 5.
+        const latestBlogs = [...blogArray]
+          .sort((a, b) => getLatestDate(b) - getLatestDate(a))
+          .slice(0, 5);
         // console.log("latestBlogs: ",latestBlogs)
         setBlogs(latestBlogs);
       } else {
