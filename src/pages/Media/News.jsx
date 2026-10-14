@@ -168,7 +168,7 @@ const News = () => {
             <img
               key={heroSrc || "fallback"}
               src={heroSrc || newsvideo}
-              alt="Hero Banner"
+              alt="News Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

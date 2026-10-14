@@ -269,7 +269,7 @@ const Contact = () => {
           <img
             key={heroSrc || "fallback"}
             src={heroSrc || banner}
-            alt="Hero Banner"
+            alt="Contact us Banner"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}

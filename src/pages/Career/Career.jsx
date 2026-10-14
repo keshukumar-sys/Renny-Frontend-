@@ -191,7 +191,7 @@ const Career = () => {
             <img
               key={heroSrc || 'fallback'}
               src={heroSrc || banner}
-              alt="Career Banner"
+              alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

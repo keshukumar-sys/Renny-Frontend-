@@ -332,7 +332,7 @@ const Quality = () => {
             <img
               key={heroSrc || 'fallback'}
               src={heroSrc || ''}
-              alt="Hero Banner"
+              alt="Quality Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

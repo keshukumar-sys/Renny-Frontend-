@@ -157,6 +157,7 @@ const Blogs = () => {
               autoPlay
               loop
               muted
+              alt="Renny Strips industrial steel manufacturing blog banner"
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -164,7 +165,7 @@ const Blogs = () => {
             <img
               key={heroSrc || 'fallback'}
               src={heroSrc || ''}
-              alt="Hero Banner"
+              alt="Renny Strips industrial steel manufacturing blog banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

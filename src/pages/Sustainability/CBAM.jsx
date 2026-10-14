@@ -663,7 +663,7 @@ const CBAM = () => {
         >
           <img
             src={heroSrc}
-            alt="Hero Banner"
+            alt="Carbon Border Adjustment Mechanism (CBAM) and sustainable steel manufacturing"
             className="absolute inset-0 w-full h-full object-cover"
           />
 
@@ -721,7 +721,7 @@ const CBAM = () => {
             <motion.div variants={imageReveal} className="my-10">
               <img
                 src={CBAMImage}
-                alt="Quality Centre Inspection Process"
+                alt="carbon transparency across global supply chains"
                 className="w-full rounded-3xl h-auto object-contain"
               />
             </motion.div>
@@ -1047,7 +1047,7 @@ const CBAM = () => {
                   />
                   <img
                     src={logo}
-                    alt="Renny Logo"
+                    alt="CO2"
                     className="w-[500px] relative z-10"
                   />
                 </motion.div>

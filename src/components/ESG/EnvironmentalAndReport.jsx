@@ -227,7 +227,7 @@ const EnvironmentalAndReport = () => {
                     <div className="w-12 h-12 rounded-full border-2 border-[#19d366] overflow-hidden bg-white shadow-sm">
                       <img
                         src={sustainableDevImg}
-                        alt="logo"
+                        alt="Sustainable Goal Development"
                         className="scale-[3.5] mt-1"
                       />
                     </div>

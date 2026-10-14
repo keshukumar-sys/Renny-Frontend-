@@ -35,7 +35,7 @@ const CinematicParallax = () => {
           <source media="(min-width: 768px)" srcSet={parallaxImg} type="image/webp" />
           <motion.img
             src={parallaxImg}
-            alt="Cinematic Parallax"
+            alt="Renny Strips Parallax Section"
             loading="lazy" // Prevents jump when image finishes downloading
             width="1260"
             height="452"
