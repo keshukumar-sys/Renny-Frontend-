@@ -53,8 +53,8 @@ const ProductEnquiryModal = lazy(
 const cards = [
   {
     img: AdvancedTechnology,
-    title: "Advanced De-Scaling Technology",
-    desc: "High-efficiency de-scalers remove gaseous elements like hydrogen, oxygen, and nitrogen, enhancing steel purity, ductility, and toughness.",
+    title: "Advanced Degassing Technology",
+    desc: "High-efficiency degassers remove gaseous elements like hydrogen, oxygen, and nitrogen, enhancing steel purity, ductility, and toughness.",
     bg: "bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-white",
   },
   {
