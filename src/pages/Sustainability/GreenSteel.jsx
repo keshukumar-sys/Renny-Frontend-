@@ -6,8 +6,9 @@ const GreenSteel = () => {
 
   useEffect(() => {
     // Automatically open the PDF in the same window
-    window.location.href = pdfUrl;
+    window.location.replace(pdfUrl);
   }, []);
+
   return (
     <div style={styles.container}>
       <h1>Redirecting to Document...</h1>
@@ -21,6 +22,7 @@ const GreenSteel = () => {
     </div>
   );
 };
+
 // Basic styling for the fallback page
 const styles = {
   container: {

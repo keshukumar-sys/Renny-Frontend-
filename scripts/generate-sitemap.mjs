@@ -34,6 +34,7 @@ const routeRegex = /<Route[\s\S]*?path="([^"]+)"/g;
 
 const EXCLUDED_ROUTES = new Set([
   "/ec",
+  "/green-steel",
   "/tag/scaffolding-formwork-company-in-india/feed",
   "/tag/forged-scaffolding-components",
   "/tag/scaffolding-formwork-company-in-india",

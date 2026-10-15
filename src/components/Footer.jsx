@@ -142,12 +142,16 @@ const Footer = () => {
         <motion.div variants={item} className="space-y-5">
           <div className="space-y-3">
             <h3 className="font-semibold">EC</h3>
-            <FooterLink to="/ec">EC</FooterLink>
+            <FooterLink href="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf">
+              EC
+            </FooterLink>
           </div>
 
           <div className="space-y-3">
             <h3 className="font-semibold">Sustainability</h3>
-            <FooterLink to="/green-steel">Green Steel</FooterLink>
+            <FooterLink href="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf">
+              Green Steel
+            </FooterLink>
             <FooterLink to="/sustainability">ESG</FooterLink>
             <FooterLink to="/cbam">CBAM</FooterLink>
           </div>
@@ -256,15 +260,27 @@ const Footer = () => {
   );
 };
 
-const FooterLink = ({ to, children }) => (
+const FooterLink = ({ to, href, children }) => (
   <motion.div variants={item}>
-    <Link
-      to={to}
-      className="flex items-center gap-1 text-[13px] uppercase font-medium text-gray-700 hover:font-semibold hover:text-blue-900 hover:translate-x-1 transition-all"
-    >
-      <RiArrowRightSLine className="text-sm" />
-      {children}
-    </Link>
+    {href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 text-[13px] uppercase font-medium text-gray-700 hover:font-semibold hover:text-blue-900 hover:translate-x-1 transition-all"
+      >
+        <RiArrowRightSLine className="text-sm" />
+        {children}
+      </a>
+    ) : (
+      <Link
+        to={to}
+        className="flex items-center gap-1 text-[13px] uppercase font-medium text-gray-700 hover:font-semibold hover:text-blue-900 hover:translate-x-1 transition-all"
+      >
+        <RiArrowRightSLine className="text-sm" />
+        {children}
+      </Link>
+    )}
   </motion.div>
 );
 

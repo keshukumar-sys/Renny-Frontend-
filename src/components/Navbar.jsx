@@ -10,6 +10,11 @@ import {
 } from 'react-icons/fa';
 
 import greatPlace from '../assets/Great_Place_To_Work-removebg-preview.webp';
+const EC_PDF_URL =
+  'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf';
+const GREEN_STEEL_PDF_URL =
+  'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,11 +64,11 @@ const Navbar = () => {
         { name: 'Our Policies', path: '/our-policies' },
       ],
     },
-    { title: 'EC', path: '/ec' },
+    { title: 'EC', path: EC_PDF_URL, isExternal: true },
     {
       title: 'Sustainability',
       links: [
-        { name: 'Green Steel', path: '/green-steel' },
+        { name: 'Green Steel', path: GREEN_STEEL_PDF_URL, isExternal: true },
         { name: 'ESG', path: '/sustainability' },
         { name: 'CBAM', path: '/cbam' },
       ],
@@ -253,12 +258,14 @@ const Navbar = () => {
 
         {/* EC */}
         <li>
-          <Link
-            to="/ec"
+          <a
+            href={EC_PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:bg-blue hover:text-white px-4 py-3 rounded-xl"
           >
             EC
-          </Link>
+          </a>
         </li>
 
         {/* Sustainability */}
@@ -278,9 +285,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/green-steel" className="dropdown-item">
+              <a
+                href={GREEN_STEEL_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="dropdown-item block"
+              >
                 Green Steel
-              </Link>
+              </a>
             </li>
           </ul>
         </li>
@@ -412,6 +424,16 @@ const Navbar = () => {
                               ))}
                             </ul>
                           </>
+                        ) : subLink.isExternal ? (
+                          <a
+                            href={subLink.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block py-2 text-sm text-gray-600 hover:text-blue"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {subLink.name}
+                          </a>
                         ) : (
                           <Link
                             to={subLink.path || '#'}
@@ -425,6 +447,16 @@ const Navbar = () => {
                     ))}
                   </ul>
                 </>
+              ) : item.isExternal ? (
+                <a
+                  href={item.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-2 text-gray-800 font-semibold hover:text-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.title}
+                </a>
               ) : (
                 <Link
                   to={item.path}
