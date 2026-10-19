@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import SEO from "../../components/SEO";
 
 // ========== Components ==========
@@ -20,10 +20,6 @@ const IPODocs = () => {
 
   // ========== Hero Content ==========
   const { heroSrc, heroHeading } = usePageHero("ipo", "IPO Documents");
-
-  // ========== Modal State ==========
-  const [showModal, setShowModal] = useState(false);
-  const [selectedUrl, setSelectedUrl] = useState("");
 
   // ========== Theme Styles ==========
   const brandColor = "#292C44";
@@ -55,33 +51,6 @@ const IPODocs = () => {
 
     fetchIpoDocs();
   }, []);
-
-  // ========== Open Disclaimer Modal ==========
-  const handleOpenDisclaimer = (url) => {
-    setSelectedUrl(url);
-
-    setShowModal(true);
-
-    document.body.style.overflow = "hidden";
-  };
-
-  // ========== Confirm Disclaimer ==========
-  const handleConfirm = () => {
-    setShowModal(false);
-
-    document.body.style.overflow = "unset";
-
-    window.open(selectedUrl, "_blank", "noreferrer");
-  };
-
-  // ========== Cancel Disclaimer ==========
-  const handleCancel = () => {
-    setShowModal(false);
-
-    document.body.style.overflow = "unset";
-
-    setSelectedUrl("");
-  };
 
   return (
     <>
@@ -177,7 +146,9 @@ const IPODocs = () => {
                     >
                       <span className={subHeadingFont}>{doc.title}</span>
                       <button
-                        onClick={() => handleOpenDisclaimer(doc.url)}
+                        onClick={() =>
+                          window.open(doc.url, "_blank", "noreferrer")
+                        }
                         className={`${btnClass} w-full md:w-auto`}
                         style={{ backgroundColor: brandColor }}
                       >
@@ -198,129 +169,6 @@ const IPODocs = () => {
             </div>
           </div>
         </motion.section>
-
-        {/* DISCLAIMER MODAL */}
-        <AnimatePresence>
-          {showModal && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[85vh] flex flex-col overflow-hidden"
-              >
-                {/* Modal Header */}
-                <div className="p-6 border-b border-gray-100">
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    Disclaimer
-                  </h2>
-                </div>
-
-                {/* Modal Body (Scrollable) */}
-                <div className="p-4 md:p-8 overflow-y-auto text-gray-700 text-xs md:text-[14px] leading-relaxed space-y-4 text-justify">
-                  <p className="font-bold text-gray-900 uppercase">
-                    PLEASE READ THIS NOTICE CAREFULLY. IT APPLIES TO ALL PERSONS
-                    WHO VIEW THIS WEBSITE. THESE MATERIALS ARE NOT DIRECTED AT
-                    OR INTENDED TO BE ACCESSED BY PERSONS LOCATED OUTSIDE INDIA.
-                  </p>
-                  <p>
-                    The prospectus is being made available on this website to
-                    comply with Securities and Exchange Board of India (Issue of
-                    Capital and Disclosure Requirements) Regulations, 2018, as
-                    amended (“SEBI ICDR Regulations”).
-                  </p>
-                  <p className="font-bold text-gray-900">
-                    IMPORTANT: You must read and agree with the terms and
-                    conditions of the following disclaimer before continuing.
-                  </p>
-                  <p>
-                    The following disclaimer applies to the draft red herring
-                    prospectus of Renny Strips Limited (the “Company”) dated
-                    December 12, 2025 (the “Draft Red Herring Prospectus”) filed
-                    with the Securities and Exchange Board of India (“SEBI”) and
-                    BSE Limited and National Stock Exchange of India Limited and
-                    is hosted on this website, in relation to the initial public
-                    offering of the equity shares bearing face value of ₹5 each
-                    (“Equity Shares”) of the Company (“Offer”).
-                  </p>
-                  <p>
-                    You are advised to read this disclaimer carefully before
-                    reading, accessing or making any other use of the Draft Red
-                    Herring Prospectus. In accessing the Draft Red Herring
-                    Prospectus, you agree to be bound by the following terms and
-                    conditions, including any modifications to them from time to
-                    time.
-                  </p>
-                  <p>
-                    The Draft Red Herring Prospectus is directed at, and is
-                    intended for distribution to, and use by, residents of India
-                    only. The information in this portion of our website,
-                    including the Draft Red Herring Prospectus, is not for
-                    publication or distribution, directly or indirectly, in or
-                    into the United States.
-                  </p>
-                  <p>
-                    No part of the contents of the Draft Red Herring Prospectus
-                    shall be copied or duplicated in any form by any means, or
-                    redistributed. The information contained in the Draft Red
-                    Herring Prospectus may not be updated since its original
-                    publication date and may not reflect the latest updates.
-                    Access to the Draft Red Herring Prospectus does not
-                    constitute a recommendation by the Company, the members of
-                    the Syndicate (as defined in the Draft Red Herring
-                    Prospectus) or any of their respective affiliates or any
-                    other person to subscribe to the Equity Shares offered in
-                    the Offer.
-                  </p>
-                  <p>
-                    The Draft Red Herring Prospectus has been hosted on this
-                    website as prescribed under Regulation 26(1) of the SEBI
-                    ICDR Regulations. You are reminded that documents
-                    transmitted in electronic form may be altered or changed
-                    during the process of transmission and consequently, neither
-                    the Company nor any of its affiliates accepts any liability
-                    or responsibility whatsoever in respect of alterations or
-                    changes which have taken place during the course of
-                    transmission of electronic data.
-                  </p>
-                  <p>
-                    To access this information, you must confirm by pressing on
-                    the button marked "I Confirm" that, at the time of access
-                    you are located in India. If you cannot make this
-                    confirmation, you must press the button marked "I Do Not
-                    Confirm".
-                  </p>
-                  <p className="italic text-gray-500">
-                    The documentation contained in these pages is posted solely
-                    to comply with Indian legal and regulatory requirements.
-                    Making the information contained herein available in
-                    electronic format does not constitute an offer to sell, the
-                    solicitation of an offer to buy, or a recommendation to buy
-                    or sell securities of the Company in the United States or in
-                    any other jurisdiction, including without limitation, India.
-                  </p>
-                </div>
-
-                {/* Modal Footer (Buttons) */}
-                <div className="p-6 border-t border-gray-100 bg-gray-50 flex flex-col sm:flex-row justify-end gap-3">
-                  <button
-                    onClick={handleCancel}
-                    className="px-8 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-                  >
-                    I Do Not Confirm
-                  </button>
-                  <button
-                    onClick={handleConfirm}
-                    className="px-8 py-2.5 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
-                    style={{ backgroundColor: "#0066b2" }} // Standard blue from image
-                  >
-                    I Confirm
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
       </div>
     </>
   );
