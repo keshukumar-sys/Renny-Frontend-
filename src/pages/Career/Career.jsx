@@ -183,6 +183,7 @@ const Career = () => {
               src={heroSrc}
               autoPlay
               loop
+              alt="Career Banner"
               muted
               playsInline
               className="absolute inset-0 w-full h-full object-cover"

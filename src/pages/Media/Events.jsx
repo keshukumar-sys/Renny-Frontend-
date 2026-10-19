@@ -27,6 +27,7 @@ const itemVariants = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
+
 const fadeUp = {
   hidden: {
     opacity: 0,
@@ -50,6 +51,7 @@ const imageZoom = {
     transition: { duration: 1, ease: "easeOut" },
   },
 };
+
 import { API_BASE_URL } from "../../lib/api";
 
 const Events = () => {
@@ -172,7 +174,7 @@ const Events = () => {
             <img
               key={heroSrc || "fallback"}
               src={heroSrc || banner}
-              alt="Hero Banner"
+              alt="Events Banner"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

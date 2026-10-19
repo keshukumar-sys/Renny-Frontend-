@@ -474,6 +474,7 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
                     "
                 src={HomepageBanner}
                 poster={HeroPoster}
+                alt="Hero Poster"
                 width="500"
                 height="300"
                 autoPlay
@@ -849,28 +850,28 @@ const FeaturesSection = React.memo(({ openIndex, toggleCard }) => {
               {
                 id: 0,
                 icon: icons1,
-                alt: 'Innovation',
+                alt: 'Precision Engineering and Manufacturing',
                 title: 'Precision Engineering and Manufacturing',
                 desc: 'Specializes in manufacturing high-precision, safety-critical components as per specifications.',
               },
               {
                 id: 1,
                 icon: icons2,
-                alt: 'Sustainability',
+                alt: 'Fabrication and Forging',
                 title: 'Fabrication and Forging',
                 desc: 'Advanced sheet metal processing with EN 1090 & ISO 3834 compliance.',
               },
               {
                 id: 2,
                 icon: icons3,
-                alt: 'Quality',
+                alt: 'Customized Excellence',
                 title: 'Customized Excellence',
                 desc: 'Tailored solutions backed by an in-house raw material ecosystem.',
               },
               {
                 id: 3,
                 icon: icons1,
-                alt: 'Innovation',
+                alt: 'CNC Machining and Finishing',
                 title: 'CNC Machining and Finishing',
                 desc: 'Automated precision machining for consistent, high-quality output.',
               },

@@ -493,7 +493,7 @@ const About = () => {
 
               <img
                 src={displayTimelineData[activeIndex]?.image}
-                alt="About Img"
+                alt="Timeline Img"
                 className="h-[300px] md:h-[420px] w-full object-cover bg-blue rounded-xl"
               />
             </motion.div>
@@ -528,7 +528,7 @@ const About = () => {
                 <img
                   /* 🔹 CONDITIONAL RENDERING HERE 🔹 */
                   src={isMobile ? imgObj.mobile : imgObj.desktop}
-                  alt={`Slide ${index}`}
+                  alt="Renny strips factory img"
                   className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
                 />
               </motion.div>
