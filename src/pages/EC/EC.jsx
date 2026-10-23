@@ -5,6 +5,8 @@ const EC = () => {
     '/document/RENNY-EC-1-MERGER-APPROVAL.pdf';
 
   useEffect(() => {
+    // react-snap crashes if the page navigates away mid-prerender
+    if (navigator.userAgent === 'ReactSnap') return;
     // Automatically open the PDF in the same window
     window.location.replace(pdfUrl);
   }, []);

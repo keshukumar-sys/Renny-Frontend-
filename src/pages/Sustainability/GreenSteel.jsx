@@ -5,6 +5,8 @@ const GreenSteel = () => {
     '/document/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
 
   useEffect(() => {
+    // react-snap crashes if the page navigates away mid-prerender
+    if (navigator.userAgent === 'ReactSnap') return;
     // Automatically open the PDF in the same window
     window.location.replace(pdfUrl);
   }, []);
