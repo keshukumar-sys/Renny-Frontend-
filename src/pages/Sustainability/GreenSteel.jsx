@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const GreenSteel = () => {
   const pdfUrl =
-    '/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
+    '/document/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
 
   useEffect(() => {
     // Automatically open the PDF in the same window
