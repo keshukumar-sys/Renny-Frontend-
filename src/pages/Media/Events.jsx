@@ -175,6 +175,10 @@ const Events = () => {
               key={heroSrc || "fallback"}
               src={heroSrc || banner}
               alt="Events Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

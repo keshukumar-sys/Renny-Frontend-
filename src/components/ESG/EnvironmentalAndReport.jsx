@@ -207,6 +207,9 @@ const EnvironmentalAndReport = () => {
               <img
                 src={sustainableDevImg}
                 alt="SDG Goals"
+                width={800}
+                height={600}
+                loading="lazy"
                 className="w-full h-auto object-contain"
               />
             </AnimatedSection>
@@ -228,6 +231,9 @@ const EnvironmentalAndReport = () => {
                       <img
                         src={sustainableDevImg}
                         alt="Sustainable Goal Development"
+                        width={800}
+                        height={600}
+                        loading="lazy"
                         className="scale-[3.5] mt-1"
                       />
                     </div>

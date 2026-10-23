@@ -146,6 +146,10 @@ const DesignCentre = () => {
               key={heroSrc || "fallback"}
               src={heroSrc || ""}
               alt="Design Center Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
@@ -199,6 +203,9 @@ const DesignCentre = () => {
             <img
               src={data.introImage}
               alt="Design Centre Innovation"
+              width={1200}
+              height={650}
+              loading="lazy"
               className="w-full h-auto object-contain max-h-[650px] mx-auto rounded-4xl shadow-xl"
             />
           </motion.div>

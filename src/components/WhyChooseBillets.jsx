@@ -54,6 +54,9 @@ const WhyChooseBillets = () => {
                 <img
                   src={gold}
                   alt="Why Choose Img"
+                  width={48}
+                  height={48}
+                  loading="lazy"
                   className="w-12 h-12 shrink-0 opacity-90"
                 />
 

@@ -664,6 +664,9 @@ const CBAM = () => {
           <img
             src={heroSrc}
             alt="Carbon Border Adjustment Mechanism (CBAM) and sustainable steel manufacturing"
+            width={1920}
+            height={1080}
+            loading='eager'
             className="absolute inset-0 w-full h-full object-cover"
           />
 
@@ -722,6 +725,9 @@ const CBAM = () => {
               <img
                 src={CBAMImage}
                 alt="carbon transparency across global supply chains"
+                width={800}
+                height={450}
+                loading='lazy'
                 className="w-full rounded-3xl h-auto object-contain"
               />
             </motion.div>
@@ -761,6 +767,9 @@ const CBAM = () => {
               <img
                 src={CBAMImage1}
                 alt="What Changed in 2026"
+                width={1896}
+                height={830}
+                loading="lazy"
                 className="w-full rounded-3xl h-auto object-contain"
               />
             </motion.div>
@@ -1048,6 +1057,9 @@ const CBAM = () => {
                   <img
                     src={logo}
                     alt="CO2"
+                    width={1258}
+                    height={832}
+                    loading="lazy"
                     className="w-[500px] relative z-10"
                   />
                 </motion.div>
@@ -1338,6 +1350,9 @@ const CBAM = () => {
                       <img
                         src={product.image}
                         alt={product.title}
+                        width={600}
+                        height={280}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     </div>
@@ -1462,6 +1477,9 @@ const CBAM = () => {
               <img
                 src={HowToComply}
                 alt="Renny CBAM Compliance Dashboard Interface View"
+                width={1993}
+                height={528}
+                loading="lazy"
                 className="w-full h-auto object-cover block"
               />
             </div>
@@ -1483,6 +1501,9 @@ const CBAM = () => {
                 <img
                   src={R}
                   alt="Renny Brand Identity Landscape Visualization"
+                  width={2333}
+                  height={2413}
+                  loading="lazy"
                   className="w-full h-auto object-contain block"
                 />
               </div>
@@ -1795,6 +1816,9 @@ const CBAM = () => {
               <img
                 src={global}
                 alt="Renny Global Transport Logistics Map Overlay Network"
+                width={1782}
+                height={883}
+                loading="lazy"
                 className="w-full h-auto object-cover block"
               />
 
@@ -1953,6 +1977,9 @@ const CBAM = () => {
                       <img
                         src={item.avatar}
                         alt={item.name}
+                        width={48}
+                        height={48}
+                        loading="lazy"
                         className="w-12 h-12 rounded-full object-cover mr-4 border border-slate-100"
                       />
                       <div>

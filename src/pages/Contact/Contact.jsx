@@ -270,6 +270,10 @@ const Contact = () => {
             key={heroSrc || "fallback"}
             src={heroSrc || banner}
             alt="Contact us Banner"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -341,6 +345,9 @@ const Contact = () => {
               <img
                 src={rennylocation}
                 alt="Renny Location"
+                width={3222018}
+                height={253959}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -687,6 +694,9 @@ const Contact = () => {
                       <img
                         src={plant.image}
                         alt={plant.title}
+                        width={13445634}
+                        height={176901}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500"
                       />
                     </motion.div>
@@ -699,7 +709,7 @@ const Contact = () => {
                       className="space-y-6 p-6 border-l-4 border-[#292c44]"
                     >
                       <div className="flex  items-center gap-3">
-                        <img src={banner} className="hidden" alt="Contact Img" />
+                        <img src={banner} width={1774} height={887} loading="lazy" className="hidden" alt="Contact Img" />
                         <MdLocationOn size={30} className="text-[#292c44]" />
                         <h3 className="text-2xl md:text-3xl font-semibold text-[#292c44]">
                           {plant.title}
@@ -744,6 +754,9 @@ const Contact = () => {
                       <img
                         src={plant.image}
                         alt={plant.title}
+                        width={13445634}
+                        height={176901}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-500"
                       />
                     </motion.div>

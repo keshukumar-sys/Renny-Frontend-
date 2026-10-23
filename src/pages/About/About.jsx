@@ -340,6 +340,10 @@ const About = () => {
               key={heroSrc || "fallback"}
               src={heroSrc || aboutVideo}
               alt="Hero Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
@@ -358,6 +362,9 @@ const About = () => {
           <img
             src={banner}
             alt="About Banner"
+            width={1536}
+            height={1024}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60"></div>
@@ -494,6 +501,9 @@ const About = () => {
               <img
                 src={displayTimelineData[activeIndex]?.image}
                 alt="Timeline Img"
+                width={600}
+                height={420}
+                loading="lazy"
                 className="h-[300px] md:h-[420px] w-full object-cover bg-blue rounded-xl"
               />
             </motion.div>
@@ -529,6 +539,9 @@ const About = () => {
                   /* 🔹 CONDITIONAL RENDERING HERE 🔹 */
                   src={isMobile ? imgObj.mobile : imgObj.desktop}
                   alt="Renny strips factory img"
+                  width={isMobile ? 941 : 4032}
+                  height={isMobile ? 1672 : 2268}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
                 />
               </motion.div>

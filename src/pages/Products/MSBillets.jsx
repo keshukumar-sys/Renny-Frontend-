@@ -573,7 +573,7 @@ const IntroSection = React.memo(
           {/* ================= WHITE INTRO SECTION ================= */}
           <div className="bg-white text-black py-10 md:py-16">
             <div className="px-6 md:px-20 max-w-7xl mx-auto">
-              <motion.h2
+              <motion.p
                 className="text-[28px] sm:text-[36px] md:text-[48px] text-blue font-bold w-full text-center leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -582,7 +582,7 @@ const IntroSection = React.memo(
               >
                 {pageTitle}
                 <div className="w-20 md:w-40 h-1 bg-blue mx-auto rounded-full mt-4 mb-8 md:mb-10" />
-              </motion.h2>
+              </motion.p>
 
               <motion.div
                 className="text-center md:text-left space-y-4"

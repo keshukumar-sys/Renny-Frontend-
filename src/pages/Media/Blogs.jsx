@@ -166,6 +166,10 @@ const Blogs = () => {
               key={heroSrc || 'fallback'}
               src={heroSrc || ''}
               alt="Renny Strips industrial steel manufacturing blog banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
@@ -314,6 +318,9 @@ const Blogs = () => {
                       <img
                         src={blog.mainImage}
                         alt={blog.title}
+                        width={144}
+                        height={80}
+                        loading="lazy"
                         className="w-36 h-20 object-fill rounded-2xl"
                       />
 
@@ -345,6 +352,9 @@ const Blogs = () => {
                   <img
                     src={activeBlog.mainImage}
                     alt={activeBlog.title}
+                    width={600}
+                    height={328}
+                    loading="lazy"
                     className="w-full h-82 object-fit rounded-2xl mb-6"
                   />
                   <h2 className="text-2xl font-bold mb-2 text-center">

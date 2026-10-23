@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const GreenSteel = () => {
   const pdfUrl =
-    'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
+    '/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
 
   useEffect(() => {
     // Automatically open the PDF in the same window

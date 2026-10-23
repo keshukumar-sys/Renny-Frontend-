@@ -142,14 +142,14 @@ const Footer = () => {
         <motion.div variants={item} className="space-y-5">
           <div className="space-y-3">
             <h3 className="font-semibold">EC</h3>
-            <FooterLink href="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf">
+            <FooterLink href="/ec">
               EC
             </FooterLink>
           </div>
 
           <div className="space-y-3">
             <h3 className="font-semibold">Sustainability</h3>
-            <FooterLink href="https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf">
+            <FooterLink href="/green-steel">
               Green Steel
             </FooterLink>
             <FooterLink to="/sustainability">ESG</FooterLink>
@@ -226,9 +226,14 @@ const Footer = () => {
             className="space-y-1 text-sm text-gray-600"
           >
             <p className="font-semibold text-gray-800">Contact us</p>
-            <p>+91-8288001300</p>
-            <p>+91-9688001300</p>
-            <p>info@rennystrips.com</p>
+            <a href='tel:+918288001300'>+91-8288001300</a> <br/>
+            <a href='tel:+919688001300'>+91-9688001300</a><br/>
+            <a href='mailto:info@rennystrips.com'>info@rennystrips.com</a>
+            <br/>
+            <p className='font-semibold text-gray-800'>Corporate Office</p>
+            <p>Khasra No. 34//6/2 (0-8)-7 (8-0)-9,
+              Khata No. 121/127, Lakhowal Road, Kohara,
+              Ludhiana, Punjab - 141112, India</p>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -242,7 +247,7 @@ const Footer = () => {
         className="border-t border-gray-300"
       >
         <div className="mx-auto px-6 md:px-16 py-4 flex flex-col sm:flex-row justify-between text-sm text-gray-600 gap-2">
-          <div>© Renny</div>
+          <div>© 2026 Renny | All Rights Reserved</div>
           {/* <div className="flex gap-4">
             <Link to="/privacy-policy" className="hover:text-blue-800">
               Privacy Notice

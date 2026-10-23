@@ -286,6 +286,9 @@ const Home = () => {
               <img
                 src={popup}
                 alt="Popup Announcement"
+                width={1536}
+                height={1024}
+                loading="lazy"
                 className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
               />
               */}

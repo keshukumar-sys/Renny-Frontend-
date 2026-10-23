@@ -112,6 +112,9 @@ const SustainabilityPillars = () => {
                   <img 
                     src={pillar.img} 
                     alt={pillar.title} 
+                    width={800}
+                    height={450}
+                    loading="lazy"
                     className="w-full object-center h-[300px] md:h-[450px]" 
                   />
                 </motion.div>

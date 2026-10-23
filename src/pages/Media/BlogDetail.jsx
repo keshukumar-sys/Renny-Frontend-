@@ -193,6 +193,9 @@ const BlogDetail = () => {
           <img
             src={blog.mainImage}
             alt={blog.title}
+            width={1200}
+            height={675}
+            loading="lazy"
             className="w-full object-cover max-w-5xl rounded-xl shadow-lg"
           />
         </div>
@@ -362,6 +365,9 @@ const BlogDetail = () => {
                           alt={
                             section.caption || section.content || 'Blog Image'
                           }
+                          width={800}
+                          height={450}
+                          loading="lazy"
                           className="w-full object-cover rounded-lg shadow-sm"
                         />
                         {(section.caption || section.content) && (
@@ -554,6 +560,9 @@ const BlogDetail = () => {
                           <img
                             src={rel.mainImage}
                             alt="Blog Img"
+                            width={400}
+                            height={128}
+                            loading="lazy"
                             className="w-full h-32 object-cover rounded-md mb-2 shadow-sm group-hover:opacity-90 transition-opacity"
                           />
                           <p className="text-xs font-bold text-blue group-hover:underline">

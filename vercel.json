@@ -33,16 +33,6 @@
   ],
   "redirects": [
     {
-      "source": "/ec",
-      "destination": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf",
-      "statusCode": 302
-    },
-    {
-      "source": "/green-steel",
-      "destination": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf",
-      "statusCode": 302
-    },
-    {
       "source": "/cdn-cgi/l/email-protection(.*)",
       "destination": "/",
       "statusCode": 301
@@ -465,6 +455,18 @@
   ],
   "rewrites": [
     {
+      "source": "/documents/:path*",
+      "destination": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/:path*"
+    },
+    {
+      "source": "/ec",
+      "destination": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf"
+    },
+    {
+      "source": "/green-steel",
+      "destination": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf"
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -494,4 +496,3 @@
     }
   ]
 }
-

@@ -79,6 +79,10 @@ const Shareholding = () => {
               key={heroSrc}
               src={heroSrc}
               alt="Share Holding Pattern Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           ) : null}

@@ -23,6 +23,9 @@ const Slider = () => {
       <img
         src={images[currentIndex]}
         alt="banner"
+        width={1920}
+        height={1080}
+        loading="lazy"
         className="w-full h-full object-contain transition-all duration-700"
       />
 

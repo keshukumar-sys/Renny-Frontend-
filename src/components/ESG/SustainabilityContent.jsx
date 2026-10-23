@@ -111,11 +111,15 @@ const SustainabilityContent = () => {
           />
         ) : (
           <img
-            key={heroSrc || "fallback"}
-            src={heroSrc || ""}
-            alt="Sustainability Banner"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+              key={heroSrc}
+              src={heroSrc}
+              alt="Sustainability Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
         )}
 
         <motion.h1

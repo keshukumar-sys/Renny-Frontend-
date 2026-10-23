@@ -333,6 +333,10 @@ const Quality = () => {
               key={heroSrc || 'fallback'}
               src={heroSrc || ''}
               alt="Quality Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
@@ -391,6 +395,9 @@ const Quality = () => {
               <img
                 src={qualityImage}
                 alt="Quality Centre Inspection Process"
+                width={1440}
+                height={686}
+                loading="lazy"
                 className="w-full h-auto object-contain"
               />
             </motion.div>
@@ -458,6 +465,9 @@ const Quality = () => {
                   <img
                     src={icon1}
                     alt="Quality Certifications img"
+                    width={91}
+                    height={83}
+                    loading="lazy"
                     className="w-14 h-14"
                   />
                   <div>
@@ -483,7 +493,7 @@ const Quality = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="flex gap-6"
                 >
-                  <img src={icon3} alt="Icon Img" className="w-14 h-14" />
+                  <img src={icon3} alt="Icon Img" width={80} height={80} loading="lazy" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Three-Stage Inspection Protocol
@@ -523,6 +533,9 @@ const Quality = () => {
                   <img
                     src={icon4}
                     alt="Icon Img"
+                    width={82}
+                    height={80}
+                    loading="lazy"
                     className="w-14 h-14 mt-10 md:mt-26"
                   />
                   <div>
@@ -550,7 +563,7 @@ const Quality = () => {
                   transition={{ duration: 0.6 }}
                   className="flex gap-7"
                 >
-                  <img src={icon2} alt="Icon Img" className="w-14 h-14" />
+                  <img src={icon2} alt="Icon Img" width={83} height={80} loading="lazy" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Quality Management System (QMS)
@@ -573,7 +586,7 @@ const Quality = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="flex gap-7"
                 >
-                  <img src={icon5} alt="Icon Img" className="w-14 h-14" />
+                  <img src={icon5} alt="Icon Img" width={80} height={80} loading="lazy" className="w-14 h-14" />
                   <div>
                     <h3 className="font-semibold text-lg mb-2">
                       Skilled Technical Team
@@ -597,6 +610,9 @@ const Quality = () => {
           <img
             src={bgImage}
             alt="Quality Background"
+            width={1536}
+            height={1024}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gray-900/80" />

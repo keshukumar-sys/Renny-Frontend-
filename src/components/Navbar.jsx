@@ -10,10 +10,10 @@ import {
 } from 'react-icons/fa';
 
 import greatPlace from '../assets/Great_Place_To_Work-removebg-preview.webp';
-const EC_PDF_URL =
-  'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf';
-const GREEN_STEEL_PDF_URL =
-  'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
+const EC_PDF_URL ='/ec';
+  // 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf';
+const GREEN_STEEL_PDF_URL ='/green-steel';
+  // 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -357,6 +357,8 @@ const Navbar = () => {
             <img
               src={greatPlace}
               alt="Great Place to Work"
+              width={1024}
+              height={1536}
               className={`w-full h-auto ${isScrolled ? 'mt-43 scale-175 ' : ''}`}
             />
           </div>

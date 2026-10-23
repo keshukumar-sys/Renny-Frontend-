@@ -22,6 +22,9 @@ const AutoSlider = () => {
           key={i}
           src={img}
           alt="Slider"
+          width={1920}
+          height={1080}
+          loading="lazy"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000
             ${i === index ? "opacity-100" : "opacity-0"}`}
         />
