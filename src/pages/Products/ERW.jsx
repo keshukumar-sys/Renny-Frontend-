@@ -560,7 +560,7 @@ const ProductIntro = React.memo(
           {/* ================= WHITE INTRO SECTION ================= */}
           <div className="bg-white text-black pt-10 pb-10">
             <div className="px-6 md:px-20">
-              <motion.h2
+              <motion.p
                 className="text-[32px] text-blue md:text-[48px] font-bold w-full text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -569,7 +569,7 @@ const ProductIntro = React.memo(
               >
                 {pageData?.title || "ERW Pipes & Tubes"}
                 <div className="w-36 sm:w-24 md:w-100 h-0.5 bg-blue mx-auto rounded-full mb-8 md:mb-10" />
-              </motion.h2>
+              </motion.p>
 
               <motion.div
                 className="mx-auto md:text-left"
@@ -648,8 +648,10 @@ const ManufacturingProcess = React.memo(
         <img
           src={displayManufacturingImg}
           alt="Manufacturing Process"
+          width={1200}
+          height={675}
           loading="lazy"
-            decoding="async"
+          decoding="async"
           className="w-full h-auto rounded-xl shadow-lg object-cover aspect-video md:aspect-auto"
         />
       </div>
@@ -694,8 +696,10 @@ const ManufacturingProcess = React.memo(
               <img
                 src={card.img || cards[i % cards.length]?.img}
                 alt="Core Strength Image"
+                width={64}
+                height={64}
                 loading="lazy"
-              decoding="async"
+                decoding="async"
                 className="w-16 h-16 mb-4 transition duration-300 group-hover:brightness-0 group-hover:invert"
               />
               <h2 className="font-bold text-lg md:text-xl mb-2">
@@ -782,8 +786,10 @@ const ManufacturingProcess = React.memo(
                   <img
                     src={item.img}
                     alt={item.label}
+                    width={64}
+                    height={64}
                     loading="lazy"
-              decoding="async"
+                    decoding="async"
                     className="w-full h-full object-contain group-hover:drop-shadow-md"
                     style={
                       item.scale

@@ -142,6 +142,9 @@ const FeaturedProjects = () => {
               <img
                 src={project.img}
                 alt={project.title}
+                width={800}
+                height={600}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 style={{
                   /* FIX: This ensures the top of the image is visible in the card */
@@ -200,6 +203,9 @@ const FeaturedProjects = () => {
                 <img
                   src={selectedProject.img}
                   alt={selectedProject.title}
+                  width={1000}
+                  height={700}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>

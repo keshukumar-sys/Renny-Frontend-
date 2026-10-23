@@ -7,7 +7,7 @@ const BlogCard = ({ to, image, alt, title, date, excerpt }) => {
       className="group bg-white  shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 flex flex-col"
     >
       {/* Blog Image */}
-      <img src={image} alt={alt} className="w-full h-64 object-cover" />
+      <img src={image} alt={alt} width={600} height={340} loading="lazy" className="w-full h-64 object-cover" />
 
       {/* Blog Content */}
       <div className="p-6 flex flex-col flex-grow">

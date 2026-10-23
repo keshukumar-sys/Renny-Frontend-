@@ -9,6 +9,9 @@ const CertificateCard = ({ certificateDetails }) => {
           className="object-contain w-full h-full"
           src={certificateDetails.img}
           alt="certificate"
+          width={400}
+          height={560}
+          loading="lazy"
         />
       </div>
 

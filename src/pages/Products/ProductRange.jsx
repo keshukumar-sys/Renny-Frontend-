@@ -286,6 +286,10 @@ const ProductRange = () => {
             key={heroSrc || 'fallback'}
             src={heroSrc || bannerVideo}
             alt="Hero Banner"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -297,7 +301,7 @@ const ProductRange = () => {
       {/* ================= INTRO SECTION ================= */}
       <section className="w-full bg-white px-20 py-10">
         <div className="px-6 md:px-20">
-          <motion.h2
+          <motion.p
             className="text-[32px] text-blue md:text-[48px] font-bold w-full text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +310,7 @@ const ProductRange = () => {
           >
             Product Range
             <div className="w-36 sm:w-24 md:w-70 h-0.5 bg-blue mx-auto rounded-full mb-8 md:mb-10" />
-          </motion.h2>
+          </motion.p>
         </div>
 
         {/* ================= PRODUCTS SECTION ================= */}
@@ -322,6 +326,9 @@ const ProductRange = () => {
                   <img
                     src={product.image}
                     alt={product.title}
+                    width={800}
+                    height={600}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
 
@@ -586,6 +593,9 @@ const ProductRange = () => {
             <img
               src={information}
               alt="Detailed product information"
+              width={559}
+              height={447}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>

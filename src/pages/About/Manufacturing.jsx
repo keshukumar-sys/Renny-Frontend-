@@ -211,6 +211,10 @@ const Manufacturing = () => {
               key={heroSrc || "fallback"}
               src={heroSrc || aboutVideo}
               alt="Hero Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
@@ -265,7 +269,7 @@ const Manufacturing = () => {
             variants={imageZoom}
             className="w-full h-[300px] md:h-[550px] rounded-4xl overflow-hidden mb-10"
           >
-            <img src={image} alt="Manufacturing Img" className="w-full h-full object-cover" />
+            <img src={image} alt="Manufacturing Img" width={2543} height={1430} loading="lazy" className="w-full h-full object-cover" />
           </motion.div>
 
           <motion.div

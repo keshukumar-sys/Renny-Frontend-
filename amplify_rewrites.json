@@ -2190,6 +2190,21 @@
     "target": "/assets/<*>"
   },
   {
+    "source": "/documents/<*>",
+    "status": "200",
+    "target": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/<*>"
+  },
+  {
+    "source": "/ec",
+    "status": "200",
+    "target": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY-EC-1-MERGER-APPROVAL.pdf"
+  },
+  {
+    "source": "/green-steel",
+    "status": "200",
+    "target": "https://renny-assets-storage.s3.ap-south-1.amazonaws.com/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf"
+  },
+  {
     "source": "/RENNY-EC-1-MERGER-APPROVAL.pdf",
     "status": "200",
     "target": "/RENNY-EC-1-MERGER-APPROVAL.pdf"
@@ -2325,11 +2340,6 @@
     "target": "/our-policies/index.html"
   },
   {
-    "source": "/ec",
-    "status": "200",
-    "target": "/ec/index.html"
-  },
-  {
     "source": "/sustainability",
     "status": "200",
     "target": "/sustainability/index.html"
@@ -2358,6 +2368,16 @@
     "source": "/blog",
     "status": "200",
     "target": "/blog/index.html"
+  },
+  {
+    "source": "/blog/integrated-steel-manufacturer-plant-process-overview-process-flow-and-step-by-step-guide",
+    "status": "200",
+    "target": "/blog/integrated-steel-manufacturer-plant-process-overview-process-flow-and-step-by-step-guide/index.html"
+  },
+  {
+    "source": "/blog/epd-steel-in-india-what-buyers-exporters-and-specifiers-need-to-know-in-2026",
+    "status": "200",
+    "target": "/blog/epd-steel-in-india-what-buyers-exporters-and-specifiers-need-to-know-in-2026/index.html"
   },
   {
     "source": "/blog/scaffold-towers-explained-types-uses-and-safety-tips",

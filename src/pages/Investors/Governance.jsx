@@ -133,6 +133,9 @@ const Governance = () => {
                 <img
                   src={getImageUrl(member.img)}
                   alt={member.name}
+                  width={400}
+                  height={400}
+                  loading="lazy"
                   referrerPolicy="no-referrer"
                   className={`w-full h-full object-cover transition-all duration-500 ${
                     hoveredMember === member._id ? "grayscale-0" : "grayscale"
@@ -348,6 +351,10 @@ const Governance = () => {
               key={heroSrc}
               src={heroSrc}
               alt="Corporate Governance Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}

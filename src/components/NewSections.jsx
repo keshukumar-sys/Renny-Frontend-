@@ -68,6 +68,8 @@ import BGimg from '../assets/whyChooseBg.webp';
 //         <img
 //           src={cert.thumbnail}
 //           alt={cert.title}
+//           width={400}
+//           height={500}
 //           className="w-full h-90 object-cover transition-transform duration-700 group-hover:scale-105"
 //         />
 
@@ -199,6 +201,9 @@ const CertificateModal = ({ cert, onClose }) => {
               <img
                 src={cert.fullImage}
                 alt={cert.title}
+                width={1200}
+                height={1600}
+                loading="lazy"
                 className="max-h-[70vh] w-auto object-contain rounded-lg shadow-xl border border-gray-200 bg-white"
               />
             </motion.div>
@@ -463,6 +468,9 @@ const NewSections = () => {
             src={BGimg}
             alt="Why Choose Renny Strips Limited"
             aria-hidden="true"
+            width={1920}
+            height={1080}
+            loading="lazy"
             className="w-full h-full object-cover"
           />
 

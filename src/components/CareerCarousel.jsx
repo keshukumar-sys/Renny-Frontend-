@@ -25,6 +25,9 @@ const CareerCard = ({ story }) => {
           <img
             src={story.image}
             alt={story.name}
+            width={400}
+            height={400}
+            loading="lazy"
             className="h-full w-full object-cover"
           />
           {/* Transparent Gradient Overlay for Text Readability */}

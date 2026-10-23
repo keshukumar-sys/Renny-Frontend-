@@ -291,6 +291,10 @@ const ProductRange2 = () => {
             key={heroSrc || 'fallback'}
             src={heroSrc || bannerVideo}
             alt="Hero Banner"
+            width={1920}
+            height={1080}
+            loading="eager"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
@@ -327,6 +331,9 @@ const ProductRange2 = () => {
                   <img
                     src={product.image}
                     alt={product.title}
+                    width={800}
+                    height={600}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
 
@@ -410,6 +417,9 @@ const ProductRange2 = () => {
               <img
                 src={product.image}
                 alt={product.title}
+                width={800}
+                height={600}
+                loading="lazy"
                 className="w-full h-full object-cover transition duration-700 hover:scale-110"
               />
             </motion.div>
@@ -504,6 +514,9 @@ const ProductRange2 = () => {
             <img
               src={information}
               alt="Detailed product information"
+              width={559}
+              height={447}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>

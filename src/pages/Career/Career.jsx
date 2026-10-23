@@ -166,6 +166,9 @@ const Career = () => {
               <img
                 src={popup}
                 alt="Popup Announcement"
+                width={1536}
+                height={1024}
+                loading="lazy"
                 className="w-full h-auto max-h-[80vh] object-contain rounded-2xl shadow-2xl"
               />
             </motion.div>
@@ -193,6 +196,10 @@ const Career = () => {
               key={heroSrc || 'fallback'}
               src={heroSrc || banner}
               alt="Career Banner"
+              width={1920}
+              height={1080}
+              loading="eager"
+              fetchPriority="high"
               className="absolute inset-0 w-full h-full object-cover"
             />
           )}
