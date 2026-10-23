@@ -13,12 +13,17 @@ export default defineConfig({
         target: 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com',
         changeOrigin: true,
       },
-      '/ec': {
+      '/document/': {
+        target: 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/document\//, '/documents/'),
+      },
+      '^/ec$': {
         target: 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com',
         changeOrigin: true,
         rewrite: () => '/documents/RENNY-EC-1-MERGER-APPROVAL.pdf',
       },
-      '/green-steel': {
+      '^/green-steel$': {
         target: 'https://renny-assets-storage.s3.ap-south-1.amazonaws.com',
         changeOrigin: true,
         rewrite: () => '/documents/RENNY+STRIPS+LIMITED%2C+LUDHIANA%2C+PUNJAB.pdf',
