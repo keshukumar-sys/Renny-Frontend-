@@ -421,7 +421,7 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
             willChange: 'transform',
           }}
         >
-          <h1
+          <p
             className="
     font-semibold
     text-blue
@@ -452,7 +452,7 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
             </span>
             <br />
             <span className="text-blue">Together</span>
-          </h1>
+          </p>
         </motion.div>
 
         {/* Right Content */}
@@ -606,7 +606,7 @@ const AboutSection = React.memo(() => {
           <div className="absolute inset-0 flex flex-col md:flex md:flex-col md:items-center md:justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 z-10">
             {/* Scrollable Text Wrapper on Mobile / Balanced Centered Container on Desktop */}
             <div className="bg-transparent rounded-xl px-6 py-8 md:px-8 lg:px-12 md:py-6 lg:py-8 max-w-5xl lg:max-w-4xl xl:max-w-5xl w-full text-center flex-1 overflow-y-auto md:flex-none md:overflow-visible mx-auto">
-              <motion.h2
+              <motion.p
                 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-2 lg:mb-3"
                 initial={{ y: 30, filter: 'blur(1px)' }}
                 whileInView={{ y: 0, filter: 'blur(0px)' }}
@@ -614,8 +614,8 @@ const AboutSection = React.memo(() => {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 About Renny Strips Ltd.
-              </motion.h2>
-              <motion.h3
+              </motion.p>
+              <motion.h1
                 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl text-white mb-6 lg:mb-8 font-light tracking-wide"
                 initial={{ y: 30, filter: 'blur(1px)' }}
                 whileInView={{ y: 0, filter: 'blur(0px)' }}
@@ -623,7 +623,7 @@ const AboutSection = React.memo(() => {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 A Legacy Structural Steel Company Since 1996
-              </motion.h3>
+              </motion.h1>
 
               <motion.p
                 className="text-sm sm:text-base md:text-base lg:text-lg text-white mb-4 lg:mb-6 leading-relaxed"
