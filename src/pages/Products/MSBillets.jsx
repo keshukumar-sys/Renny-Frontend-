@@ -326,7 +326,7 @@ const MSBillets = () => {
         />
         {/* ================= INTRO SECTION ================= */}
         <IntroSection
-          pageTitle={pageData?.title || "MS Billets"}
+          pageTitle={pageData?.title || "Best Wire Rods for General Engineering High Capacity MS Billets"}
           displayCapacity={displayCapacity}
           displayDescription={displayDescription}
           displayHighlights={displayHighlights}
