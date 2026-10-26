@@ -545,17 +545,17 @@ const ProductIntro = React.memo(
             {/* ================= WHITE INTRO SECTION ================= */}
             <div className="bg-white text-black py-10 md:py-16">
               <div className="px-6 md:px-20 max-w-7xl mx-auto">
-                <motion.p
+                <motion.h2
                   className="text-[28px] sm:text-[36px] md:text-[48px] text-blue font-bold w-full text-center leading-tight"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5 }}
                 >
-                  {pageData?.title || "Narrow Width HR Coils"}
+                  {pageData?.title || "Premium Narrow Width HR Coils"}
                   {/* Responsive underline width */}
                   <div className="w-3/4 sm:w-1/2 md:w-3/4 lg:w-full max-w-[400px] h-1 bg-blue mx-auto rounded-full mt-4 mb-8 md:mb-10" />
-                </motion.p>
+                </motion.h2>
 
                 <motion.div
                   className="text-center md:text-left"
