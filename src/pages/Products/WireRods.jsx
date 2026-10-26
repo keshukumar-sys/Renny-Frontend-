@@ -173,6 +173,8 @@ const WireRods = () => {
       if (res.data && res.data.data) {
         setPageData(res.data.data);
       }
+
+      console.log(pageData)
     } catch (err) {
       console.error("Error fetching page data:", err);
     }
@@ -557,7 +559,7 @@ const ProductIntro = React.memo(
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
             >
-              {pageData?.title || "Wire Rods"}
+              {pageData?.title || "Best Wire Rods for General Engineering"}
               <div className="w-20 md:w-40 h-1 bg-blue mx-auto rounded-full mt-4 mb-8 md:mb-10" />
             </motion.p>
 
