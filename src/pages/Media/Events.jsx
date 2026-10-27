@@ -10,6 +10,8 @@ import usePageHero from "../../hooks/usePageHero";
 import EventCard from "../../components/EventCard";
 import PageSpinner from "../../components/PageSpinner.jsx";
 
+import eventsSchema from "../../schema/eventsSchema.js";
+
 const containerVariants = {
   hidden: {},
   visible: {
@@ -53,6 +55,7 @@ const imageZoom = {
 };
 
 import { API_BASE_URL } from "../../lib/api";
+import SchemaMarkup from "../../components/SchemaMarkup.jsx";
 
 const Events = () => {
   const { heroSrc, heroHeading } = usePageHero("events", "Events", banner);
@@ -143,6 +146,7 @@ const Events = () => {
   }
   return (
     <>
+    <SchemaMarkup schema={eventsSchema}/>
       <SEO
         title="Events & Exhibitions | Renny Strips"
         description="Explore Renny Strips events, exhibitions, trade shows, corporate gatherings, and industry participation highlights."
