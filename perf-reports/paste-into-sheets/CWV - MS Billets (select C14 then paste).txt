@@ -1,0 +1,15 @@
+Done - MS Billets video 4.46MB -> 1.86MB, Great Place to Work 146KB -> 11KB, posters recompressed
+Done - 4.46MB -> 1.86MB (1280px VP9, audio stripped); loads only after window load
+Done - entry CSS inlined into every prerendered page (no render-blocking stylesheet)
+Done (duplicates) - GTM/gtag/Clarity were loading twice because react-snap baked the tags into the static HTML; now each loads once (kept loading immediately so all visits/events are tracked). Remaining unused code is inside Google's own tags - needs a tag clean-up in the GTM container
+Partially done - non-critical routes (catalogue, brochure, green steel, 404, thank-you) split out of main bundle; remainder is React/Router/Framer Motion used on every page
+Done - 144KB -> 11KB (resized to 240x360)
+Done - MsBilletsPoster-Mobile 39KB -> 31KB, MsBilletsPoster 102KB -> 53KB (1440px)
+Done - 293px -> 240px, 9.2KB -> 8.8KB
+Done - manufacturingProcess-1-Mobile 27KB -> 23KB
+Done - all preconnects removed (they were injected by react-snap/GTM during prerender, incl. the unused Google Analytics one); dns-prefetch kept for API and S3 only
+Done - root cause was an extra gtm.js/gtag tag baked into the prerendered HTML; GTM, gtag and Clarity now load once each
+Done (duplicate removed) - Clarity now loads once via GTM; remaining unused code is Clarity's own script (third party)
+Third party - Clarity and Cloudflare Insights set their own 1-day cache lifetime; cannot be changed from our side
+Done - entry CSS inlined (one less request in the chain) and duplicate GTM removed
+Done - explicit width/height (240x360) on the image

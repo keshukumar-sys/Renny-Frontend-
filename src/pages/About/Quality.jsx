@@ -514,6 +514,8 @@ const Quality = () => {
                 {/* Center Image */}
                 <motion.img
                   src={iconMiddle}
+                  width={418}
+                  height={244}
                   alt="Certifications"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -625,6 +627,8 @@ const Quality = () => {
                   <motion.img
                     key={activeIndex}
                     src={displaySpecificationsData[activeIndex]?.image}
+                    width={1440}
+                    height={686}
                     alt={displaySpecificationsData[activeIndex]?.subtitle}
                     initial={{ opacity: 0, x: 60 }}
                     animate={{ opacity: 1, x: 0 }}

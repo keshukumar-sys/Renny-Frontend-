@@ -190,6 +190,8 @@ const EnvironmentalAndReport = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   src={envSustainabilityImg}
+                  width={1600}
+                  height={1052}
                   alt="Environmental Sustainability"
                   className="w-full h-full object-cover cursor-pointer"
                 />

@@ -278,6 +278,8 @@ Renny Strips Ltd. is growing. Your career can rise with us.</p>
                     <motion.img
                       key={currentSlide}
                       src={badgeImages[currentSlide].src}
+                      width={1358}
+                      height={1920}
                       alt={badgeImages[currentSlide].alt}
                       initial={{ opacity: 0, scale: 0.98 }}
                       animate={{ opacity: 1, scale: 1 }}

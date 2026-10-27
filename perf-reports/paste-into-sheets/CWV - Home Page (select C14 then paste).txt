@@ -1,0 +1,15 @@
+Done - Hero video 1.51MB -> 0.49MB, CBAM video 1.05MB -> 0.30MB and no longer loaded at page load (fixes duplicate request), local images recompressed (66.5MB -> 22MB). Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header
+Done (duplicates) - GTM/gtag/Clarity were loading twice because react-snap baked the tags into the static HTML; now each loads once (kept loading immediately so all visits/events are tracked). Remaining unused code is inside Google's own tags - needs a tag clean-up in the GTM container
+Done - 1.51MB -> 0.49MB (960px H.264, audio stripped - video is muted)
+Done - 1.05MB -> 0.30MB; autoplay removed so it only loads when scrolled into view (no duplicate request)
+Done - entry CSS inlined into every prerendered page (no render-blocking stylesheet)
+Partially done - non-critical routes (catalogue, brochure, green steel, 404, thank-you) split out of main bundle; remainder is React/Router/Framer Motion used on every page
+Done (reduced) - GTM no longer loads twice, halving the reflow work; the remaining reflow is inside Google's gtag script
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header (687KB PNG -> 99KB WebP)
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header (242KB JPEG -> 110KB WebP)
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header (143KB -> 134KB)
+Done - 144KB -> 11KB (resized to 240x360); width/height attributes updated
+Done - 131KB -> 59KB
+Done - 132KB -> 71KB (1440px)
+Done - 59KB -> 32KB
+Done - 28KB -> 17KB (520px). Popup also opens as soon as its image is ready instead of after window load (it was the late LCP element)

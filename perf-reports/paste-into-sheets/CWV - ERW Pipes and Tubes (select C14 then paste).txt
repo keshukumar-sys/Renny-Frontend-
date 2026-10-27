@@ -1,0 +1,15 @@
+Done - ERW video 3.49MB -> 1.54MB, Great Place to Work 146KB -> 11KB, posters recompressed. Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header
+Done - 3.49MB -> 1.54MB (1280px VP9, audio stripped - video is muted); still loads only after window load
+Done - entry CSS inlined into every prerendered page (no render-blocking stylesheet)
+Done (duplicates) - GTM/gtag/Clarity were loading twice because react-snap baked the tags into the static HTML; now each loads once (kept loading immediately so all visits/events are tracked). Remaining unused code is inside Google's own tags - needs a tag clean-up in the GTM container
+Partially done - non-critical routes (catalogue, brochure, green steel, 404, thank-you) split out of main bundle; remainder is React/Router/Framer Motion used on every page
+Done - 144KB -> 11KB (resized to 240x360)
+Done - erwPoster 140KB -> 85KB (1280px), erwPoster_Mobile 70KB -> 63KB
+Done - 72KB -> 39KB (800x640)
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header. Clarity/Cloudflare 1-day TTL is set by those third parties
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header (212KB -> 192KB)
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header
+Done - all preconnects removed (they were injected by react-snap/GTM during prerender, incl. the unused Google Analytics one); dns-prefetch kept for API and S3 only
+Done (duplicate removed) - Clarity now loads once via GTM; remaining unused code is Clarity's own script (third party)
+Done - root cause was an extra gtm.js/gtag tag baked into the prerendered HTML; GTM, gtag and Clarity now load once each
+Done - explicit width/height (240x360) on the image

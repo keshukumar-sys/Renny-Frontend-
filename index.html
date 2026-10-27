@@ -44,14 +44,20 @@
     content="Renny Strips is a CBAM-compliant structural steel company manufacturing high-quality steel products for infrastructure, engineering, and industrial applications." />
   <meta data-rh="true" property="og:image" content="https://rennystrips.com/assets/RENNY-Bi73PIQU.webp" />
 
-  <!-- Google Tag Manager - Official Bootstrap Snippet ONLY -->
+  <link rel="dns-prefetch" href="https://api.rennystrips.com" />
+  <link rel="dns-prefetch" href="https://renny-assets-storage.s3.ap-south-1.amazonaws.com" />
+
+  <!-- Google Tag Manager (official async snippet, loads immediately so every
+       visit and event is tracked).
+       It is skipped during react-snap prerendering: otherwise the injected
+       <script>/<link rel=preconnect> tags get baked into every static HTML file
+       and GTM ends up loading twice. -->
   <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      if (navigator.userAgent === 'ReactSnap') return;
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-N4W2N5TC');</script>
   <!-- End Google Tag Manager -->
 

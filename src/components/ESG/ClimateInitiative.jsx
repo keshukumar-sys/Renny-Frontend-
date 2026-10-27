@@ -75,6 +75,8 @@ const ClimateInitiative = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 src={initiativeLeaf} 
+                width={1600}
+                height={722}
                 alt="Climate Initiative" 
                 className="w-full object-cover h-[300px] md:h-[450px] cursor-pointer"
               />
@@ -130,6 +132,8 @@ const ClimateInitiative = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 src={goodLifeImg} 
+                width={617}
+                height={584}
                 alt="Shaping Good Life" 
                 className="w-full object-cover h-[300px] md:h-[450px] cursor-pointer"
               />

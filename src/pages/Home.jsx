@@ -150,7 +150,6 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    let popupTimeoutId;
     const onPageLoaded = () => {
       // Show Hero Video
 
@@ -166,14 +165,6 @@ const Home = () => {
         }, 1000);
       }
 
-      // Trigger automatic popup after a predictable delay (800ms) to allow initial paint (LCP) to finish
-      const isPrerender =
-        typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
-      if (!isPrerender) {
-        popupTimeoutId = setTimeout(() => {
-          setShowPopup(true);
-        }, 800);
-      }
     };
     // const onPageLoaded = ()=>{
     //   setShowVideo(true);
@@ -190,9 +181,33 @@ const Home = () => {
 
     return () => {
       window.removeEventListener('load', onPageLoaded);
-      if (popupTimeoutId) {
-        clearTimeout(popupTimeoutId);
-      }
+    };
+  }, []);
+
+  // Show the popup as soon as its image is decoded instead of waiting for the
+  // window 'load' event. Opening it after every video/image had finished made the
+  // popup the page's LCP element (~7s); preloading keeps it early and jank-free.
+  useEffect(() => {
+    const isPrerender =
+      typeof navigator !== 'undefined' && navigator.userAgent === 'ReactSnap';
+    if (isPrerender) return;
+
+    let cancelled = false;
+    const show = () => {
+      if (!cancelled) setShowPopup(true);
+    };
+    const img = new Image();
+    img.src = window.matchMedia('(max-width: 767px)').matches
+      ? popup_Mobile
+      : popup;
+    if (img.decode) {
+      img.decode().then(show, show);
+    } else {
+      img.onload = show;
+      img.onerror = show;
+    }
+    return () => {
+      cancelled = true;
     };
   }, []);
 
@@ -305,8 +320,8 @@ const Home = () => {
                 <source
                   media="(max-width: 767px)"
                   srcSet={popup_Mobile}
-                  width="665"
-                  height="443"
+                  width="520"
+                  height="346"
                   type="image/webp"
                 />
                 <source
@@ -1221,7 +1236,6 @@ const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
               height="360"
               muted={true}
               loop={true}
-              autoPlay={true}
               playsInline={true}
               preload="none"
             />

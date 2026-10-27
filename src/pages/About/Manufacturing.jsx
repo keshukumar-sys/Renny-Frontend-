@@ -340,6 +340,8 @@ const Manufacturing = () => {
               <motion.img
                 key={currentUnit.image}
                 src={currentUnit.image}
+                width={1280}
+                height={720}
                 alt={currentUnit.title}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -529,6 +531,8 @@ const Manufacturing = () => {
               <motion.img
                 key={currentMetric.image}
                 src={currentMetric.image}
+                width={1264}
+                height={842}
                 alt={currentMetric.title}
                 className="w-full h-full rounded-4xl object-cover"
                 initial={{ opacity: 0 }}

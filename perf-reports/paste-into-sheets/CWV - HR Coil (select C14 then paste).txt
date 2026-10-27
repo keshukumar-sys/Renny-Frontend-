@@ -1,0 +1,15 @@
+Done - HR Coil video 5.49MB -> 0.69MB, Great Place to Work 146KB -> 11KB, HR Banner 72KB -> 59KB
+Done - 5.49MB -> 0.69MB (1280px VP9, audio stripped); loads only after window load
+Done - entry CSS inlined into every prerendered page (no render-blocking stylesheet)
+Done (duplicates) - GTM/gtag/Clarity were loading twice because react-snap baked the tags into the static HTML; now each loads once (kept loading immediately so all visits/events are tracked). Remaining unused code is inside Google's own tags - needs a tag clean-up in the GTM container
+Partially done - non-critical routes (catalogue, brochure, green steel, 404, thank-you) split out of main bundle; remainder is React/Router/Framer Motion used on every page
+Done - 144KB -> 11KB (resized to 240x360)
+Done - 72KB -> 59KB
+Done (cache) - Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header. Kept 941px wide because the same image is shown larger on desktop
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header
+Done - existing S3 images re-encoded to WebP with 1-year Cache-Control (originals in backup-originals/); new CMS uploads auto-convert and get the same header
+Done - all preconnects removed (they were injected by react-snap/GTM during prerender, incl. the unused Google Analytics one); dns-prefetch kept for API and S3 only
+Third party (Cloudflare) - /cdn-cgi/rum is Cloudflare Web Analytics, injected at the edge; disable 'Web Analytics / RUM' in the Cloudflare dashboard if not needed. Our own chain shortened by inlining CSS
+Done (duplicate removed) - Clarity now loads once via GTM; remaining unused code is Clarity's own script (third party)
+Done - root cause was an extra gtm.js/gtag tag baked into the prerendered HTML; GTM, gtag and Clarity now load once each
+Done - explicit width/height (240x360) on the image

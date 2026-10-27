@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run sitemap && npm run rewrites && vite build",
-    "postbuild": "node patch-react-snap.cjs && react-snap && node -e \"['ec','green-steel','document'].forEach(d => require('fs').rmSync('dist/' + d, { recursive: true, force: true }))\"",
+    "postbuild": "node patch-react-snap.cjs && react-snap && node -e \"['ec','green-steel','document'].forEach(d => require('fs').rmSync('dist/' + d, { recursive: true, force: true }))\" && node scripts/optimize-html.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "rewrites": "node scripts/generate-rewrites.mjs",
     "lint": "eslint .",
@@ -52,6 +52,7 @@
   "reactSnap": {
     "source": "dist",
     "inlineCss": false,
+    "preconnectThirdParty": false,
     "waitFor": 5000,
     "include": [
       "/catelog-download",

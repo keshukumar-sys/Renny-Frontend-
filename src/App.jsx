@@ -13,11 +13,11 @@ import Parallax from './components/ParallaxSection';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import PageSpinner from './components/PageSpinner.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
-import NotFound from './pages/NotFound.jsx';
-import Thankyou from './pages/Thankyou.jsx';
-import GreenSteel from './pages/Sustainability/GreenSteel.jsx';
-import ScaffoldingBrochure from './pages/ScaffoldingBrochure.jsx';
-import CatelogDownload from './components/CatelogDownload.jsx';
+const NotFound = lazy(() => import('./pages/NotFound.jsx'));
+const Thankyou = lazy(() => import('./pages/Thankyou.jsx'));
+const GreenSteel = lazy(() => import('./pages/Sustainability/GreenSteel.jsx'));
+const ScaffoldingBrochure = lazy(() => import('./pages/ScaffoldingBrochure.jsx'));
+const CatelogDownload = lazy(() => import('./components/CatelogDownload.jsx'));
 // import CBAM from "./pages/Sustainability/CBAM.jsx";
 
 /* ── Pages ── */
