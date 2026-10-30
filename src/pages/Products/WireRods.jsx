@@ -15,7 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import usePageHero from "../../../hooks/usePageHero";
 
 // ========== Components ==========
-import SEO from "../../../components/SEO";
+import SEO from "../../components/SEO";
 import SchemaMarkup from "../../../components/SchemaMarkup";
 import wireRodsSchema from "../../../schema/wireRodsSchema";
 
