@@ -2375,6 +2375,11 @@
     "target": "/blog/index.html"
   },
   {
+    "source": "/blog/scope-1-2-and-3-steel-emissions-explained",
+    "status": "200",
+    "target": "/blog/scope-1-2-and-3-steel-emissions-explained/index.html"
+  },
+  {
     "source": "/blog/integrated-steel-manufacturer-plant-process-overview-process-flow-and-step-by-step-guide",
     "status": "200",
     "target": "/blog/integrated-steel-manufacturer-plant-process-overview-process-flow-and-step-by-step-guide/index.html"
