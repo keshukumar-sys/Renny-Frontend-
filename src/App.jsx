@@ -30,7 +30,7 @@ const Quality = lazy(() => import('./pages/About/Quality'));
 const DesignCentre = lazy(() => import('./pages/About/DesignCentre'));
 
 /* Products */
-const MSBillets = lazy(() => import('./pages/Products/MSBillets'));
+const MSBillets = lazy(() => import('./pages/Products/MSBillets.jsx'));
 const WireRods = lazy(() => import('./pages/Products/WireRods'));
 const HRCoils = lazy(() => import('./pages/Products/HRCoils'));
 const ERW = lazy(() => import('./pages/Products/ERW'));

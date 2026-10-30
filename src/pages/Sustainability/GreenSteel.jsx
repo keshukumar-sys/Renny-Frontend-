@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../../components/SEO'
 
 const GreenSteel = () => {
   const pdfUrl =
@@ -12,6 +13,12 @@ const GreenSteel = () => {
   }, []);
 
   return (
+    <>
+      <SEO
+        title="Green Steel Certificate | Renny Strips"
+        description="Green steel document of Renny Strips Limited, Ludhiana, Punjab."
+        url={`${SITE_URL}${pdfUrl}`}
+      />
     <div style={styles.container}>
       <h1>Redirecting to Document...</h1>
       <p>
@@ -22,6 +29,7 @@ const GreenSteel = () => {
         Open PDF Manually
       </a>
     </div>
+    </>
   );
 };
 

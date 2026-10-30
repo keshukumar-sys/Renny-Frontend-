@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import SEO from '../../components/SEO';
 
 const EC = () => {
   const pdfUrl =
@@ -12,6 +13,12 @@ const EC = () => {
   }, []);
 
   return (
+    <>
+     <SEO
+        title="EC-1 Merger Approval | Renny Strips"
+        description="Merger approval document (EC-1) of Renny Strips Limited."
+        url="https://rennystrips.com/document/RENNY-EC-1-MERGER-APPROVAL.pdf"
+      />
     <div style={styles.container}>
       <h1>Redirecting to Document...</h1>
       <p>
@@ -22,6 +29,7 @@ const EC = () => {
         Open PDF Manually
       </a>
     </div>
+    </>
   );
 };
 

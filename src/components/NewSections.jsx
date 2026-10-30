@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import certificate from '../assets/Certificate -  BIS Certification –  IS 11612014(2).webp';
-import BGimg from '../assets/whyChooseBg.webp';
+// import BGimg from '../assets/whyChooseBg.webp';
+import BGimg from '../assets/Why Global Companies.webp'
 /* ==========================================================================
    1. CERTIFICATES DATASET
    ========================================================================== */
@@ -471,11 +472,11 @@ const NewSections = () => {
             width={1920}
             height={1080}
             loading="lazy"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain brightness-105 saturate-110"
           />
 
           {/* White Overlay */}
-          <div className="absolute inset-0 bg-white/65" />
+          <div className="absolute inset-0 bg-white/15" />
 
           {/* Blue Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/10 to-[#05267e]/15" />

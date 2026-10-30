@@ -20,6 +20,16 @@ import HeroPoster from '../assets/HeroPoster.webp';
 import SEO from '../components/SEO';
 import SchemaMarkup from '../components/SchemaMarkup';
 import homeSchema from '../schema/homeSchema';
+//Diwali theme
+import Hero from '../assets/Hero.webp' 
+import ProductBG from '../assets/Product.webp'
+import NetworkBG from '../assets/our_network.webp'
+import NewsBG from '../assets/NewsDiwali.webp'
+import SustainBG from '../assets/EngineeringSustainble.webp'
+import BlogBG from "../assets/Blogs.webp"
+import GarlandLeft from "../assets/Left.webp"
+import GarlandRight from "../assets/Right.webp"
+
 
 import MS from '../assets/product-1.webp';
 import Scaffolding from '../assets/product-2.webp';
@@ -46,7 +56,8 @@ import blog3_Mobile from '../assets/blog3-Mobile.webp';
 import blog4_Mobile from '../assets/blog4-Mobile.webp';
 
 import { AnimatePresence } from 'framer-motion';
-import AboutUs from '../assets/about-3.webp';
+// import AboutUs from '../assets/about-3.webp';
+import AboutUs from '../assets/About.webp';
 import AboutUsMobile from '../assets/about-3-Mobile.webp';
 import { MdClose } from 'react-icons/md';
 // import MockData
@@ -75,6 +86,8 @@ const ProductCarousel = lazy(() => import('../components/ProductCarousel'));
 //       link: '/scaffolding-formwork',
 //     },
 //   ];
+
+
 
 const staggerContainer = {
   hidden: {},
@@ -424,6 +437,23 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
   }, [loadVideo]);
 
   return (
+    //Diwali theme
+<section className="w-full min-h-screen relative flex items-center py-12 md:py-0 overflow-hidden">
+  {/* Background */}
+  <img
+    src={Hero}
+    alt=""
+    aria-hidden="true"
+    width={1920}
+    height={1080}
+    fetchpriority="high"
+    decoding="async"
+    className="absolute inset-0 w-full h-full object-cover object-left-bottom pointer-events-none"
+  />
+  {/* Content */}
+  <div className="relative z-10 w-full flex flex-col nest-hub:flex-row items-center justify-center px-4 md:px-0 gap-6 md:gap-0">
+    {/* ...existing content... */}
+  
     <section className="w-full min-h-screen relative flex items-center py-12 md:py-0 overflow-hidden">
       <div className="w-full flex flex-col nest-hub:flex-row items-center justify-center px-4 md:px-0 gap-6 md:gap-0">
         {/* Left Content */}
@@ -577,6 +607,8 @@ const HeroSection = React.memo(({ HomepageBanner, HeroPoster }) => {
         </motion.div>
       </div>
     </section>
+    </div>
+</section>
   );
 });
 
@@ -615,7 +647,7 @@ const AboutSection = React.memo(() => {
             />
           </picture>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/35 to-black/40"></div>
 
           {/* Flex Column Container for Mobile / Centered Flex Layout for Desktop */}
           <div className="absolute inset-0 flex flex-col md:flex md:flex-col md:items-center md:justify-center px-4 sm:px-6 md:px-8 lg:px-12 py-12 md:py-16 lg:py-20 z-10">
@@ -703,33 +735,50 @@ const AboutSection = React.memo(() => {
   );
 });
 
+// PRODUCT SECTION
+
 const ProductsSection = React.memo(() => {
   return (
     <>
-      <section className="w-full font-helvetica">
+       <section className="relative w-full font-helvetica overflow-hidden">
+      {/* Diwali frame, behind everything */}
+      <img
+        src={ProductBG}
+        alt=""
+        aria-hidden="true"
+        width={1920}
+        height={720}
+        loading="lazy"
+        decoding="async"
+        className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-0"
+      />
+
+      {/* Content, above the image */}
+      <div className="relative z-10">
         {/* Heading */}
         <motion.h2
           className="text-3xl text-blue py-8 sm:text-4xl md:text-[48px] font-bold  w-full text-center"
           initial={{ y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
-        >
-          Our Products
-          <div className="w-36 sm:w-48 md:w-60 h-0.5 bg-blue mx-auto rounded-full" />
-        </motion.h2>
+           viewport={{ once: true, amount: 0.3 }}
+           transition={{ duration: 0.5 }}
+         >
+           Our Products 
+           <div className="w-36 sm:w-48 md:w-60 h-0.5 bg-blue mx-auto rounded-full" /> 
+         </motion.h2> 
 
-        {/* Horizontal Scroll Container */}
-        <Suspense
-          fallback={
-            <div className="w-full h-[60vh] sm:h-[75vh] md:h-[85vh] bg-gray-50/30 animate-pulse rounded-2xl flex items-center justify-center">
-              <div className="text-gray-400 text-sm">Loading Products...</div>
-            </div>
-          }
+        {/* //  Horizontal Scroll Container  */}
+        <Suspense 
+           fallback={
+             <div className="w-full h-[60vh] sm:h-[75vh] md:h-[85vh] bg-gray-50/30 animate-pulse rounded-2xl flex items-center justify-center">
+               <div className="text-gray-400 text-sm">Loading Products...</div> 
+            </div> 
+           }
         >
-          <ProductCarousel />
-        </Suspense>
-      </section>
+          <ProductCarousel /> 
+         </Suspense> 
+         </div>
+       </section>  
     </>
   );
 });
@@ -750,14 +799,37 @@ const NetworkSection = React.memo(
 
     return (
       <>
-        <motion.section
-          className="flex flex-col items-center font-helvetica bg-white justify-center px-4 sm:px-6 py-12 md:py-16 panel"
-          initial={{ y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
-        >
-          <motion.h2
+      <motion.section
+    className="relative overflow-hidden flex flex-col items-center font-helvetica bg-white justify-center px-4 sm:px-6 py-12 md:py-16 panel"
+    initial={{ y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.7, ease: 'easeOut' }}
+  >
+    {/* Left garland, flush to top-left edge */}
+  <img
+    src={GarlandLeft}
+    alt=""
+    aria-hidden="true"
+    width={870}
+    height={2560}
+    loading="lazy"
+    decoding="async"
+    className="absolute top-0 left-0 h-auto pointer-events-none z-0 w-[14%] sm:w-[11%] lg:w-[9%] max-w-[170px]"
+  />
+   {/* Right garland, flush to top-right edge */}
+  <img
+    src={GarlandRight}
+    alt=""
+    aria-hidden="true"
+    width={870}
+    height={2560}
+    loading="lazy"
+    decoding="async"
+    className="absolute top-0 right-0 h-auto pointer-events-none z-90 w-[14%] sm:w-[11%] lg:w-[9%] max-w-[170px]"
+  />
+    <div className="relative z-10 w-full flex flex-col items-center">
+      <motion.h2
             className="text-3xl text-blue sm:text-4xl md:text-[48px] font-bold ml-0 md:ml-20 w-full text-center"
             initial={{ y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -778,7 +850,6 @@ const NetworkSection = React.memo(
           >
             <MapPage />
           </Suspense>
-
           <motion.div
             ref={ref}
             className="flex flex-wrap items-center justify-center gap-6 mt-8 md:mt-10"
@@ -841,7 +912,9 @@ const NetworkSection = React.memo(
               </motion.div>
             ))}
           </motion.div>
-        </motion.section>
+    </div>
+    </motion.section>
+ 
       </>
     );
   }
@@ -948,7 +1021,19 @@ const NewsSection = React.memo(
   }) => {
     return (
       <>
-        <section className="font-helvetica bg-gray-100 py-14 md:py-20 px-4 sm:px-6 panel">
+      <section className="relative overflow-hidden font-helvetica bg-gray-100 py-14 md:py-20 px-4 sm:px-6 panel">
+  {/* Diwali background */}
+  <img
+    src={NewsBG}
+    alt=""
+    aria-hidden="true"
+    width={1920}
+    height={1016}
+    loading="lazy"
+    decoding="async"
+    className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none z-0"
+  />
+        <div className='relative z-10'>
           {contentError && (
             <div className="mx-auto mb-6 max-w-6xl rounded-xl bg-white px-4 py-3 text-sm text-[#292c44] shadow-sm">
               {contentError}
@@ -1152,8 +1237,11 @@ const NewsSection = React.memo(
               </div> */}
             </motion.div>
           </div>
+        </div>
         </section>
+        
       </>
+      
     );
   }
 );
@@ -1161,7 +1249,21 @@ const NewsSection = React.memo(
 const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
   return (
     <>
-      <section className="flex flex-col items-center font-helvetica justify-center px-4 sm:px-6 py-12 md:py-16 bg-white panel min-h-screen lg:h-screen">
+      <section className="relative overflow-hidden flex flex-col items-center font-helvetica justify-center px-4 sm:px-6 py-12 md:py-16 pb-28 md:pb-40 bg-white panel min-h-screen lg:h-screen">
+      {/* Diwali diyas, behind everything */}
+      <img
+        src={SustainBG}
+        alt=""
+        aria-hidden="true"
+        width={1920}
+        height={1080}
+        loading="lazy"
+        decoding="async"
+        className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-0"
+      />
+
+      {/* Content, above the image */}
+      <div className="relative z-10 w-full flex flex-col items-center">
         <motion.h2
           className="text-3xl font-helvetica text-blue sm:text-4xl md:text-[48px] ml-0 md:ml-20 font-bold mb-8 md:mb-10 w-full text-center"
           initial={{ x: -40 }}
@@ -1180,22 +1282,18 @@ const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
           className="flex flex-col lg:flex-row items-stretch justify-center gap-6 sm:gap-8 md:gap-10 w-full"
           initial={{ y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }} // Reduced amount for better mobile triggering
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          style={{
-            willChange: 'transform',
-          }}
+          style={{ willChange: 'transform' }}
         >
           {/* Slider Container */}
           <motion.div
-            className="w-full lg:w-3/5" // Removed fixed h-80 to allow content to dictate height
+            className="w-full lg:w-3/5"
             initial={{ y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            style={{
-              willChange: 'transform',
-            }}
+            style={{ willChange: 'transform' }}
           >
             <Suspense
               fallback={
@@ -1213,7 +1311,7 @@ const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
           {/* Video Container */}
           <motion.div
             className="w-full lg:w-2/5 flex"
-            initial={{ x: 20, scale: 0.98 }} // Reduced X and scale for smoother mobile entry
+            initial={{ x: 20, scale: 0.98 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
@@ -1224,9 +1322,7 @@ const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
                 });
               }
             }}
-            style={{
-              willChange: 'transform',
-            }}
+            style={{ willChange: 'transform' }}
           >
             <video
               ref={sustainabilityVideoRef}
@@ -1241,28 +1337,44 @@ const SustainabilitySection = React.memo(({ sustainabilityVideoRef }) => {
             />
           </motion.div>
         </motion.div>
-      </section>
+      </div>
+    </section>
     </>
   );
 });
+
+
+      
 
 const BlogSection = React.memo(({ blogs, formatDate }) => {
   return (
     <>
       <motion.section
-        className="bg-gray-100 px-6 py-10 font-helvetica panel"
+        className="relative overflow-hidden bg-gray-100 px-6 pt-10 pb-24 md:pb-32 font-helvetica panel"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: { y: 40 },
           visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: 'easeOut' },
-          },
-        }}
-      >
+          opacity: 1,
+           y: 0,
+          transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  }}
+>
+  {/* Diwali bg */}
+  <img
+    src={BlogBG}
+    alt=""
+    aria-hidden="true"
+    width={1920}
+    height={1000}
+    loading="lazy"
+    decoding="async"
+    className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none z-0"
+  />
+  <div className="relative z-10">
         <motion.h2
           className="text-[48px] text-blue font-bold w-full text-center"
           initial={{ y: 20 }}
@@ -1448,6 +1560,7 @@ const BlogSection = React.memo(({ blogs, formatDate }) => {
             </div>
           </div>
         </motion.div>
+        </div>
       </motion.section>
     </>
   );

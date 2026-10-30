@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import RennyLogo from '../assets/RennyLogo.webp';
+import FooterBG from '../assets/Footer.webp'
 import {
   FaXTwitter,
   FaFacebookF,
@@ -52,7 +53,19 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 font-helvetica text-gray-800">
+    <footer className="relative overflow-hidden bg-gray-100 font-helvetica text-gray-800">
+  {/* Diwali background */}
+  <img
+    src={FooterBG}
+    alt=""
+    aria-hidden="true"
+    width={1920}
+    height={742}
+    loading="lazy"
+    decoding="async"
+    className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none z-0"
+  />
+  <div className='relative z-10'>
       {/* ================= MAIN FOOTER ================= */}
       <motion.div
         className="mx-auto px-6 md:pr-16 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-10"
@@ -261,6 +274,7 @@ const Footer = () => {
           </div> */}
         </div>
       </motion.div>
+      </div>
     </footer>
   );
 };
