@@ -753,6 +753,7 @@ const ProductsSection = React.memo(() => {
         decoding="async"
         // className="absolute bottom-0 left-0 w-full h-auto pointer-events-none "
         id="MSBillets_productBG"
+        className='w-full'
       />
       {/* <img 
       src={ProductBG}

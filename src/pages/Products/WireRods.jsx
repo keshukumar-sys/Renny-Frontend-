@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ========== Hooks ==========
-import usePageHero from "../../../hooks/usePageHero";
+import usePageHero from "../../hooks/usePageHero";
 
 // ========== Components ==========
-import SEO from "../../../components/SEO";
-import SchemaMarkup from "../../../components/SchemaMarkup";
-import wireRodsSchema from "../../../schema/wireRodsSchema";
+import SEO from "../../components/SEO";
+import SchemaMarkup from "../../components/SchemaMarkup";
+import wireRodsSchema from "../../schema/wireRodsSchema";
 
 // ========== Assets ==========
 import banner from "../../assets/Wire-rod.webm";
