@@ -46,10 +46,10 @@ import coreStrength4 from "../../assets/core-strength-4.webp";
 import coreStrength5 from "../../assets/core-strength-5.webp";
 import coreStrength6 from "../../assets/core-strength-6.webp";
 
-import { API_BASE_URL } from "../../../lib/api";
+import { API_BASE_URL } from "../../lib/api";
 
 const ProductEnquiryModal = lazy(
-  () => import("../../../components/ProductEnquiryModal"),
+  () => import("../../components/ProductEnquiryModal"),
 );
 
 const containerVariants = {
