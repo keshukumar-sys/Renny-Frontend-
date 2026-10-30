@@ -255,20 +255,20 @@ const ProductCarousel = () => {
               <div className="absolute inset-0 bg-black/40" />
 
               {/* Content */}
-              <div className="absolute bottom-6 sm:bottom-10 left-4 sm:left-10 md:left-20 right-4 sm:right-20 z-10 text-white max-w-2xl">
+              <div className="absolute bottom-6 sm:bottom-10 left-4 sm:left-10 md:left-20 right-4 sm:right-20 z-[99999] text-white max-w-2xl">
                 <motion.h2
-                  className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4"
+                  className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4 z-40"
                   initial={{ opacity: 0, y: 30 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                 >
                   {item.title}
                 </motion.h2>
 
-                <p className="text-sm sm:text-base text-gray-200 mb-4 line-clamp-3 sm:line-clamp-none">
+                <p className="text-sm sm:text-base text-gray-200 mb-4 line-clamp-3 sm:line-clamp-none z-40">
                   {item.desc}
                 </p>
 
-                <button className="border border-white px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hover:bg-white hover:text-black transition">
+                <button className="border border-white px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm hover:bg-white hover:text-black transition z-999">
                   Know More →
                 </button>
               </div>

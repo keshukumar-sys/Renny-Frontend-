@@ -22,13 +22,14 @@ import SchemaMarkup from '../components/SchemaMarkup';
 import homeSchema from '../schema/homeSchema';
 //Diwali theme
 import Hero from '../assets/Hero.webp' 
-import ProductBG from '../assets/Product.webp'
+import ProductBG from '../assets/ProductBG2.svg'
 import NetworkBG from '../assets/our_network.webp'
 import NewsBG from '../assets/NewsDiwali.webp'
 import SustainBG from '../assets/EngineeringSustainble.webp'
 import BlogBG from "../assets/Blogs.webp"
 import GarlandLeft from "../assets/Left.webp"
 import GarlandRight from "../assets/Right.webp"
+import "../pages/Home.css";
 
 
 import MS from '../assets/product-1.webp';
@@ -750,11 +751,16 @@ const ProductsSection = React.memo(() => {
         height={720}
         loading="lazy"
         decoding="async"
-        className="absolute bottom-0 left-0 w-full h-auto pointer-events-none z-0"
+        // className="absolute bottom-0 left-0 w-full h-auto pointer-events-none "
+        id="MSBillets_productBG"
       />
+      {/* <img 
+      src={ProductBG}
+      id="MSBillets_productBG"
+      /> */}
 
       {/* Content, above the image */}
-      <div className="relative z-10">
+      <div className="relative">
         {/* Heading */}
         <motion.h2
           className="text-3xl text-blue py-8 sm:text-4xl md:text-[48px] font-bold  w-full text-center"
@@ -771,7 +777,7 @@ const ProductsSection = React.memo(() => {
         <Suspense 
            fallback={
              <div className="w-full h-[60vh] sm:h-[75vh] md:h-[85vh] bg-gray-50/30 animate-pulse rounded-2xl flex items-center justify-center">
-               <div className="text-gray-400 text-sm">Loading Products...</div> 
+               <div className="text-gray-400 text-sm ">Loading Products...</div> 
             </div> 
            }
         >
